@@ -1,0 +1,12 @@
+{
+  "code": "briar-burl",
+  "enabled": true,
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "shape": { "base": "game:item/resource/cattails-root" },
+  "texture": { "base": "game:item/resource/reeds" },
+  "maxstacksize": 16,
+  "materialDensity": 100
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "comment": "Add Tree Heath flower to config.",
+    "side": "Server",
+    "op": "add",
+    "path": "/variants/0",
+    "file": "game:worldproperties/block/flower.json",
+    "value": { "code": "treeheath" }
+  },
+  {
+    "comment": "Configure Tree Heath like existing heather.",
+    "side": "Server",
+    "op": "add",
+    "path": "/attributes/overrideRandomDrawOffsetByType/*-treeheath-*",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": 3
+  },
+  {
+    "comment": "Configure Tree Heath taller than heather.",
+    "side": "Server",
+    "op": "replace",
+    "path": "/attributes/drawnHeightByType",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": {
+      "*-goldenpoppy-*": 32,
+      "*-edelweiss-*": 24,
+      "*-forgetmenot-*": 16,
+      "*-horsetail-*": 40,
+      "*-heather-*": 32,
+      "*-redtopgrass-*": 32,
+      "*-treeheath-*": 40,
+      "*": 48
+    }
+  },
+  {
+    "comment": "Add Tree Heath flower shape same as heather.",
+    "op": "remove",
+    "path": "/shapeByType/*",
+    "file": "game:blocktypes/plant/flower.json"
+  },
+  {
+    "comment": "Add Tree Heath flower shape same as heather.",
+    "op": "add",
+    "path": "/shapeByType/*-treeheath-*",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": { "base": "block/plant/flower/1patch-dense-24x24" }
+  },
+  {
+    "comment": "Add Tree Heath flower shape same as heather.",
+    "op": "add",
+    "path": "/shapeByType/*",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": { "base": "block/plant/flower/1patch-cross-24x24" }
+  },
+  {
+    "comment": "Add Tree Heath flower shape same as heather.",
+    "op": "remove",
+    "path": "/texturesByType/*",
+    "file": "game:blocktypes/plant/flower.json"
+  },
+  {
+    "comment": "Add Tree Heath flower to config.",
+    "op": "add",
+    "path": "/texturesByType/*-treeheath-*",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": {
+      "north1": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "south1": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "northTinted1": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "southTinted1": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "north2": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "south2": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "northTinted2": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "southTinted2": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "north3": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "south3": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "northTinted3": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "southTinted3": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" },
+      "flower2": { "base": "pipeleaf:block/plant/flower/petal/treeheath*" },
+      "flower2Tinted": { "base": "pipeleaf:block/plant/flower/stem/treeheath*" }
+    }
+  },
+  {
+    "comment": "Add texture wildcard back in.",
+    "op": "add",
+    "path": "/texturesByType/*",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": {
+      "north1": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south1": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "north2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "north3": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south3": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "flower2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "flower2Tinted": { "base": "game:block/plant/flower/stem/{flower}*" }
+    }
+  },
+  {
+    "comment": "Add rare burl drop to Tree Heath flower block.",
+    "side": "Server",
+    "op": "add",
+    "path": "/dropsByType",
+    "file": "game:blocktypes/plant/flower.json",
+    "value": {
+      "*-treeheath-*": [
+        {
+          "type": "item",
+          "code": "pipeleaf:briar-burl",
+          "quantity": {
+            "avg": 1
+          }
+        }
+      ],
+      "*": [
+        {
+          "type": "block",
+          "code": "flower-{flower}-{cover}",
+          "quantity": {
+            "avg": 1
+          }
+        }
+      ]
+    }
+  }
+]

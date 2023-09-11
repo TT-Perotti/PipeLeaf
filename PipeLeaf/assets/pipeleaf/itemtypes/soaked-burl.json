@@ -1,0 +1,25 @@
+{
+  "code": "soaked-burl",
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "shape": { "base": "game:item/resource/cattails-root" },
+  "texture": { "base": "game:item/resource/reeds" },
+  "maxstacksize": 16,
+  "materialDensity": 100,
+  "transitionablePropsByType": {
+    "*": [
+      {
+        "type": "Dry",
+        "freshHours": { "avg": 0 },
+        "transitionHours": { "avg": 168 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "cured-burl"
+        },
+        "transitionRatio": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "code": "smokingpipe",
+  "creativeinventory": { "general": [ "*" ] },
+  "texture": { "base": "item/wand" }
+}
