@@ -16,23 +16,6 @@
     "value": 3
   },
   {
-    "comment": "Configure Tree Heath taller than heather.",
-    "side": "Server",
-    "op": "replace",
-    "path": "/attributes/drawnHeightByType",
-    "file": "game:blocktypes/plant/flower.json",
-    "value": {
-      "*-goldenpoppy-*": 32,
-      "*-edelweiss-*": 24,
-      "*-forgetmenot-*": 16,
-      "*-horsetail-*": 40,
-      "*-heather-*": 32,
-      "*-redtopgrass-*": 32,
-      "*-treeheath-*": 40,
-      "*": 48
-    }
-  },
-  {
     "comment": "Add Tree Heath flower shape same as heather.",
     "op": "remove",
     "path": "/shapeByType/*",
@@ -111,11 +94,20 @@
     "value": {
       "*-treeheath-*": [
         {
+          "type": "block",
+          "code": "flower-treeheath-free",
+          "quantity": {
+            "avg": 1
+          },
+          "tool": "knife"
+        },
+        {
           "type": "item",
           "code": "pipeleaf:briar-burl",
           "quantity": {
-            "avg": 1
-          }
+            "avg": 0.10
+          },
+          "tool": "shovel"
         }
       ],
       "*": [
