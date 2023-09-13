@@ -1,22 +1,28 @@
 {
-  "code": "soaked-burl",
+  "code": "briarburl",
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]
   },
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [ "raw", "soaked", "dried" ]
+    }
+  ],
   "shape": { "base": "game:item/resource/cattails-root" },
   "texture": { "base": "game:item/resource/reeds" },
   "maxstacksize": 16,
   "materialDensity": 100,
   "transitionablePropsByType": {
-    "*": [
+    "*-soaked": [
       {
         "type": "Dry",
         "freshHours": { "avg": 0 },
         "transitionHours": { "avg": 168 },
         "transitionedStack": {
           "type": "item",
-          "code": "cured-burl"
+          "code": "briarburl-dried"
         },
         "transitionRatio": 1
       }

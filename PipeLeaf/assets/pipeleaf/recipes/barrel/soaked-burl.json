@@ -11,15 +11,15 @@
       },
       {
         "type": "item",
-        "code": "briar-burl",
-        "name": "briar-burl",
+        "code": "briarburl-raw",
+        "name": "briarburl-raw",
         "quantity": 1,
         "allowedVariants": [ "clean", "alcoholed" ]
       }
     ],
     "output": {
       "type": "item",
-      "code": "soaked-burl",
+      "code": "briarburl-soaked",
       "stackSize": 1
     }
   }

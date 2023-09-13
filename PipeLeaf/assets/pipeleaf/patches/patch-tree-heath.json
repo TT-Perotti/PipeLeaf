@@ -17,8 +17,9 @@
   },
   {
     "comment": "Add Tree Heath flower shape same as heather.",
-    "op": "remove",
-    "path": "/shapeByType/*",
+    "op": "move",
+    "path": "/tmp",
+    "frompath": "/shapeByType/*",
     "file": "game:blocktypes/plant/flower.json"
   },
   {
@@ -30,15 +31,17 @@
   },
   {
     "comment": "Add Tree Heath flower shape same as heather.",
-    "op": "add",
+    "op": "move",
+    "frompath": "/tmp",
     "path": "/shapeByType/*",
     "file": "game:blocktypes/plant/flower.json",
     "value": { "base": "block/plant/flower/1patch-cross-24x24" }
   },
   {
     "comment": "Add Tree Heath flower shape same as heather.",
-    "op": "remove",
-    "path": "/texturesByType/*",
+    "op": "move",
+    "path": "/tmp",
+    "frompath": "/texturesByType/*",
     "file": "game:blocktypes/plant/flower.json"
   },
   {
@@ -65,34 +68,27 @@
   },
   {
     "comment": "Add texture wildcard back in.",
-    "op": "add",
+    "op": "move",
+    "frompath": "/tmp",
     "path": "/texturesByType/*",
-    "file": "game:blocktypes/plant/flower.json",
-    "value": {
-      "north1": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "south1": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "northTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "southTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "north2": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "south2": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "northTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "southTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "north3": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "south3": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "northTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "southTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
-      "flower2": { "base": "game:block/plant/flower/petal/{flower}*" },
-      "flower2Tinted": { "base": "game:block/plant/flower/stem/{flower}*" }
-    }
+    "file": "game:blocktypes/plant/flower.json"
   },
   {
-    "comment": "Add rare burl drop to Tree Heath flower block.",
+    "comment": "Add rare burl drop to Tree Heath flower block only when broken with shovel.",
     "side": "Server",
     "op": "add",
     "path": "/dropsByType",
     "file": "game:blocktypes/plant/flower.json",
     "value": {
       "*-treeheath-*": [
+        {
+          "type": "item",
+          "code": "pipeleaf:briarburl-raw",
+          "quantity": {
+            "avg": 0.06
+          },
+          "tool": "shovel"
+        },
         {
           "type": "block",
           "code": "flower-treeheath-free",
@@ -102,12 +98,36 @@
           "tool": "knife"
         },
         {
-          "type": "item",
-          "code": "pipeleaf:briar-burl",
+          "type": "block",
+          "code": "flower-treeheath-free",
           "quantity": {
-            "avg": 0.10
+            "avg": 1
           },
-          "tool": "shovel"
+          "tool": "axe"
+        },
+        {
+          "type": "block",
+          "code": "flower-treeheath-free",
+          "quantity": {
+            "avg": 1
+          },
+          "tool": "pickaxe"
+        },
+        {
+          "type": "block",
+          "code": "flower-treeheath-free",
+          "quantity": {
+            "avg": 1
+          },
+          "tool": "scythe"
+        },
+        {
+          "type": "block",
+          "code": "flower-treeheath-free",
+          "quantity": {
+            "avg": 1
+          },
+          "tool": "shears"
         }
       ],
       "*": [

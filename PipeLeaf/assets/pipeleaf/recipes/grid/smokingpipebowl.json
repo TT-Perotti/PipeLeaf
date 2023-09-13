@@ -1,0 +1,23 @@
+[
+  {
+    "ingredientPattern": "__K\tBB_\tBB_",
+    "ingredients": {
+      "B": {
+        "type": "item",
+        "code": "briarburl-dried"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "item",
+      "code": "smokingpipebowl-briarburl",
+      "quantity": 1
+    }
+  }
+]

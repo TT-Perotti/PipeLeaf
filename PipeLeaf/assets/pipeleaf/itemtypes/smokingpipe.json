@@ -1,5 +1,153 @@
 {
   "code": "smokingpipe",
+  //"class": "SmokingContainer",
   "creativeinventory": { "general": [ "*" ] },
-  "texture": { "base": "item/wand" }
+  "variantgroups": [
+    {
+      "code": "bowl-material",
+      "states": [ "briarburl" ]
+    },
+    {
+      "code": "stem-material",
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
+    }
+  ],
+  "shape": { "base": "smokingpipe" },
+  "texturesByType": {
+    "*": {
+      "bowl": { "base": "item/{bowl-material}" },
+      "material": { "base": "game:block/metal/ingot/{stem-material}" }
+    }
+  },
+  "heldTpUseAnimation": "holdbothhands",
+  "heldTpIdleAnimation": "holdbothhands",
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Quadrants",
+        "collisionBox": {
+          "x1": 0,
+          "y1": 0,
+          "z1": 0,
+          "x2": 1,
+          "y2": 0.125,
+          "z2": 1
+        }
+      }
+    }
+  ],
+  "attributes": {
+    "shelvable": true,
+    "bookshelveable": true,
+    "displaycaseable": true,
+    "onShelfTransform": {
+      "rotation": {
+        "x": 2,
+        "y": 38,
+        "z": 0
+      }
+    },
+    "onDisplayTransform": {
+      "translation": {
+        "x": 0.1,
+        "y": 0,
+        "z": 0.2
+      },
+      "rotation": {
+        "x": 2,
+        "y": -88,
+        "z": 0
+      }
+    },
+    "groundStorageTransform": {
+      "translation": {
+        "x": -0.1,
+        "y": -0,
+        "z": 0.2
+      },
+      "rotation": {
+        "x": 0,
+        "y": -144,
+        "z": 0
+      }
+    }
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": -90,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.45
+    },
+    "scale": 4
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1.5,
+      "y": -0.9,
+      "z": -0.9
+    },
+    "rotation": {
+      "x": 35,
+      "y": -7,
+      "z": -107
+    },
+    "scale": 0.58
+  },
+  "guiTransform": {
+    "translation": {
+      "x": -7,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 156,
+      "y": 180,
+      "z": -21
+    },
+    "origin": {
+      "x": 0.48,
+      "y": 0.1,
+      "z": 0.5
+    },
+    "scale": 2.98
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": -2.8,
+      "y": 1,
+      "z": -1.5
+    },
+    "rotation": {
+      "x": 15,
+      "y": 45,
+      "z": -37
+    },
+    "origin": {
+      "x": 1.4,
+      "y": 0.5,
+      "z": -1.5
+    },
+    "scale": 4.02
+  }
 }

@@ -17,14 +17,12 @@
   <Content Include="assets\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
-  <None Remove="assets\pipeleaf\itemtypes\burl.json" />
-  <None Remove="assets\pipeleaf\itemtypes\cured-briar-burl.json" />
-  <None Remove="assets\pipeleaf\itemtypes\smoking-pipe-bowl.json" />
+  <None Remove="assets\pipeleaf\itemtypes\briarburl.json" />
   <None Remove="assets\pipeleaf\itemtypes\smokingpipe.json" />
-  <None Remove="assets\pipeleaf\itemtypes\soaked-burl.json" />
+  <None Remove="assets\pipeleaf\itemtypes\smokingpipebowl.json" />
   <None Remove="assets\pipeleaf\patches\patch-tree-heath.json" />
   <None Remove="assets\pipeleaf\recipes\barrel\soaked-burl.json" />
-  <None Remove="assets\pipeleaf\recipes\grid\smoking-pipe-bowl.json" />
+  <None Remove="assets\pipeleaf\recipes\grid\smokingpipebowl.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>

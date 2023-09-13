@@ -1,6 +1,0 @@
-{
-  "code": "smokingpipe-bowl",
-  "creativeinventory": { "general": [ "*" ] },
-  "texture": { "base": "item/wand" },
-  "maxstacksize": 16
-}
