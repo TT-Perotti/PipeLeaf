@@ -20,6 +20,7 @@
   <None Remove="assets\pipeleaf\itemtypes\briarburl.json" />
   <None Remove="assets\pipeleaf\itemtypes\smokingpipe.json" />
   <None Remove="assets\pipeleaf\itemtypes\smokingpipebowl.json" />
+  <None Remove="assets\pipeleaf\itemtypes\smokingpipestem.json" />
   <None Remove="assets\pipeleaf\patches\patch-tree-heath.json" />
   <None Remove="assets\pipeleaf\recipes\barrel\soaked-burl.json" />
   <None Remove="assets\pipeleaf\recipes\grid\smokingpipebowl.json" />

@@ -4,14 +4,41 @@
     "general": [ "*" ],
     "items": [ "*" ]
   },
+  "attributes": {
+    "displaycaseable": true,
+    "shelvable": true
+  },
   "variantgroups": [
     {
       "code": "type",
       "states": [ "raw", "soaked", "dried" ]
     }
   ],
-  "shape": { "base": "game:item/resource/cattails-root" },
-  "texture": { "base": "game:item/resource/reeds" },
+  "shapeByType": {
+    "*-raw": { "base": "game:item/ore/medium/rhodochrosite" },
+    "*-soaked": { "base": "game:item/ore/bountiful/limonite" },
+    "*-dried": { "base": "game:item/ore/rich/rhodochrosite" }
+  },
+  "texturesbytype": {
+    "*-raw": {
+      "ore": {
+        "base": "game:block/stone/rock/claystone1",
+        "overlays": [ "inherit" ]
+      }
+    },
+    "*-soaked": {
+      "ore": {
+        "base": "game:block/stone/rock/chert1",
+        "overlays": [ "inherit" ]
+      }
+    },
+    "*-dried": {
+      "ore": {
+        "base": "game:block/stone/rock/sandstone1",
+        "overlays": [ "inherit" ]
+      }
+    }
+  },
   "maxstacksize": 16,
   "materialDensity": 100,
   "transitionablePropsByType": {
@@ -27,5 +54,57 @@
         "transitionRatio": 1
       }
     ]
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": 0.15,
+      "y": -0.7,
+      "z": 0
+    },
+    "scale": 2.96
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1,
+      "y": -0.5,
+      "z": -0.7
+    },
+    "scale": 0.62
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 90,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 2.86
+  },
+  "guiTransform": {
+    "translation": {
+      "x": 3,
+      "y": 2,
+      "z": 0
+    },
+    "rotation": {
+      "x": 150,
+      "y": -38,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.1,
+      "z": 0.5
+    },
+    "scale": 3.8
   }
 }
