@@ -25,7 +25,7 @@
   "shape": { "base": "smokingpipe" },
   "texturesByType": {
     "*": {
-      "bowl": { "base": "item/{bowl-material}" },
+      "bowl": { "base": "item/smokingpipebowl/{bowl-material}" },
       "material": { "base": "game:block/metal/ingot/{stem-material}" }
     }
   },

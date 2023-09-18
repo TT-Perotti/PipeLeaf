@@ -1,0 +1,25 @@
+[
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
+        "code": "smokingpipestem-*",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "smokingpipebowl-*",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "smokingpipe-{bowl-material}-{stem-material}",
+      "quantity": 1
+    }
+  }
+]

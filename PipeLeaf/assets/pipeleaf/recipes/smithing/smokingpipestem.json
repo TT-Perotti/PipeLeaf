@@ -1,0 +1,30 @@
+{
+  "ingredient": {
+    "type": "item",
+    "code": "game:ingot-*",
+    "name": "metal",
+    "allowedVariants": [
+      "copper",
+      "tinbronze",
+      "bismuthbronze",
+      "blackbronze",
+      "gold",
+      "silver",
+      "iron",
+      "meteoriciron",
+      "steel"
+    ]
+  },
+  "pattern": [
+    [
+      "#_____",
+      "_#####"
+
+    ]
+  ],
+  "name": "Smoking Pipe Stem",
+  "output": {
+    "type": "item",
+    "code": "smokingpipestem-{metal}"
+  }
+}

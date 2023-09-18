@@ -1,7 +1,7 @@
 {
   "code": "smokingpipestem",
   "creativeinventory": { "general": [ "*" ] },
-  "shape": { "base": "game:item/tool/axe/axe" },
+  "shape": { "base": "smokingpipestem" },
   "maxstacksize": 16,
   "variantgroups": [
     {
@@ -18,5 +18,67 @@
         "steel"
       ]
     }
-  ]
+  ],
+  "texturesByType": {
+    "*": {
+      "material": { "base": "game:block/metal/ingot/{material}" }
+    }
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": -0.25,
+      "y": -0.3,
+      "z": 0.9
+    },
+    "rotation": {
+      "x": 119,
+      "y": -74,
+      "z": -30
+    },
+    "scale": 2.69
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 97,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 3.9
+  },
+  "guiTransform": {
+    "translation": {
+      "x": 23.1,
+      "y": 67.7,
+      "z": 0
+    },
+    "rotation": {
+      "x": -1,
+      "y": 3,
+      "z": 14
+    },
+    "scale": 4.32
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1,
+      "y": -0.2,
+      "z": -0.8
+    },
+    "rotation": {
+      "x": 0,
+      "y": -95,
+      "z": 18
+    },
+    "scale": 0.67
+  }
 }

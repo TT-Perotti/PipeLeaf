@@ -1,12 +1,69 @@
 {
   "code": "smokingpipebowl",
   "creativeinventory": { "general": [ "*" ] },
-  "shape": { "base": "game:item/tool/axe/axe" },
+  "shape": { "base": "smokingpipebowl" },
   "maxstacksize": 16,
   "variantgroups": [
     {
       "code": "material",
-      "states": ["briarburl"]
+      "states": [ "briarburl" ]
     }
-  ]
+  ],
+  "texturesByType": {
+    "*": {
+      "bowl": { "base": "item/smokingpipebowl/{material}" }
+    }
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1.5,
+      "y": -0.8,
+      "z": -1.1
+    },
+    "scale": 0.41
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": -0.5,
+      "y": 0.6,
+      "z": 0.8
+    },
+    "rotation": {
+      "x": -179,
+      "y": 104,
+      "z": 180
+    },
+    "scale": 1.11
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0.1,
+      "z": 0
+    },
+    "rotation": {
+      "x": 90,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 3.64
+  },
+  "guiTransform": {
+    "translation": {
+      "x": 19,
+      "y": -9.3,
+      "z": 6
+    },
+    "rotation": {
+      "x": 153,
+      "y": -5,
+      "z": -19
+    },
+    "scale": 2.28
+  }
 }
