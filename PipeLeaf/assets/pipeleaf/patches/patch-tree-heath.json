@@ -140,5 +140,28 @@
         }
       ]
     }
+  },
+  {
+    "comment": "World gen properties of Tree Heath",
+    "op": "add",
+    "file": "game:worldgen/blockpatches/flower",
+    "path": "/0",
+    "value": {
+      "comment": "Rare small patches of Tree Heath",
+      "blockCodes": [ "flower-treeheath-free" ],
+      "minTemp": 2,
+      "maxTemp": 15,
+      "minForest": 0,
+      "maxForest": 0.35,
+      "minRain": 0.4,
+      "maxRain": 1,
+      "maxFertility": 0.4,
+      "chance": 0.01,
+      "maxY": 0.72,
+      "quantity": {
+        "avg": 5,
+        "var": 3
+      }
+    }
   }
 ]
