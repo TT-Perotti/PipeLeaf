@@ -163,5 +163,12 @@
         "var": 3
       }
     }
+  },
+  {
+    "comment": "make herbs smokable",
+    "op": "add",
+    "file": "game:itemtypes/resource/herbbundle",
+    "path": "/attributes/smokable",
+    "value": true
   }
 ]

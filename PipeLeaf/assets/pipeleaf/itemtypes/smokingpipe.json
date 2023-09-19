@@ -1,6 +1,6 @@
 {
   "code": "smokingpipe",
-  //"class": "SmokingContainer",
+  "class": "SmokingItem",
   "creativeinventory": { "general": [ "*" ] },
   "variantgroups": [
     {
@@ -9,17 +9,7 @@
     },
     {
       "code": "stem-material",
-      "states": [
-        "copper",
-        "tinbronze",
-        "bismuthbronze",
-        "blackbronze",
-        "gold",
-        "silver",
-        "iron",
-        "meteoriciron",
-        "steel"
-      ]
+      "loadFromProperties": "block/metal"
     }
   ],
   "shape": { "base": "smokingpipe" },
@@ -29,7 +19,7 @@
       "material": { "base": "game:block/metal/ingot/{stem-material}" }
     }
   },
-  "heldTpUseAnimation": "holdbothhands",
+  "heldTpUseAnimation": "eat",
   "heldTpIdleAnimation": "holdbothhands",
   "behaviors": [
     {
@@ -108,9 +98,9 @@
       "z": -0.9
     },
     "rotation": {
-      "x": 35,
-      "y": -7,
-      "z": -107
+      "x": 74,
+      "y": 5,
+      "z": -100
     },
     "scale": 0.58
   },
@@ -134,9 +124,9 @@
   },
   "fpHandTransform": {
     "translation": {
-      "x": -2.8,
-      "y": 1,
-      "z": -1.5
+      "x": -2.1,
+      "y": 0.9,
+      "z": 0.5
     },
     "rotation": {
       "x": 15,
@@ -148,6 +138,6 @@
       "y": 0.5,
       "z": -1.5
     },
-    "scale": 4.02
+    "scale": 2.19
   }
 }

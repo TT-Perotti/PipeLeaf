@@ -6,29 +6,47 @@
     <OutputPath>bin\$(Configuration)\Mods\mod</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="VintagestoryAPI">
-      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+    <ItemGroup>
+	  <Reference Include="VintagestoryAPI">
+		  <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="VintagestoryLib">
+		  <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="VintagestoryAPI">
+		  <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="VintagestoryAPI">
+		  <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="harmony">
+		  <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="newtonsoft">
+		  <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	  <Reference Include="cairo">
+		  <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference> 
+    </ItemGroup>
 
-<ItemGroup>
-  <Content Include="assets\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </Content>
-  <None Remove="assets\pipeleaf\itemtypes\briarburl.json" />
-  <None Remove="assets\pipeleaf\itemtypes\smokingpipe.json" />
-  <None Remove="assets\pipeleaf\itemtypes\smokingpipebowl.json" />
-  <None Remove="assets\pipeleaf\itemtypes\smokingpipestem.json" />
-  <None Remove="assets\pipeleaf\patches\patch-tree-heath.json" />
-  <None Remove="assets\pipeleaf\recipes\barrel\soaked-burl.json" />
-  <None Remove="assets\pipeleaf\recipes\grid\smokingpipe.json" />
-  <None Remove="assets\pipeleaf\recipes\grid\smokingpipebowl.json" />
-  <None Remove="assets\pipeleaf\recipes\smithing\smokingpipestem.json" />
-  <Content Include="modinfo.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </Content>
-</ItemGroup>
+	<ItemGroup>
+	  <Content Include="assets\**">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Compile Remove="NewFolder\**" />
+	  <EmbeddedResource Remove="NewFolder\**" />
+	  <None Remove="NewFolder\**" />
+	  <Content Include="modinfo.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
 </Project>

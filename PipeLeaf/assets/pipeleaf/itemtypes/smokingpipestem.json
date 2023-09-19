@@ -6,17 +6,7 @@
   "variantgroups": [
     {
       "code": "material",
-      "states": [
-        "copper",
-        "tinbronze",
-        "bismuthbronze",
-        "blackbronze",
-        "gold",
-        "silver",
-        "iron",
-        "meteoriciron",
-        "steel"
-      ]
+      "loadFromProperties": "block/metal"
     }
   ],
   "texturesByType": {

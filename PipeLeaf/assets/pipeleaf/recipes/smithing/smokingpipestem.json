@@ -5,20 +5,30 @@
     "name": "metal",
     "allowedVariants": [
       "copper",
+      "brass",
       "tinbronze",
       "bismuthbronze",
       "blackbronze",
-      "gold",
       "silver",
+      "gold",
       "iron",
+      "lead",
+      "tin",
+      "zinc",
+      "bismuth",
+      "chromium",
+      "platinum",
+      "titanium",
+      "molybdochalkos",
       "meteoriciron",
       "steel"
     ]
   },
   "pattern": [
     [
-      "#_____",
-      "_#####"
+      "#_______",
+      "_#______",
+      "__######"
 
     ]
   ],

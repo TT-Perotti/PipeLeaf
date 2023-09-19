@@ -13,7 +13,7 @@ namespace PipeLeaf
         {
             api.Logger.Notification("Hello from template mod: " + api.Side);
             base.Start(api);
-            api.RegisterItemClass("smokingpipe", typeof(SmokingPipeItem));
+            api.RegisterItemClass("SmokingItem", typeof(SmokingItem));
         }
 
         public override void StartServerSide(ICoreServerAPI api)
