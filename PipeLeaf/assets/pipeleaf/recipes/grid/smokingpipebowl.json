@@ -1,6 +1,6 @@
 [
   {
-    "ingredientPattern": "__K\tBB_\tBB_",
+    "ingredientPattern": "BK",
     "ingredients": {
       "B": {
         "type": "item",
@@ -12,6 +12,7 @@
         "isTool": true
       }
     },
+    "shapeless": true,
     "width": 3,
     "height": 3,
     "output": {

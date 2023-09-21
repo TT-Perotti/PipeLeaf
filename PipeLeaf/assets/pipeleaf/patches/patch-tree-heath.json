@@ -85,7 +85,7 @@
           "type": "item",
           "code": "pipeleaf:briarburl-raw",
           "quantity": {
-            "avg": 0.06
+            "avg": 0.02
           },
           "tool": "shovel"
         },
@@ -156,10 +156,10 @@
       "minRain": 0.4,
       "maxRain": 1,
       "maxFertility": 0.4,
-      "chance": 0.01,
+      "chance": 0.15,
       "maxY": 0.72,
       "quantity": {
-        "avg": 5,
+        "avg": 6,
         "var": 3
       }
     }
@@ -167,7 +167,7 @@
   {
     "comment": "make herbs smokable",
     "op": "add",
-    "file": "game:itemtypes/resource/herbbundle",
+    "file": "game:blocktypes/plant/herb",
     "path": "/attributes/smokable",
     "value": true
   }

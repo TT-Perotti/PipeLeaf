@@ -6,15 +6,15 @@
       {
         "type": "item",
         "code": "game:waterportion",
-        "litres": 1,
-        "consumeLitres": 1
+        "litres": 2,
+        "consumeLitres": 1,
+        "allowedVariants": [ "clean", "alcoholed" ]
       },
       {
         "type": "item",
         "code": "briarburl-raw",
         "name": "briarburl-raw",
-        "quantity": 1,
-        "allowedVariants": [ "clean", "alcoholed" ]
+        "quantity": 1
       }
     ],
     "output": {
