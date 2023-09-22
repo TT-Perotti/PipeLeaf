@@ -23,6 +23,7 @@ namespace PipeLeaf
     {
         ILoadedSound cracklingSound;
 
+
         WorldInteraction[] interactions;
 
         public override void OnLoaded(ICoreAPI api)
@@ -121,6 +122,28 @@ namespace PipeLeaf
             return;
         }
 
+        private static SimpleParticleProperties InitializeSmokeEffect()
+        {
+            SimpleParticleProperties smokeHeld;
+            smokeHeld = new SimpleParticleProperties(
+                1, 1,
+                ColorUtil.ToRgba(50, 220, 220, 220),
+                new Vec3d(),
+                new Vec3d(),
+                new Vec3f(-0.05f, 0.1f, -0.05f),
+                new Vec3f(0.05f, 0.15f, 0.05f),
+                1.5f,
+                0,
+                0.25f,
+                0.35f,
+                EnumParticleModel.Quad
+            );
+            smokeHeld.SelfPropelled = true;
+            smokeHeld.AddPos.Set(0.1, 0.1, 0.1);
+
+            return smokeHeld;
+        }
+
         public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
             IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
@@ -132,7 +155,25 @@ namespace PipeLeaf
 
             if (blockSel != null) return false;
 
-            // glowing animation and smoke animation?          
+            if (byEntity.World.Side == EnumAppSide.Client)
+            {
+                float sideWays = 0.35f;
+                IClientWorldAccessor world = byEntity.World as IClientWorldAccessor;
+                if (world.Player.Entity == byEntity && world.Player.CameraMode != EnumCameraMode.FirstPerson)
+                {
+                    sideWays = 0f;
+                }
+
+                Vec3d pos =
+                    byEntity.Pos.XYZ.Add(0, byEntity.LocalEyePos.Y - 0.5f, 0)
+                    .Ahead(0.33f, byEntity.Pos.Pitch, byEntity.Pos.Yaw)
+                    .Ahead(sideWays, 0, byEntity.Pos.Yaw + GameMath.PIHALF)
+                ;
+                SimpleParticleProperties smokeHeld = InitializeSmokeEffect();
+                smokeHeld.MinPos = pos.AddCopy(-0.05, 0.3, -0.05);
+                byEntity.World.Api.Logger.Debug("ATtemoting to spawm smoke particles");
+                byEntity.World.SpawnParticles(smokeHeld);
+            }      
 
             return true;
         }
@@ -168,8 +209,6 @@ namespace PipeLeaf
 
             smokableSlot.TakeOut(itemsConsumed);
             smokableSlot.MarkDirty();
-
-
         }
 
         public static void ResponsibleUseEffects(EntityAgent byEntity, float secondsUsed)

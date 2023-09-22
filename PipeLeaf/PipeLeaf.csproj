@@ -48,6 +48,7 @@
 	  <Compile Remove="NewFolder\**" />
 	  <EmbeddedResource Remove="NewFolder\**" />
 	  <None Remove="NewFolder\**" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipe.json" />
 	  <Content Include="modinfo.json">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
