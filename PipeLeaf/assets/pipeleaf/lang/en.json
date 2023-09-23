@@ -1,4 +1,43 @@
 {
   "hello": "hello world!",
-  "item-smokingpipe": "Smoking Pipe",
+  "game:block-flower-treeheath-free": "Tree Heath",
+  "item-smokingpipe-briarburl-*": "Briar Burl Smoking Pipe",
+  "item-briarburl-raw": "Raw Briar Burl",
+  "item-briarburl-soaked": "Soaked Briar Burl",
+  "item-briarburl-dried": "Dried Briar Burl",
+  "item-smokingpipebowl-briarburl": "Briar Burl Smoking Pipe Bowl",
+  "item-smokingpipestem-bismuth": "Bismuth Smoking Pipe Stem",
+  "item-smokingpipestem-bismuthbronze": "Bismuth Bronze Smoking Pipe Stem",
+  "item-smokingpipestem-blackbronze": "Black Bronze Smoking Pipe Stem",
+  "item-smokingpipestem-brass": "Brass Smoking Pipe Stem",
+  "item-smokingpipestem-bronze": "Bronze Smoking Pipe Stem",
+  "item-smokingpipestem-chromium": "Chromium Smoking Pipe Stem",
+  "item-smokingpipestem-copper": "Copper Smoking Pipe Stem",
+  "item-smokingpipestem-cupronickel": "Cupronickel Smoking Pipe Stem",
+  "item-smokingpipestem-electrum": "Electrum Smoking Pipe Stem",
+  "item-smokingpipestem-gold": "Gold Smoking Pipe Stem",
+  "item-smokingpipestem-iron": "Iron Smoking Pipe Stem",
+  "item-smokingpipestem-meteoriciron": "Meteoric Iron Smoking Pipe Stem",
+  "item-smokingpipestem-lead": "Lead Smoking Pipe Stem",
+  "item-smokingpipestem-molybdochalkos": "Molybdochalkos Smoking Pipe Stem",
+  "item-smokingpipestem-platinum": "Platinum Smoking Pipe Stem",
+  "item-smokingpipestem-nickel": "Nickel Smoking Pipe Stem",
+  "item-smokingpipestem-silver": "Silver Smoking Pipe Stem",
+  "item-smokingpipestem-stainlesssteel": "Stainless Steel Smoking Pipe Stem",
+  "item-smokingpipestem-steel": "Steel Smoking Pipe Stem",
+  "item-smokingpipestem-tin": "Tin Smoking Pipe Stem",
+  "item-smokingpipestem-tinbronze": "Tin Bronze Smoking Pipe Stem",
+  "item-smokingpipestem-titanium": "Titanium Smoking Pipe Stem",
+  "item-smokingpipestem-uranium": "Uranium Smoking Pipe Stem",
+  "item-smokingpipestem-zinc": "Zinc Smoking Pipe Stem",
+
+  "item-claysmokingpipe-*": "Clay Smoking Pipe",
+  "item-claysmokingpipebowl-*-raw": "Raw Clay Smoking Pipe Bowl",
+  "item-claysmokingpipebowl-*-fired": "Clay Smoking Pipe Bowl",
+  "item-claysmokingpipestem-*-raw": "Raw Clay Smoking Pipe Stem",
+  "item-claysmokingpipestem-*-fired": "Clay Smoking Pipe Stem"
+
+
+
+
 }

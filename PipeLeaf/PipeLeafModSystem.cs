@@ -1,4 +1,5 @@
-﻿using Vintagestory.API.Client;
+﻿using BuffStuff;
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
@@ -18,7 +19,11 @@ namespace PipeLeaf
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            api.Logger.Notification("Hello from template mod server side: " + Lang.Get("PipeLeaf:hello"));
+            BuffManager.Initialize(api, this);
+            BuffManager.RegisterBuffType("BodyTempBuff", typeof(BodyTempBuff));
+            BuffManager.RegisterBuffType("HungerRateBuff", typeof(HungerRateBuff));
+            BuffManager.RegisterBuffType("LongTermUseDebuff", typeof(LongTermUseDebuff));
+            BuffManager.RegisterBuffType("TemporalStabilityBuff", typeof(TemporalStabilityBuff));
         }
 
         public override void StartClientSide(ICoreClientAPI api)

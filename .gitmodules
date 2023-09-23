@@ -1,0 +1,3 @@
+[submodule "PipeLeaf/vsmodlib-BuffStuff"]
+	path = PipeLeaf/vsmodlib-BuffStuff
+	url = https://github.com/chriswa/vsmodlib-BuffStuff.git

@@ -1,23 +1,24 @@
 {
-  "code": "smokingpipe",
+  "code": "claysmokingpipe",
   "class": "SmokingItem",
   "creativeinventory": { "general": [ "*" ] },
+  "blockmaterial": "Ceramic",
   "variantgroups": [
     {
-      "code": "bowl-material",
-      "states": [ "briarburl" ]
+      "code": "bowl-color",
+      "states": [ "fire", "blue" ]
     },
     {
-      "code": "stem-material",
-      "loadFromProperties": "block/metal"
+      "code": "stem-color",
+      "states": [ "fire", "blue" ]
     }
   ],
-  "shape": { "base": "smokingpipe" },
+  "shape": { "base": "claysmokingpipe" },
   "texturesByType": {
     "*": {
-      "bowl": { "base": "item/smokingpipebowl/{bowl-material}" },
-      "material": { "base": "game:block/metal/ingot/{stem-material}" },
-      "herb":  { "base": "game:block/cloth/cloth-ruined"}
+      "bowl": { "base": "game:block/soil/{bowl-color}clay" },
+      "stem": { "base": "game:block/soil/{stem-color}clay" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
     }
   },
   "heldTpUseAnimation": "eat",
@@ -40,7 +41,7 @@
   ],
   "attributes": {
     "handbook": {
-      "groupBy": [ "smokingpipe-*" ]
+      "groupBy": [ "claysmokingpipe-*" ]
     },
     "shelvable": true,
     "bookshelveable": true,
@@ -48,27 +49,28 @@
     "onshelfTransform": {
       "translation": {
         "x": -0,
-        "y": -0.2,
-        "z": -0.1
+        "y": -0.1,
+        "z": 0
       },
       "rotation": {
-        "x": 2,
-        "y": 53,
-        "z": -6
+        "x": -4,
+        "y": 146,
+        "z": 0
       },
-      "scale": 0.56
+      "scale": 0.69
     },
     "onDisplayTransform": {
       "translation": {
-        "x": 0.1,
-        "y": 0,
-        "z": 0.2
+        "x": 0,
+        "y": -0.2,
+        "z": -0
       },
       "rotation": {
         "x": 2,
-        "y": -88,
+        "y": 83,
         "z": 0
-      }
+      },
+      "scale": 0.54
     },
     "groundStorageTransform": {
       "translation": {
@@ -86,68 +88,68 @@
   "groundTransform": {
     "translation": {
       "x": 0,
-      "y": 0,
+      "y": 0.4,
       "z": 0
     },
     "rotation": {
-      "x": -90,
-      "y": 0,
-      "z": 0
+      "x": 4,
+      "y": -91,
+      "z": -11
     },
     "origin": {
       "x": 0.5,
       "y": 0.5,
       "z": 0.45
     },
-    "scale": 4
+    "scale": 3.68
   },
   "tpHandTransform": {
     "translation": {
-      "x": -1.5,
+      "x": -1.6,
       "y": -0.9,
       "z": -0.9
     },
     "rotation": {
-      "x": 74,
-      "y": 5,
-      "z": -100
+      "x": 177,
+      "y": 12,
+      "z": -83
     },
     "scale": 0.58
   },
   "guiTransform": {
     "translation": {
-      "x": -7,
-      "y": 0,
+      "x": -0.8,
+      "y": 0.5,
       "z": 0
     },
     "rotation": {
-      "x": 156,
-      "y": 180,
-      "z": -21
+      "x": -92,
+      "y": 117,
+      "z": -78
     },
     "origin": {
       "x": 0.48,
       "y": 0.1,
       "z": 0.5
     },
-    "scale": 2.98
+    "scale": 1.77
   },
   "fpHandTransform": {
     "translation": {
-      "x": -2.2,
-      "y": 0.8,
-      "z": 0.5
+      "x": 0.4,
+      "y": 0.2,
+      "z": 2.2
     },
     "rotation": {
-      "x": 15,
-      "y": 45,
-      "z": -37
+      "x": -20,
+      "y": -42,
+      "z": -14
     },
     "origin": {
       "x": 1.4,
       "y": 0.5,
       "z": -1.5
     },
-    "scale": 2.19
+    "scale": 1.79
   }
 }

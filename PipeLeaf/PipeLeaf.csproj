@@ -34,7 +34,11 @@
 	  <Reference Include="cairo">
 		  <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
 		  <Private>false</Private>
-	  </Reference> 
+	  </Reference>
+      <Reference Include="protobuf-net">
+		  <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
     </ItemGroup>
 
 	<ItemGroup>
@@ -44,6 +48,13 @@
 	  <Compile Remove="NewFolder\**" />
 	  <EmbeddedResource Remove="NewFolder\**" />
 	  <None Remove="NewFolder\**" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipe.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipebowl.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\patches\wildcraft-herbs.json" />
+	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipebowl.json" />
+	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\recipes\grid\claysmokingpipe.json" />
 	  <Content Include="modinfo.json">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
