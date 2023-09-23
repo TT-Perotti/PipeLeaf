@@ -77,8 +77,6 @@ namespace PipeLeaf
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
-            byEntity.World.Api.Logger.Debug("STARTING PIPE SMOKE");
-
             if (blockSel != null) return;
             if (byEntity.Controls.ShiftKey) return;
 
@@ -90,14 +88,14 @@ namespace PipeLeaf
             if (byEntity.World.Side == EnumAppSide.Client)
             {
                 {
-                    byEntity.World.RegisterCallback(After1000ms, 1000);
+                    byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
                 }
             }
 
             handling = EnumHandHandling.PreventDefault;
         }
 
-        private void After1000ms(float delay)
+        private void PlayCrackleSound(float delay)
         {
             ICoreClientAPI capi = api as ICoreClientAPI;
             IClientPlayer plr = capi.World.Player;
@@ -155,7 +153,7 @@ namespace PipeLeaf
 
             if (blockSel != null) return false;
 
-            if (byEntity.World.Side == EnumAppSide.Client)
+            if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2)
             {
                 float sideWays = 0.35f;
                 IClientWorldAccessor world = byEntity.World as IClientWorldAccessor;

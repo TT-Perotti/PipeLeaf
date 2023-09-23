@@ -2,21 +2,22 @@
   "code": "claysmokingpipe",
   "class": "SmokingItem",
   "creativeinventory": { "general": [ "*" ] },
+  "blockmaterial": "Ceramic",
   "variantgroups": [
     {
-      "code": "bowl-material",
-      "states": [ "fireclay", "blueclay" ]
+      "code": "bowl-color",
+      "states": [ "fire", "blue" ]
     },
     {
-      "code": "stem-material",
-      "states": [ "fireclay", "blueclay" ]
+      "code": "stem-color",
+      "states": [ "fire", "blue" ]
     }
   ],
   "shape": { "base": "claysmokingpipe" },
   "texturesByType": {
     "*": {
-      "bowl": { "base": "game:block/clay/{bowl-material}" },
-      "stem": { "base": "game:block/clay/{stem-material}" },
+      "bowl": { "base": "game:block/soil/{bowl-color}clay" },
+      "stem": { "base": "game:block/soil/{stem-color}clay" },
       "herb": { "base": "game:block/cloth/cloth-ruined" }
     }
   },
@@ -39,6 +40,9 @@
     }
   ],
   "attributes": {
+    "handbook": {
+      "groupBy": [ "claysmokingpipe-*" ]
+    },
     "shelvable": true,
     "bookshelveable": true,
     "displaycaseable": true,

@@ -1,0 +1,113 @@
+{
+  "code": "claysmokingpipestem",
+  "creativeinventory": { "general": [ "*" ] },
+  "shape": { "base": "claysmokingpipestem" },
+  "maxstacksize": 16,
+  "blockmaterial": "Ceramic",
+  "variantgroups": [
+    {
+      "code": "color",
+      "states": [ "fire", "blue" ]
+    },
+    {
+      "code": "type",
+      "states": [ "raw", "fired" ]
+    }
+  ],
+  "texturesByType": {
+    "*": {
+      "material": { "base": "game:block/soil/{color}clay" }
+    }
+  },
+  "attributes": {
+    "groundStorageTransform": {
+      "rotation": {
+        "x": 0,
+        "y": -53,
+        "z": 0
+      },
+      "scale": 0.56
+    }
+  },
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Quadrants",
+        "placeRemoveSound": "sounds/player/build",
+        "collisionBox": {
+          "x1": 0,
+          "y1": 0,
+          "z1": 0,
+          "x2": 1,
+          "y2": 0.3125,
+          "z2": 1
+        }
+      }
+    }
+  ],
+  "combustiblePropsByType": {
+    "claysmokingpipestem-*-raw": {
+      "meltingPoint": 850,
+      "meltingDuration": 7.5,
+      "smeltingType": "fire",
+      "smeltedStack": {
+        "type": "item",
+        "code": "claysmokingpipestem-{color}-fired"
+      },
+      "requiresContainer": false
+    }
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1.5,
+      "y": -0.8,
+      "z": -1.1
+    },
+    "scale": 0.41
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": -0.5,
+      "y": 0.6,
+      "z": 0.8
+    },
+    "rotation": {
+      "x": -180,
+      "y": -168,
+      "z": 180
+    },
+    "scale": 1.11
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": -0.4,
+      "z": 0
+    },
+    "rotation": {
+      "x": 180,
+      "y": 162,
+      "z": 13
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 4.92
+  },
+  "guiTransform": {
+    "translation": {
+      "x": 44,
+      "y": -9.3,
+      "z": 6
+    },
+    "rotation": {
+      "x": 123,
+      "y": -55,
+      "z": -18
+    },
+    "scale": 2.35
+  }
+}

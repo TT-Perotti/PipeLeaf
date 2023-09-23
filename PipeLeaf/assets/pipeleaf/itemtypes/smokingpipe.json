@@ -39,6 +39,9 @@
     }
   ],
   "attributes": {
+    "handbook": {
+      "groupBy": [ "smokingpipe-*" ]
+    },
     "shelvable": true,
     "bookshelveable": true,
     "displaycaseable": true,

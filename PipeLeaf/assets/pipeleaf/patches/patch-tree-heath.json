@@ -164,11 +164,4 @@
       }
     }
   },
-  {
-    "comment": "make herbs smokable",
-    "op": "add",
-    "file": "game:blocktypes/plant/herb",
-    "path": "/attributes/smokable",
-    "value": true
-  }
 ]

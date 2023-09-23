@@ -1,0 +1,9 @@
+[
+  {
+    "comment": "make herbs smokable",
+    "op": "add",
+    "file": "wildcraft:itemtypes/food/herbs",
+    "path": "/attributes/smokable",
+    "value": true
+  }
+]

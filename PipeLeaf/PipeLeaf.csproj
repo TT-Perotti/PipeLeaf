@@ -49,6 +49,12 @@
 	  <EmbeddedResource Remove="NewFolder\**" />
 	  <None Remove="NewFolder\**" />
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipe.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipebowl.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\patches\wildcraft-herbs.json" />
+	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipebowl.json" />
+	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\recipes\grid\claysmokingpipe.json" />
 	  <Content Include="modinfo.json">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>

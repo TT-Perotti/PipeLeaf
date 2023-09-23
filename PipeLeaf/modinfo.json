@@ -8,6 +8,6 @@
   "description": "A mod to add smoking pipe items and effect to the game.",
   "version": "1.0.0",
   "dependencies": {
-    "game": ""
+    "wildcraft": "1.6.6"
   }
 }
