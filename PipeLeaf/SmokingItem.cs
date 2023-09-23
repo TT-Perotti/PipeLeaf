@@ -100,7 +100,6 @@ namespace PipeLeaf
             ICoreClientAPI capi = api as ICoreClientAPI;
             IClientPlayer plr = capi.World.Player;
             EntityPlayer plrentity = plr.Entity;
-            capi.World.Api.Logger.Debug("starting sound");
 
             if (plrentity.Controls.HandUse == EnumHandInteract.HeldItemInteract)
                 if (cracklingSound == null)
@@ -169,7 +168,6 @@ namespace PipeLeaf
                 ;
                 SimpleParticleProperties smokeHeld = InitializeSmokeEffect();
                 smokeHeld.MinPos = pos.AddCopy(-0.05, 0.3, -0.05);
-                byEntity.World.Api.Logger.Debug("ATtemoting to spawm smoke particles");
                 byEntity.World.SpawnParticles(smokeHeld);
             }      
 
@@ -178,8 +176,6 @@ namespace PipeLeaf
 
         public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
-            byEntity.World.Api.Logger.Debug("STOPPING PIPE SMOKE {0}", secondsUsed);
-
             cracklingSound?.Stop();
             cracklingSound?.Dispose();
             cracklingSound = null;
@@ -193,10 +189,9 @@ namespace PipeLeaf
             {
                 OveruseDamage(byEntity, itemsConsumed);
             }
-            else
+            else if (itemsConsumed > 2)
             {
                 ResponsibleUseEffects(byEntity, itemsConsumed);
-                // apply player stat effects scaling with secondsUsed. Up to a max threshold.
             }
 
             if (byEntity.World.Side == EnumAppSide.Server)
@@ -211,17 +206,6 @@ namespace PipeLeaf
 
         public static void ResponsibleUseEffects(EntityAgent byEntity, float secondsUsed)
         {
-            IServerPlayer player = (
-                byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
-                as IServerPlayer
-            );
-            // increate body temp
-            player?.SendMessage(
-                GlobalConstants.InfoLogChatGroup,
-                "You feel warmer inside.",
-                EnumChatType.Notification
-            );
-
             var bodyTempBuff = new BodyTempBuff();
             bodyTempBuff.Init(secondsUsed / 2);
             bodyTempBuff.Apply(byEntity);
@@ -231,58 +215,10 @@ namespace PipeLeaf
                 var hungerRateBuff = new HungerRateBuff();
                 hungerRateBuff.Apply(byEntity);
 
-                player?.SendMessage(
-                    GlobalConstants.InfoLogChatGroup,
-                    "You have less of an appetite.",
-                    EnumChatType.Notification
-                );
+                var temporalStabilityBuff = new TemporalStabilityBuff();
+                temporalStabilityBuff.Apply(byEntity);
             }
-
         }
-
-        //private void DecreaseHungerRate(EntityAgent byEntity)
-        //{
-        //    stats = byEntity.Stats;
-        //    effectedEntity = byEntity;
-
-        //    if (stats.GetBlended("hungerrate") > 0.05f && byEntity.World.Side == EnumAppSide.Server)
-        //    {
-        //        stats.Set("hungerrate", "smokingbuff", -0.05f, false);
-        //        byEntity.WatchedAttributes.SetFloat("smokinghungerratebuff", -0.05f);
-        //        long listenerId = byEntity.WatchedAttributes.GetLong("hungerratebuffdecaylistenerid", 0);
-               
-        //        //byEntity.World.Api.Logger.Debug($"hunger rate listener id is {listenerId}");
-                
-        //        if (listenerId == 0)
-        //        {
-        //            long effectIdGametick = byEntity.World.RegisterGameTickListener(decayHungerRateOneMinute, 60 * 1000);
-        //            byEntity.WatchedAttributes.SetLong("hungerratebuffdecaylistenerid", effectIdGametick);
-        //        }
-        //    }
-        //}        
-
-        //private void decayHungerRateOneMinute(float dt)
-        //{
-        //    float curBuff = effectedEntity.WatchedAttributes.GetFloat("smokinghungerratebuff");
-        //    float newBuff = curBuff + 0.01f;
-
-        //    //effectedEntity.World.Api.Logger.Debug($"current buff is {curBuff}");
-        //    //effectedEntity.World.Api.Logger.Debug($"updated buff is {newBuff}");
-
-
-        //    if (newBuff >= 0)
-        //    {
-        //        stats.Remove("hungerrate", "smokingbuff");
-        //        long listenerId = effectedEntity.WatchedAttributes.GetLong("hungerratebuffdecaylistenerid");
-        //        effectedEntity.WatchedAttributes.SetLong("hungerratebuffdecaylistenerid", 0);
-        //        effectedEntity.World.UnregisterGameTickListener(listenerId);
-        //    }
-        //    else
-        //    {
-        //        stats.Set("hungerrate", "smokingbuff", newBuff, false);
-        //    }
-        //    effectedEntity.WatchedAttributes.SetFloat("smokinghungerratebuff", newBuff);
-        //}
 
         private static void OveruseDamage(EntityAgent smokingEntity, float secondsUsed)
             {

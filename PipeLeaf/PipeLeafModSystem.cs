@@ -23,8 +23,7 @@ namespace PipeLeaf
             BuffManager.RegisterBuffType("BodyTempBuff", typeof(BodyTempBuff));
             BuffManager.RegisterBuffType("HungerRateBuff", typeof(HungerRateBuff));
             BuffManager.RegisterBuffType("LongTermUseDebuff", typeof(LongTermUseDebuff));
-
-            api.Logger.Notification("Hello from template mod server side: " + Lang.Get("PipeLeaf:hello"));
+            BuffManager.RegisterBuffType("TemporalStabilityBuff", typeof(TemporalStabilityBuff));
         }
 
         public override void StartClientSide(ICoreClientAPI api)
