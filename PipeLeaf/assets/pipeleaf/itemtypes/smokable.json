@@ -1,0 +1,25 @@
+{
+  "code": "smokable",
+  "creativeinventory": { "general": [ "*" ] },
+  "variantgroups": [
+    {
+      "code": "material",
+      "states": [ "cornflower", "orangemallow", "goldenpoppy" ] // etc
+    },
+    {
+      "code": "type",
+      "states": [ "cured", "shag" ]
+    }
+  ],
+  "smokableByType": {
+    "*-shag": true
+  },
+  "grindingPropsByType": {
+    "*-cured": {
+      "grindedStack": {
+        "type": "item",
+        "code": "*-shag"
+      }
+    }
+  }
+}
