@@ -77,13 +77,16 @@ namespace PipeLeaf
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
-            if (blockSel != null) return;
+            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+
+            if (handling == EnumHandHandling.PreventDefault) return;
+
             if (byEntity.Controls.ShiftKey) return;
+            if (byEntity.Swimming == true) return;
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             if (smokableSlot == null) return;
 
-            if (byEntity.Swimming == true) return;
 
             if (byEntity.World.Side == EnumAppSide.Client)
             {
@@ -146,12 +149,6 @@ namespace PipeLeaf
             IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
             if (byPlayer == null) return false;
 
-
-            ItemSlot smokableSlot = GetNextSmokable(byEntity);
-            if (smokableSlot == null) return false;
-
-            if (blockSel != null) return false;
-
             if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2)
             {
                 float sideWays = 0.35f;
@@ -191,6 +188,15 @@ namespace PipeLeaf
             }
             else if (itemsConsumed > 2)
             {
+                //IServerPlayer player = (
+                //    byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
+                //    as IServerPlayer
+                //);
+                //player?.SendMessage(
+                //    GlobalConstants.InfoLogChatGroup,
+                //    $"You savor the pleasant aroma of {smokableSlot.Itemstack.} smoke.",
+                //    EnumChatType.Notification
+                //);
                 ResponsibleUseEffects(byEntity, itemsConsumed);
             }
 
@@ -202,6 +208,8 @@ namespace PipeLeaf
 
             smokableSlot.TakeOut(itemsConsumed);
             smokableSlot.MarkDirty();
+            (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
+
         }
 
         public static void ResponsibleUseEffects(EntityAgent byEntity, float secondsUsed)
