@@ -192,12 +192,10 @@ namespace PipeLeaf
             if (smokableSlot == null) return;
 
             int itemsConsumed = GameMath.Min(smokableSlot.Itemstack.StackSize, (int)secondsUsed);
-            byEntity.Api.Logger.Debug($"Items Consumed {itemsConsumed}");
+            //byEntity.Api.Logger.Debug($"Items Consumed {itemsConsumed}");
 
             if (itemsConsumed > 6)
             {
-                byEntity.Api.Logger.Debug("applying voeruse damage");
-
                 OveruseDamage(byEntity);
             }
             else if (itemsConsumed > 2)
