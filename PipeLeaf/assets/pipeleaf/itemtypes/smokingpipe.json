@@ -40,7 +40,13 @@
   ],
   "attributes": {
     "handbook": {
-      "groupBy": [ "smokingpipe-*" ]
+      "groupBy": [ "smokingpipe-*" ],
+      "extraSections": [
+        {
+          "title": "handbook-item-use",
+          "text": "Hold right mouse button. If you have smokable herbs in your inventory, they be consumed. Don't inhale too long though or you will take damage!"
+        }
+      ]
     },
     "shelvable": true,
     "bookshelveable": true,
