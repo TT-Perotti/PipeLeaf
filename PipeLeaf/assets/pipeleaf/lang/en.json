@@ -1,7 +1,37 @@
 {
-  "hello": "hello world!",
+  "game:tabname-pipeleaf": "Pipeleaf",
+  "game:pipeleaf-guide-title": "Pipeleaf Guide",
+  "game:pipeleaf-guide-text":
+  "<strong>Pipeleaf Guide</strong>
+  <i>A smoking mod</i>
+  <br>
+  <strong>Basics</strong>
+  <br>
+  This mod adds craftable smoking pipes which, when used with smokable herbs, can grant player buffs and debuffs.  To use the a pipe you must have smokable material in your inventory (more below) then hold down right mouse button to inhale.  You will see smoke coming out of the bowl if you are consuming herb. Some effects may be stronger the longer you inhale, but if you pull too long you will take damage so beware!
+  <br>
+  <strong>Buffs</strong>
+  <br>
+  Focus: adds a small amount to you temporal stability to help you stay underground that much longer.
+  <br>
+  Warmth: helps you on those cold nights to prevent frost damage and the shivers.
+  <br>
+  Appetite Suppression: Burn less calories over a thirty (irl) minute period, buff reduces overtime.
+  <br>
+  <strong>Debuffs</strong> 
+  <br>
+  Heavy Hitter: hold in your toke for too long and you will take some damage.
+  <br>
+  Long Term Smoker: (experimental) use too much too often and you may eventually experience a max health reduction. Stop using for a few hours or days and the debuff will be removed.
+  <br>
+  <strong>Smokable Herbs</strong>
+  <br>
+  Take cuttings from any herbs added to the game via Wildcraft mod. These include things like chamomile, lavender, majorum, mint, sage, mugwort and more. There will be an overhaul to what is and isn't smokable in upcoming release of this mod so stay tuned.",
+
+  "handbook-item-use": "Use",
   "game:block-flower-treeheath-free": "Tree Heath",
+  "game:blockdesc-flower-treeheath-*": "Break with a shovel for a change to find a Briar Burl, an ingredient in the Briar Burl Smoking Pipe.",
   "item-smokingpipe-briarburl-*": "Briar Burl Smoking Pipe",
+  "itemdesc-*smokingpipe-*": "Hold right mouse button to inhale smokable herbs.",
   "item-briarburl-raw": "Raw Briar Burl",
   "item-briarburl-soaked": "Soaked Briar Burl",
   "item-briarburl-dried": "Dried Briar Burl",
