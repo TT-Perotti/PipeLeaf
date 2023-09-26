@@ -1,6 +1,12 @@
 {
   "code": "smokable",
-  "creativeinventory": { "general": [ "*" ] },
+  "enabled": false,
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "materialDensity": 300,
+  "maxstacksize": 32,
   "variantgroups": [
     {
       "code": "material",
@@ -11,15 +17,42 @@
       "states": [ "cured", "shag" ]
     }
   ],
-  "smokableByType": {
-    "*-shag": true
-  },
   "grindingPropsByType": {
-    "*-cured": {
+    "smokable-*-cured": {
       "grindedStack": {
         "type": "item",
         "code": "*-shag"
       }
+    }
+  },
+  "texture": { "base": "game:item/resource/herb/thyme" },
+  "attributes": {
+    "handbook": {
+      "exclude": true
+    },
+    "inFirePitProps": {
+      "transform": {
+        "scale": 0.9,
+        "origin": {
+          "x": 0.5,
+          "y": 0.0625,
+          "z": 0.5
+        },
+        "translation": {
+          "x": 0.03125,
+          "y": 0.3125,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 53,
+          "z": 90
+        }
+      },
+      "useFirepitModel": "Spit"
+    },
+    "smokableByType": {
+      "smokable-*-shag": true
     }
   }
 }
