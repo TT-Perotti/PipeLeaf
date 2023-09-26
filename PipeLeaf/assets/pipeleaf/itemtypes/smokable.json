@@ -26,31 +26,126 @@
     }
   },
   "texture": { "base": "game:item/resource/herb/thyme" },
-  "attributes": {
-    "smokableEffectsByType": {
-
-      "smokable-goldenpoppy-shag": [
+  "attributesByType": {
+    "smokable-goldenpoppy-shag": {
+      "smokableEffects": [
         {
           "type": "temporalstability",
           "amount": 0.15,
           "cooldown": 900 // 15 minutes
         }
       ],
-      "smokable-cornflower-shag": [
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Golden Poppy Shag will grant you a temporary boost to temoral stability."
+          }
+        ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-cornflower-shag": {
+      "smokableEffects": [
         {
           "type": "bodytemperature",
           "amount": 4,
           "cooldown": 0
         }
       ],
-      "smokable-orangemallow-shag": [
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Cornflower Shag will make you feel warmer in the cold."
+          }
+        ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-orangemallow-shag": {
+      "smokableEffects": [
         {
           "type": "hungerrate",
           "amount": -0.15,
           "cooldown": 0
         }
       ],
-      "smokable-sage-shag": [
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Marshmallow Shag will make you feel warmer in the cold."
+          }
+        ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-sage-shag": {
+      "smokableEffects": [
         {
           "type": "temporalstability",
           "amount": 0.15,
@@ -62,37 +157,101 @@
           "cooldown": 0
         }
       ],
-      "smokable-*-shag": [
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Sage Shag will grant you a temporary boost to temoral stability and warm you in the cold."
+          }
+        ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-*-shag": {
+      "smokableEffects": [
         {
           "type": "bodytemperature",
           "amount": 4,
           "cooldown": 0
         }
-      ]
-    },
-    "handbook": {
-      "exclude": true
-    },
-    "inFirePitProps": {
-      "transform": {
-        "scale": 0.37,
-        "origin": {
-          "x": 0.5,
-          "y": 0.0625,
-          "z": 0.5
-        },
-        "translation": {
-          "x": 0.03125,
-          "y": 0,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 45,
-          "z": 0
-        }
+      ],
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
       },
-      "useFirepitModel": "Spit"
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-*-cured": {
+      "handbook": {
+        "groupBy": [ "smokable-*-cured" ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
     }
   }
 }

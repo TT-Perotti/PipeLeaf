@@ -25,7 +25,7 @@ namespace PipeLeaf
     public class SmokableItem : Item
     {
         private Array effects;
-        public override void OnLoaded(ICoreAPI api) 
+        public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
             effects = Attributes?["smokableEffects"].AsArray();
@@ -80,7 +80,21 @@ namespace PipeLeaf
                     effect["cooldown"].AsInt(),
                     "pipeleafmod",
                     effect["type"] + " pipeleafmod"
-                    );
+                );
+            }
+        }
+
+        public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
+        {
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+
+            dsc.AppendLine("\n" + Lang.Get("pipeleaf:smokable-effects"));
+            if (effects != null)
+            {
+                foreach (JsonObject effect in effects)
+                {
+                    dsc.AppendLine(effect["type"].AsString());
+                }
             }
         }
     }

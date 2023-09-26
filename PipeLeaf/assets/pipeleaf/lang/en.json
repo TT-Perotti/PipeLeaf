@@ -7,27 +7,20 @@
   <br>
   <strong>Basics</strong>
   <br>
-  This mod adds craftable smoking pipes which, when used with smokable herbs, can grant player buffs and debuffs.  To use the a pipe you must have smokable material in your inventory (more below) then hold down right mouse button to inhale.  You will see smoke coming out of the bowl if you are consuming herb. Some effects may be stronger the longer you inhale, but if you pull too long you will take damage so beware!
+  This mod adds craftable smoking pipes which, when used with prepared shag, can grant player buffs and debuffs.  To use the a pipe you must have smokable shag in your inventory (more below) then hold down right mouse button to inhale.  You will see smoke coming out of the bowl if you are consuming herb. Vinalla plants include Golden Poppy, Cornflower, and Orange Mallow. Install the Wildcraft mod to get access to more processible plants.
   <br>
-  <strong>Buffs</strong>
+  <strong>Crafting Pipes</strong>
   <br>
-  Focus: adds a small amount to you temporal stability to help you stay underground that much longer.
+  Clay pipe made of clay and then fired.  To build the Briar Burl Pipe you must track down a Briar Burl by digging up Tree Heath with a shovel.  It is rare so keep an eye out! 
   <br>
-  Warmth: helps you on those cold nights to prevent frost damage and the shivers.
+  <strong>Preparing Shag</strong>
   <br>
-  Appetite Suppression: Burn less calories over a thirty (irl) minute period, buff reduces overtime.
-  <br>
-  <strong>Debuffs</strong> 
-  <br>
-  Heavy Hitter: hold in your toke for too long and you will take some damage.
-  <br>
-  Long Term Smoker: (experimental) use too much too often and you may eventually experience a max health reduction. Stop using for a few hours or days and the debuff will be removed.
-  <br>
-  <strong>Smokable Herbs</strong>
-  <br>
-  Take cuttings from any herbs added to the game via Wildcraft mod. These include things like chamomile, lavender, majorum, mint, sage, mugwort and more. There will be an overhaul to what is and isn't smokable in upcoming release of this mod so stay tuned.",
+  Some cut flowers and herbs (from Wildcraft mod) can be placed in a firepit to be fire-cured.  Then, grind the fired-cured material in a quern to produce shag. Based on the source plant material, different effects are applied when smoked.  Check the Handbook shag item types to learn what plants produce what effects!",
 
   "handbook-item-use": "Use",
+  "handbook-item-effect": "Effect",
+  "smokable-effects": "Smokable effects: ",
+
   "game:block-flower-treeheath-free": "Tree Heath",
   "game:blockdesc-flower-treeheath-*": "Break with a shovel for a change to find a Briar Burl, an ingredient in the Briar Burl Smoking Pipe.",
   "item-smokingpipe-briarburl-*": "Briar Burl Smoking Pipe",
@@ -65,9 +58,54 @@
   "item-claysmokingpipebowl-*-raw": "Raw Clay Smoking Pipe Bowl",
   "item-claysmokingpipebowl-*-fired": "Clay Smoking Pipe Bowl",
   "item-claysmokingpipestem-*-raw": "Raw Clay Smoking Pipe Stem",
-  "item-claysmokingpipestem-*-fired": "Clay Smoking Pipe Stem"
+  "item-claysmokingpipestem-*-fired": "Clay Smoking Pipe Stem",
 
 
+   "item-smokable-chamomile-cured": "Fire-Cured Chamomile",
+  "item-smokable-lavender-cured": "Fire-Cured Lavender",
+  "item-smokable-marjoram-cured": "Fire-Cured Marjoram",
+  "item-smokable-marshmallow-cured": "Fire-Cured Marshmallow",
+  "item-smokable-orangemallow-cured": "Fire-Cured Orange Mallow",
+  "item-smokable-mint-cured": "Fire-Cured Mint",
+  "item-smokable-rosemary-cured": "Fire-Cured Rosemary",
+  "item-smokable-saffron-cured": "Fire-Cured Saffron",
+  "item-smokable-sage-cured": "Fire-Cured Sage",
+  "item-smokable-stingingnettle-cured": "Fire-Cured Stinging Nettle",
+  "item-smokable-stjohnswort-cured": "Fire-Cured St John's Wort'",
+  "item-smokable-thyme-cured": "Fire-Cure Thyme",
+  "item-smokable-mugwort-cured": "Fire-Cured Mugwort",
+  "item-smokable-chicory-cured": "Fire-Cured Chicory",
+  "item-smokable-marigold-cured": "Fire-Cured Marigold",
+  "item-smokable-yarrow-cured": "Fire-Cured Yarrow",
+  "item-smokable-angelica-cured": "Fire-Cured Angelica",
+  "item-smokable-arnica-cured": "Fire-Cured Arnica",
+  "item-smokable-horehound-cured": "Fire-Cured Horehound",
+  "item-smokable-ginseng-cured": "Fire-Cured Ginseng",
+  "item-smokable-cornflower-cured": "Fire-Cured Cornflower",
+  "item-smokable-goldenpoppy-cured": "Fire-Cured Golden Poppy",
 
+
+  "item-smokable-chamomile-shag": "Shag Chamomile",
+  "item-smokable-lavender-shag": "Shag Lavender",
+  "item-smokable-marjoram-shag": "Shag Marjoram",
+  "item-smokable-marshmallow-shag": "Shag Marshmallow",
+  "item-smokable-orangemallow-shag": "Shag Orange Mallow",
+  "item-smokable-mint-shag": "Shag Mint",
+  "item-smokable-rosemary-shag": "Shag Rosemary",
+  "item-smokable-saffron-shag": "Shag Saffron",
+  "item-smokable-sage-shag": "Shag Sage",
+  "item-smokable-stingingnettle-shag": "Shag Stinging Nettle",
+  "item-smokable-stjohnswort-shag": "Shag St John's Wort",
+  "item-smokable-thyme-shag": "Fire-Cure Thyme",
+  "item-smokable-mugwort-shag": "Shag Mugwort",
+  "item-smokable-chicory-shag": "Shag Chicory",
+  "item-smokable-marigold-shag": "Shag Marigold",
+  "item-smokable-yarrow-shag": "Shag Yarrow",
+  "item-smokable-angelica-shag": "Shag Angelica",
+  "item-smokable-arnica-shag": "Shag Arnica",
+  "item-smokable-horehound-shag": "Shag Horehound",
+  "item-smokable-ginseng-shag": "Shag Ginseng",
+  "item-smokable-cornflower-shag": "Shag Cornflower",
+  "item-smokable-goldenpoppy-shag": "Shag Golden Poppy"
 
 }
