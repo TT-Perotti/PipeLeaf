@@ -1,6 +1,7 @@
 {
   "code": "smokable",
-  "enabled": false,
+  "enabled": true,
+  "class": "SmokableItem",
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]
@@ -9,8 +10,7 @@
   "maxstacksize": 32,
   "variantgroups": [
     {
-      "code": "material",
-      "states": [ "cornflower", "orangemallow", "goldenpoppy" ] // etc
+      "loadFromProperties": "pipeleaf:item/smokables"
     },
     {
       "code": "type",
@@ -21,18 +21,61 @@
     "smokable-*-cured": {
       "grindedStack": {
         "type": "item",
-        "code": "*-shag"
+        "code": "smokable-{smokables}-shag"
       }
     }
   },
   "texture": { "base": "game:item/resource/herb/thyme" },
   "attributes": {
+    "smokableEffectsByType": {
+
+      "smokable-goldenpoppy-shag": [
+        {
+          "type": "temporalstability",
+          "amount": 0.15,
+          "cooldown": 900 // 15 minutes
+        }
+      ],
+      "smokable-cornflower-shag": [
+        {
+          "type": "bodytemperature",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "smokable-orangemallow-shag": [
+        {
+          "type": "hungerrate",
+          "amount": -0.15,
+          "cooldown": 0
+        }
+      ],
+      "smokable-sage-shag": [
+        {
+          "type": "temporalstability",
+          "amount": 0.15,
+          "cooldown": 900 // 15 minutes
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "smokable-*-shag": [
+        {
+          "type": "bodytemperature",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ]
+    },
     "handbook": {
       "exclude": true
     },
     "inFirePitProps": {
       "transform": {
-        "scale": 0.9,
+        "scale": 0.37,
         "origin": {
           "x": 0.5,
           "y": 0.0625,
@@ -40,19 +83,16 @@
         },
         "translation": {
           "x": 0.03125,
-          "y": 0.3125,
+          "y": 0,
           "z": 0
         },
         "rotation": {
           "x": 0,
-          "y": 53,
-          "z": 90
+          "y": 45,
+          "z": 0
         }
       },
       "useFirepitModel": "Spit"
-    },
-    "smokableByType": {
-      "smokable-*-shag": true
     }
   }
 }

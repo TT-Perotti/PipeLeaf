@@ -1,0 +1,70 @@
+[
+  {
+    "comment": "make flowers curable",
+    "op": "add",
+    "side": "server",
+    "file": "game:blocktypes/plant/flower",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(goldenpoppy|orangemallow|cornflower)-.*": {
+        "meltingPoint": 150,
+        "meltingDuration": 180,
+        "smeltedRatio": 1,
+        "smeltingType": "cook",
+        "smeltedStack": {
+          "type": "item",
+          "code": "pipeleaf:smokable-{flower}-cured"
+        },
+        "requiresContainer": false
+      }
+    }
+  },
+  {
+    "comment": "use firepit spit when cooking these flowers",
+    "op": "add",
+    "side": "server",
+    "file": "game:blocktypes/plant/flower",
+    "path": "/attributes/inFirePitProps",
+    "value": {
+      "transform": {
+        "scale": 0.37,
+        "origin": {
+          "x": 0.5,
+          "y": 0.0625,
+          "z": 0.5
+        },
+        "translation": {
+          "x": 0.03125,
+          "y": 0.850,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 45,
+          "z": 180
+        }
+      },
+      "useFirepitModel": "Spit"
+    }
+  },
+  {
+    "comment": "make wildcraft herbs curable",
+    "op": "add",
+    "side": "server",
+    "file": "wildcraft:itemtypes/food/herbs",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
+        "meltingPoint": 150,
+        "meltingDuration": 180,
+        "smeltedRatio": 1,
+        "smeltingType": "cook",
+        "smeltedStack": {
+          "type": "item",
+          "code": "pipeleaf:smokable-{herbs}-cured"
+        },
+        "requiresContainer": false
+      }
+    }
+  }
+]

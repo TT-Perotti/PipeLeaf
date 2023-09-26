@@ -1,0 +1,71 @@
+{
+  "code": "smokables",
+  "variants": [
+    {
+      "code": "orangemallow"
+    },
+    {
+      "code": "goldenpoppy"
+    },
+    {
+      "code": "cornflower"
+    },
+    {
+      "code": "chamomile"
+    },
+    {
+      "code": "lavender"
+    },
+    {
+      "code": "marjoram"
+    },
+    {
+      "code": "marshmallow"
+    },
+    {
+      "code": "mint"
+    },
+    {
+      "code": "rosemary"
+    },
+    {
+      "code": "saffron"
+    },
+    {
+      "code": "sage"
+    },
+    {
+      "code": "stingingnettle"
+    },
+    {
+      "code": "stjohnswort"
+    },
+    {
+      "code": "thyme"
+    },
+    {
+      "code": "mugwort"
+    },
+    {
+      "code": "chicory"
+    },
+    {
+      "code": "marigold"
+    },
+    {
+      "code": "yarrow"
+    },
+    {
+      "code": "angelica"
+    },
+    {
+      "code": "arnica"
+    },
+    {
+      "code": "horehound"
+    },
+    {
+      "code": "ginseng"
+    }
+  ]
+}

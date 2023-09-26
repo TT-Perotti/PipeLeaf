@@ -9,6 +9,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -16,6 +17,7 @@ using System.Numerics;
 using Vintagestory.API.Server;
 using System.Net;
 using System.Runtime.CompilerServices;
+using Vintagestory.ServerMods;
 
 namespace PipeLeaf
 {
@@ -23,6 +25,7 @@ namespace PipeLeaf
     {
         ILoadedSound cracklingSound;
 
+        JsonObject smokableProps;
 
         WorldInteraction[] interactions;
 
@@ -39,7 +42,7 @@ namespace PipeLeaf
 
                 foreach (CollectibleObject obj in api.World.Collectibles)
                 {
-                    if (obj.Attributes?.IsTrue("smokable") == true)
+                    if (obj.GetType() == typeof(SmokableItem))
                     {
                         stacks.Add(new ItemStack(obj));
                     }
@@ -63,8 +66,7 @@ namespace PipeLeaf
             byEntity.WalkInventory((invslot) =>
             {
                 if (invslot is ItemSlotCreative) return true;
-
-                if (invslot.Itemstack != null && invslot.Itemstack.Collectible.Attributes?.IsTrue("smokable") == true)
+                if (invslot.Itemstack != null && invslot.Itemstack.Collectible.GetType() == typeof(SmokableItem))
                 {
                     slot = invslot;
                     return false;
@@ -200,44 +202,17 @@ namespace PipeLeaf
             }
             else if (itemsConsumed > 2)
             {
-                //IServerPlayer player = (
-                //    byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
-                //    as IServerPlayer
-                //);
-                //player?.SendMessage(
-                //    GlobalConstants.InfoLogChatGroup,
-                //    $"You savor the pleasant aroma of {smokableSlot.Itemstack.} smoke.",
-                //    EnumChatType.Notification
-                //);
-                ResponsibleUseEffects(byEntity, itemsConsumed);
-            }
+                SmokableItem smokableItem = (SmokableItem) smokableSlot.Itemstack.Collectible;
+                smokableItem.Smoke(byEntity);
 
-            if (byEntity.World.Side == EnumAppSide.Server)
-            {
-                var longTermUseDebuff = new LongTermUseDebuff();
-                longTermUseDebuff.Apply(byEntity);
+                var ltud = new LongTermUseDebuff();
+                ltud.Apply(byEntity);
             }
 
             smokableSlot.TakeOut(itemsConsumed);
             smokableSlot.MarkDirty();
             (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
 
-        }
-
-        public static void ResponsibleUseEffects(EntityAgent byEntity, float secondsUsed)
-        {
-            var bodyTempBuff = new BodyTempBuff();
-            bodyTempBuff.Init(secondsUsed / 2);
-            bodyTempBuff.Apply(byEntity);
-
-            if (byEntity.Stats.GetBlended("hungerrate") > 0.05f && byEntity.World.Side == EnumAppSide.Server)
-            {
-                var hungerRateBuff = new HungerRateBuff();
-                hungerRateBuff.Apply(byEntity);
-
-                var temporalStabilityBuff = new TemporalStabilityBuff();
-                temporalStabilityBuff.Apply(byEntity);
-            }
         }
 
         private static void OveruseDamage(EntityAgent byEntity)
