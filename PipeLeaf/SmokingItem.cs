@@ -49,14 +49,14 @@ namespace PipeLeaf
                 {
                     new WorldInteraction()
                     {
-                        ActionLangCode = "game:heldhelp-smoking",
+                        ActionLangCode = "pipeleaf:heldhelp-smokingitem",
                         MouseButton = EnumMouseButton.Right,
                         Itemstacks = stacks.ToArray()
                     }
                 };
             });
         }
-
+        
         protected static ItemSlot GetNextSmokable(EntityAgent byEntity)
         {
             ItemSlot slot = null;
@@ -77,7 +77,7 @@ namespace PipeLeaf
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
-            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+            //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
 
             if (handling == EnumHandHandling.PreventDefault) return;
 
@@ -85,6 +85,8 @@ namespace PipeLeaf
             if (byEntity.Swimming == true) return;
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
+            //byEntity.Api.Logger.Debug($"Smokable Slot found : {smokableSlot}");
+
             if (smokableSlot == null) return;
 
 
@@ -148,9 +150,12 @@ namespace PipeLeaf
         {
             IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
             if (byPlayer == null) return false;
+            //byEntity.Api.Logger.Debug("Stepping Smoking Item interaction");
 
             if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2)
             {
+                // byEntity.Api.Logger.Debug("Seconds used greater than 2 and client side");
+
                 float sideWays = 0.35f;
                 IClientWorldAccessor world = byEntity.World as IClientWorldAccessor;
                 if (world.Player.Entity == byEntity && world.Player.CameraMode != EnumCameraMode.FirstPerson)
@@ -166,7 +171,13 @@ namespace PipeLeaf
                 SimpleParticleProperties smokeHeld = InitializeSmokeEffect();
                 smokeHeld.MinPos = pos.AddCopy(-0.05, 0.3, -0.05);
                 byEntity.World.SpawnParticles(smokeHeld);
-            }      
+            }
+            if (secondsUsed > 8)
+            {
+                //byEntity.Api.Logger.Debug("Seconds used greater than 7, stopping interaction");
+
+                return false;
+            }
 
             return true;
         }
@@ -181,10 +192,13 @@ namespace PipeLeaf
             if (smokableSlot == null) return;
 
             int itemsConsumed = GameMath.Min(smokableSlot.Itemstack.StackSize, (int)secondsUsed);
+            byEntity.Api.Logger.Debug($"Items Consumed {itemsConsumed}");
 
             if (itemsConsumed > 6)
             {
-                OveruseDamage(byEntity, itemsConsumed);
+                byEntity.Api.Logger.Debug("applying voeruse damage");
+
+                OveruseDamage(byEntity);
             }
             else if (itemsConsumed > 2)
             {
@@ -228,13 +242,13 @@ namespace PipeLeaf
             }
         }
 
-        private static void OveruseDamage(EntityAgent smokingEntity, float secondsUsed)
+        private static void OveruseDamage(EntityAgent byEntity)
             {
-                smokingEntity.ReceiveDamage(new DamageSource()
+                byEntity.ReceiveDamage(new DamageSource()
                 {
                     Source = EnumDamageSource.Internal,
                     Type = EnumDamageType.Poison
-                }, Math.Abs(secondsUsed / 6));
+                }, 1);
             }
     }
 }
