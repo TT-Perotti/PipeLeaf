@@ -25,8 +25,6 @@ namespace PipeLeaf
     {
         ILoadedSound cracklingSound;
 
-        JsonObject smokableProps;
-
         WorldInteraction[] interactions;
 
         public override void OnLoaded(ICoreAPI api)
@@ -131,12 +129,12 @@ namespace PipeLeaf
             SimpleParticleProperties smokeHeld;
             smokeHeld = new SimpleParticleProperties(
                 1, 1,
-                ColorUtil.ToRgba(50, 220, 220, 220),
+                ColorUtil.ToRgba(50, 122, 139, 174),
                 new Vec3d(),
                 new Vec3d(),
                 new Vec3f(-0.05f, 0.1f, -0.05f),
                 new Vec3f(0.05f, 0.15f, 0.05f),
-                1.5f,
+                1.0f,
                 0,
                 0.25f,
                 0.35f,

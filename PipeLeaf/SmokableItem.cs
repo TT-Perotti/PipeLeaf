@@ -38,9 +38,9 @@ namespace PipeLeaf
                 as IServerPlayer
             );
 
-            entity.World.Api.Logger.Debug($"Smoking {Code}");
-            entity.World.Api.Logger.Debug($"Smoking Attributes: {Attributes}");
-            entity.World.Api.Logger.Debug($"Smoking effects: {effects}");
+            //entity.World.Api.Logger.Debug($"Smoking {Code}");
+            //entity.World.Api.Logger.Debug($"Smoking Attributes: {Attributes}");
+            //entity.World.Api.Logger.Debug($"Smoking effects: {effects}");
 
 
             if (effects == null) { return; }
@@ -78,9 +78,11 @@ namespace PipeLeaf
                     effect["type"].AsString(),
                     effect["amount"].AsFloat(),
                     effect["cooldown"].AsInt(),
-                    "pipeleafmod",
-                    effect["type"] + " pipeleafmod"
+                    "pipeleafmod",  // stat code
+                    effect["type"] + " pipeleafmod" // listener/callback id
                 );
+                LongTermUseDebuff ltud = new();
+                ltud.Apply(entity);
             }
         }
 

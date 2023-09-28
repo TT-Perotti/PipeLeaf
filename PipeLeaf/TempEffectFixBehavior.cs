@@ -23,9 +23,9 @@ namespace Pipeleaf
         {
             IServerPlayer player = GetIServerPlayer();
 
-            TempEffect tempEffect = new TempEffect();
+            TempEffect tempEffect = new();
             tempEffect.ResetAllTempStats((player.Entity as EntityPlayer), "pipeleafmod");
-            tempEffect.ResetAllListeners((player.Entity as EntityPlayer), "smokablemod");
+            tempEffect.ResetAllListeners((player.Entity as EntityPlayer), "pipeleafmod");
 
             base.OnEntityDeath(damageSourceForDeath);
         }

@@ -1,5 +1,4 @@
-﻿using BuffStuff;
-using Pipeleaf;
+﻿using Pipeleaf;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -21,9 +20,6 @@ namespace PipeLeaf
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            BuffManager.Initialize(api, this);
-            BuffManager.RegisterBuffType("LongTermUseDebuff", typeof(LongTermUseDebuff));
-
             api.Event.PlayerNowPlaying += (IServerPlayer iServerPlayer) =>
             {
                 if (iServerPlayer.Entity is EntityPlayer)

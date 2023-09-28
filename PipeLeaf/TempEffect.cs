@@ -60,11 +60,6 @@ namespace Pipeleaf
                 as IServerPlayer
             );
 
-            if (effectType == "maxhealthExtraPoints")
-            {
-                effectAmount = (14f + effectedEntity.Stats.GetBlended("maxhealthExtraPoints")) * effectAmount;
-            }
-
             if (effectType == "bodytemperature")
             {
                 EntityBehaviorBodyTemperature bh = effectedEntity.GetBehavior<EntityBehaviorBodyTemperature>();
@@ -90,8 +85,7 @@ namespace Pipeleaf
 
             if (effectType == "maxhealthExtraPoints")
             {
-                EntityBehaviorHealth ebh = effectedEntity.GetBehavior<EntityBehaviorHealth>();
-                ebh.MarkDirty();
+                effectedEntity.GetBehavior<EntityBehaviorHealth>()?.MarkDirty();  
             }
         }
 
@@ -105,8 +99,7 @@ namespace Pipeleaf
             effectedEntity.Stats.Remove(effectType, effectCode);
             if (effectType == "maxhealthExtraPoints")
             {
-                EntityBehaviorHealth ebh = effectedEntity.GetBehavior<EntityBehaviorHealth>();
-                ebh.MarkDirty();
+                effectedEntity.GetBehavior<EntityBehaviorHealth>()?.MarkDirty();
             }
 
             effectedEntity.WatchedAttributes.RemoveAttribute(effectId);
@@ -118,8 +111,7 @@ namespace Pipeleaf
             {
                 entity.Stats.Remove(stats.Key, effectCode);
             }
-            EntityBehaviorHealth ebh = entity.GetBehavior<EntityBehaviorHealth>();
-            ebh.MarkDirty();
+            effectedEntity.GetBehavior<EntityBehaviorHealth>()?.MarkDirty();
         }
 
         public void ResetAllAttrListeners(
