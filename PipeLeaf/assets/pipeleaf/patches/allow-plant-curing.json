@@ -2,13 +2,12 @@
   {
     "comment": "make flowers curable",
     "op": "add",
-    "side": "server",
     "file": "game:blocktypes/plant/flower",
     "path": "/combustiblePropsByType",
     "value": {
       "@.*-(goldenpoppy|orangemallow|cornflower)-.*": {
         "meltingPoint": 150,
-        "meltingDuration": 180,
+        "meltingDuration": 30,
         "smeltedRatio": 1,
         "smeltingType": "cook",
         "smeltedStack": {
@@ -22,7 +21,6 @@
   {
     "comment": "use firepit spit when cooking these flowers",
     "op": "add",
-    "side": "server",
     "file": "game:blocktypes/plant/flower",
     "path": "/attributes/inFirePitProps",
     "value": {
@@ -50,13 +48,12 @@
   {
     "comment": "make wildcraft herbs curable",
     "op": "add",
-    "side": "server",
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/combustiblePropsByType",
     "value": {
       "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
         "meltingPoint": 150,
-        "meltingDuration": 180,
+        "meltingDuration": 30,
         "smeltedRatio": 1,
         "smeltingType": "cook",
         "smeltedStack": {
@@ -64,6 +61,35 @@
           "code": "pipeleaf:smokable-{herbs}-cured"
         },
         "requiresContainer": false
+      }
+    }
+  },
+  {
+    "comment": "use firepit spit when cooking these flowers",
+    "op": "add",
+    "file": "wildcraft:itemtypes/food/herbs",
+    "path": "/attributes/inFirePitPropsByType",
+    "value": {
+      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": -1.3,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0.850,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "code": "smokable",
   "enabled": true,
-  "class": "SmokableItem",
+  "classByType": { "*-shag": "SmokableItem" },
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]
@@ -17,15 +17,19 @@
       "states": [ "cured", "shag" ]
     }
   ],
+  "textureByType": {
+    "smokable-*-cured": { "base": "pipeleaf:item/smokable/cured" },
+    "smokable-*-shag": { "base": "pipeleaf:item/smokable/shag" }
+  },
   "grindingPropsByType": {
     "smokable-*-cured": {
       "grindedStack": {
         "type": "item",
+        "stacksize": 1.5,
         "code": "smokable-{smokables}-shag"
       }
     }
   },
-  "texture": { "base": "game:item/resource/herb/thyme" },
   "attributesByType": {
     "smokable-goldenpoppy-shag": {
       "smokableEffects": [
@@ -253,5 +257,23 @@
         "useFirepitModel": "Spit"
       }
     }
+  },
+  "transitionablePropsByType": {
+    "*": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 336 },
+        "transitionHours": { "avg": 336 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 0.25
+      }
+    ]
+  },
+  "nutritionProps": {
+    "satiety": 15,
+    "foodcategory": "Vegetable"
   }
 }
