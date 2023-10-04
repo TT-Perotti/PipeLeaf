@@ -55,6 +55,7 @@
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipestem.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\smokable.json" />
 	  <None Remove="assets\pipeleaf\patches\allow-plant-curing.json" />
+	  <None Remove="assets\pipeleaf\patches\weaversweed.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipebowl.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipestem.json" />
 	  <None Remove="assets\pipeleaf\recipes\grid\claysmokingpipe.json" />
