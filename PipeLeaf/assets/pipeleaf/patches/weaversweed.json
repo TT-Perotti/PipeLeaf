@@ -1,0 +1,82 @@
+[
+  {
+    "comment": "make weaversweed buds curable",
+    "op": "replace",
+    "side": "Server",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "weaversweed:itemtypes/weavebuds.json",
+    "path": "/combustibleProps",
+    "value": {
+      "meltingPoint": 150,
+      "meltingDuration": 30,
+      "smeltedRatio": 1,
+      "smeltingType": "cook",
+      "smeltedStack": {
+        "type": "item",
+        "code": "pipeleaf:smokable-weedbuds{type}-cured"
+      },
+      "requiresContainer": false
+    }
+  },
+  {
+    "comment": "make weaversweed buds curable",
+    "op": "add",
+    "side": "Server",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "weaversweed:itemtypes/weavebuds.json",
+    "path": "/attributes/inFirePitProps",
+    "value": {
+      "transform": {
+        "scale": 1,
+        "origin": {
+          "x": 0.5,
+          "y": -1.3,
+          "z": 0.5
+        },
+        "translation": {
+          "x": 0.03125,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 45,
+          "z": 0
+        }
+      },
+      "useFirepitModel": "Spit"
+    }
+  },
+  {
+    "comment": "add weaverbuds to smokable types",
+    "op": "add",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "pipeleaf:worldproperties/item/smokables",
+    "path": "/variants/0",
+    "value": { "code": "weedbudspurple" }
+  },
+  {
+    "comment": "add weaverbuds to smokable types",
+    "op": "add",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "pipeleaf:worldproperties/item/smokables",
+    "path": "/variants/0",
+    "value": { "code": "weedbudsorange" }
+  },
+  {
+    "comment": "add weaverbuds to smokable types",
+    "op": "add",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "pipeleaf:worldproperties/item/smokables",
+    "path": "/variants/0",
+    "value": { "code": "weedbudswhite" }
+  },
+  {
+    "comment": "add weaverbuds to smokable types",
+    "op": "add",
+    "dependsOn": [ { "modid": "weaversweed" } ],
+    "file": "pipeleaf:worldproperties/item/smokables",
+    "path": "/variants/0",
+    "value": { "code": "weedbudstropical" }
+  }
+]
