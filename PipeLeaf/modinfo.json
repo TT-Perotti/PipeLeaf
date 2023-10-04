@@ -1,12 +1,12 @@
 {
   "type": "code",
-  "modid": "PipeLeaf",
+  "modid": "pipeLeaf",
   "name": "PipeLeaf",
   "authors": [
     "TTPerotti"
   ],
   "description": "A mod to add smoking pipe items and effect to the game.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dependencies": {
   }
 }
