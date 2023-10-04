@@ -20,20 +20,19 @@ namespace PipeLeaf
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            api.Event.PlayerNowPlaying += (IServerPlayer iServerPlayer) =>
-            {
-                if (iServerPlayer.Entity is EntityPlayer)
-                {
-                    Entity entity = iServerPlayer.Entity;
-                    entity.AddBehavior(new TempEffectFixBehavior(entity));
+            api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
+        }
 
-                    //api.Logger.Debug("[Potion] Adding PotionFixBehavior to spawned EntityPlayer");
-                    TempEffect tempEffect = new();
-                    EntityPlayer player = (iServerPlayer.Entity as EntityPlayer);
-                    tempEffect.ResetAllTempStats(player, "pipeleafmod");
-                    //api.Logger.Debug("potion player ready");
-                }
-            };
+        public void ResetSmokingEffectsOnDeath(IServerPlayer player, DamageSource damageSource)
+        {
+            player.SendMessage(
+                GlobalConstants.InfoLogChatGroup,
+                "You feel the effects of smoking dissipate.",
+                EnumChatType.Notification
+            );
+            TempEffect tempEffect = new();
+            tempEffect.ResetAllTempStats((player.Entity as EntityPlayer), "pipeleafmod");
+            tempEffect.ResetAllListeners((player.Entity as EntityPlayer), "pipeleafmod");
         }
 
         public override void StartClientSide(ICoreClientAPI api)
