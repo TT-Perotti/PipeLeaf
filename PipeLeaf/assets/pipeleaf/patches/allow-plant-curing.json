@@ -48,6 +48,7 @@
   {
     "comment": "make wildcraft herbs curable",
     "op": "add",
+    "dependsOn": [{"modid": "wildcraft"}],
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/combustiblePropsByType",
     "value": {
@@ -67,6 +68,7 @@
   {
     "comment": "use firepit spit when cooking these flowers",
     "op": "add",
+    "dependsOn": [ { "modid": "wildcraft" } ],
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/attributes/inFirePitPropsByType",
     "value": {
