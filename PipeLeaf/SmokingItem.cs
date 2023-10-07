@@ -191,14 +191,11 @@ namespace PipeLeaf
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             if (smokableSlot == null) return;
 
-            int itemsConsumed = GameMath.Min(smokableSlot.Itemstack.StackSize, (int)secondsUsed);
-            //byEntity.Api.Logger.Debug($"Items Consumed {itemsConsumed}");
-
-            if (itemsConsumed > 6)
+            if (secondsUsed > 6)
             {
                 OveruseDamage(byEntity);
             }
-            else if (itemsConsumed > 2)
+            else if (secondsUsed > 3)
             {
                 SmokableItem smokableItem = (SmokableItem) smokableSlot.Itemstack.Collectible;
                 smokableItem.Smoke(byEntity);
@@ -207,7 +204,7 @@ namespace PipeLeaf
                 ltud.Apply(byEntity);
             }
 
-            smokableSlot.TakeOut(itemsConsumed);
+            smokableSlot.TakeOut(6);
             smokableSlot.MarkDirty();
             (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
 
