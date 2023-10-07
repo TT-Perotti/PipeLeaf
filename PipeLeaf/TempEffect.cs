@@ -40,20 +40,20 @@ namespace Pipeleaf
             effectCode = code;
             effectId = id;
 
-            effectedEntity.World.Api.Logger.Debug($"Setting temp stat: {effectType}, {effectAmount}, {effectCooldown}, {effectCode}");
+            effectedEntity.World.Api.Logger.Debug($"Setting temp stat: {effectType}, amount: {effectAmount}, cooldown: {effectCooldown}, code: {effectCode}");
 
             SetTempStat();
 
-            long effectIdCallback = effectedEntity.World.RegisterCallback(
-                ResetTempStat,
-                effectCooldown * 1000
-            );
-            effectedEntity.WatchedAttributes.SetLong(effectId, effectIdCallback);
+            if ( cooldown > 0 )
+            {
+                long effectIdCallback = effectedEntity.World.RegisterCallback(
+                    ResetTempStat,
+                    effectCooldown * 1000
+                );
+                effectedEntity.WatchedAttributes.SetLong(effectId, effectIdCallback);
+            }
         }
 
-        /// <summary>
-        /// Iterates through the provided effect dictionary and sets every stat provided
-        /// </summary>
         public void SetTempStat()
         {
             IServerPlayer player = (
@@ -64,7 +64,10 @@ namespace Pipeleaf
             if (effectType == "bodytemperature")
             {
                 EntityBehaviorBodyTemperature bh = effectedEntity.GetBehavior<EntityBehaviorBodyTemperature>();
-                bh.CurBodyTemperature += effectAmount;
+                if ( bh.CurBodyTemperature <= 33 )
+                {
+                    bh.CurBodyTemperature += effectAmount;
+                }
             }
             else if (effectType == "temporalstability")
             {
