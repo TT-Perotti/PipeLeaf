@@ -36,7 +36,7 @@
         {
           "type": "temporalstability",
           "amount": 0.15,
-          "cooldown": 900 // 15 minutes
+          "cooldown": 0
         }
       ],
       "handbook": {
@@ -44,7 +44,7 @@
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Golden Poppy Shag will grant you a temporary boost to temoral stability."
+            "text": "Smoking Golden Poppy Shag will grant you a temporary boost to temporal stability."
           }
         ]
       },
@@ -114,7 +114,7 @@
         {
           "type": "hungerrate",
           "amount": -0.15,
-          "cooldown": 0
+          "cooldown": 900 // 15 minutes
         }
       ],
       "handbook": {
@@ -151,14 +151,14 @@
     "smokable-sage-shag": {
       "smokableEffects": [
         {
-          "type": "temporalstability",
+          "type": "temporalstability", // watchedAttribute, not a Stat 
           "amount": 0.15,
-          "cooldown": 900 // 15 minutes
+          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         },
         {
-          "type": "bodytemperature",
+          "type": "bodytemperature", // behavior based, not a stat
           "amount": 4,
-          "cooldown": 0
+          "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
       "handbook": {
@@ -166,7 +166,7 @@
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Sage Shag will grant you a temporary boost to temoral stability and warm you in the cold."
+            "text": "Smoking Sage Shag will grant you a temporary boost to temporal stability and warm you in the cold."
           }
         ]
       },
