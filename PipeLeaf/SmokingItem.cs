@@ -79,15 +79,16 @@ namespace PipeLeaf
         {
             //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
 
-            if (handling == EnumHandHandling.PreventDefault) return;
-
-            if (byEntity.Controls.ShiftKey) return;
             if (byEntity.Swimming == true) return;
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
-            //byEntity.Api.Logger.Debug($"Smokable Slot found : {smokableSlot}");
+            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
 
-            if (smokableSlot == null) return;
+            if (smokableSlot == null || smokableSlot.Itemstack.StackSize < 4)
+            {
+                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("Must have at least four shag in inventory."));
+                return;
+            }
 
 
             if (byEntity.World.Side == EnumAppSide.Client)
@@ -152,7 +153,7 @@ namespace PipeLeaf
             if (byPlayer == null) return false;
             //byEntity.Api.Logger.Debug("Stepping Smoking Item interaction");
 
-            if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2)
+            if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2.5)
             {
                 // byEntity.Api.Logger.Debug("Seconds used greater than 2 and client side");
 
@@ -191,23 +192,22 @@ namespace PipeLeaf
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             if (smokableSlot == null) return;
 
-            if (secondsUsed > 6)
+            if (secondsUsed > 2.5)
             {
-                OveruseDamage(byEntity);
-            }
-            else if (secondsUsed > 3)
-            {
+                if (secondsUsed > 6)
+                {
+                    OveruseDamage(byEntity);
+                }
                 SmokableItem smokableItem = (SmokableItem) smokableSlot.Itemstack.Collectible;
                 smokableItem.Smoke(byEntity);
 
                 var ltud = new LongTermUseDebuff();
                 ltud.Apply(byEntity);
+
+                smokableSlot.TakeOut(4);
+                smokableSlot.MarkDirty();
+                (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
             }
-
-            smokableSlot.TakeOut(6);
-            smokableSlot.MarkDirty();
-            (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
-
         }
 
         private static void OveruseDamage(EntityAgent byEntity)
