@@ -81,6 +81,25 @@ namespace Pipeleaf
                     effectedEntity.WatchedAttributes.SetDouble("temporalStability", 1);
                 }
             }
+            else if (effectType == "intoxication")
+            {
+                float intox = effectedEntity.WatchedAttributes.GetFloat("intoxication");
+                effectedEntity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + effectAmount));
+
+            }
+            else if (effectType == "tiredness")
+            {
+                EntityBehaviorTiredness ebt = effectedEntity?.GetBehavior("tiredness") as EntityBehaviorTiredness;
+                ebt.Tiredness += effectAmount;
+            }
+            else if (effectType == "healthpoints")
+            {
+                effectedEntity.ReceiveDamage(new DamageSource()
+                {
+                    Source = EnumDamageSource.Internal,
+                    Type = EnumDamageType.Poison
+                }, effectAmount);
+            }
             else
             {
                 effectedEntity.Stats.Set(effectType, effectCode, effectAmount, false);

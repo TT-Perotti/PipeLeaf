@@ -2,7 +2,13 @@
   "code": "smokables",
   "variants": [
     {
+      "code": "catmint"
+    },
+    {
       "code": "orangemallow"
+    },
+    {
+      "code": "poisonoak"
     },
     {
       "code": "goldenpoppy"

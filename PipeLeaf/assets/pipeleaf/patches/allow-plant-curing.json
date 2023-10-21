@@ -7,7 +7,7 @@
     "value": {
       "@.*-(goldenpoppy|orangemallow|cornflower)-.*": {
         "meltingPoint": 150,
-        "meltingDuration": 30,
+        "meltingDuration": 8,
         "smeltedRatio": 1,
         "smeltingType": "cook",
         "smeltedStack": {
@@ -52,9 +52,9 @@
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/combustiblePropsByType",
     "value": {
-      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
+      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|poisonoak|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
         "meltingPoint": 150,
-        "meltingDuration": 30,
+        "meltingDuration": 8,
         "smeltedRatio": 1,
         "smeltingType": "cook",
         "smeltedStack": {

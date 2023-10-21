@@ -6,8 +6,8 @@
       {
         "type": "item",
         "code": "game:waterportion",
-        "litres": 2,
-        "consumeLitres": 1,
+        "litres": 10,
+        "consumeLitres": 10,
         "allowedVariants": [ "clean", "alcoholed" ]
       },
       {
