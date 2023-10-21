@@ -56,13 +56,35 @@ namespace PipeLeaf
                 switch (effect["type"].AsString())
                 {
                     case "temporalstability":
-                        message = "You feel focused and less inclined to insanity.";
+                        if ( effect["amount"].AsFloat() < 0 )
+                        {
+                            message = "The darkness surrounds you.";
+                        }
+                        else
+                        {
+                            message = "You feel focused and less inclined to insanity.";
+
+                        }
                         break;
                     case "bodytemperature":
                         message = "You feel warm inside.";
                         break;
                     case "hungerrate":
-                        message = "Your appetite is supressed.";
+                        if (effect["amount"].AsFloat() < 0)
+                        {
+                            message = "Your appetite is supressed.";
+                        }
+                        else
+                        {
+                            message = "Smoking made you hungrier.";
+
+                        }
+                        break;
+                    case "tiredness":
+                        message = "You feel a little napish.";
+                        break;
+                    case "intoxication":
+                        message = "You feel kind of woozy.";
                         break;
                 }
 
