@@ -1,0 +1,17 @@
+[
+  {
+    "comment": "add special pipe to bony soil drops",
+    "side": "Server",
+    "op": "add",
+    "path": "/attributes/panningDrops/@(bonysoil|bonysoil-.*)/0",
+    "file": "game:blocktypes/wood/pan.json",
+    "value": {
+      "type": "item",
+      "code": "pipeleaf:claysmokingpipe-diamond-diamond",
+      "chance": {
+        "avg": 0.0001,
+        "var": 0
+      }
+    }
+  }
+]
