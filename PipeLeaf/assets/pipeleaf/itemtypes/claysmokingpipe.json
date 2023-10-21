@@ -6,15 +6,33 @@
   "variantgroups": [
     {
       "code": "bowl-color",
-      "states": [ "fire", "blue" ]
+      "states": [ "fire", "blue", "glass", "diamond" ]
     },
     {
       "code": "stem-color",
-      "states": [ "fire", "blue" ]
+      "states": [ "fire", "blue", "glass", "diamond" ]
     }
+  ],
+  "allowedVariants": [
+    "*-fire-fire",
+    "*-fire-blue",
+    "*-blue-fire",
+    "*-blue-blue",
+    "*-glass-glass",
+    "*-diamond-diamond"
   ],
   "shape": { "base": "claysmokingpipe" },
   "texturesByType": {
+    "*-diamond-diamond": {
+      "bowl": { "base": "game:block/stone/gem/diamond" },
+      "stem": { "base": "game:block/stone/gem/diamond" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
+    },
+    "*-glass-glass": {
+      "bowl": { "base": "game:block/glass/blue" },
+      "stem": { "base": "game:block/glass/blue" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
+    },
     "*": {
       "bowl": { "base": "game:block/soil/{bowl-color}clay" },
       "stem": { "base": "game:block/soil/{stem-color}clay" },
@@ -27,24 +45,14 @@
     {
       "name": "GroundStorable",
       "properties": {
-        "layout": "WallHalves",
-        "wallOffY": 1,
-        "sprintKey": true,
-        "selectionBox": {
-          "x1": 0,
-          "y1": 0,
-          "z1": 0,
-          "x2": 1,
-          "y2": 0.1,
-          "z2": 1
-        },
+        "layout": "Quadrants",
         "collisionBox": {
           "x1": 0,
           "y1": 0,
           "z1": 0,
-          "x2": 0,
-          "y2": 0,
-          "z2": 0
+          "x2": 1,
+          "y2": 0.125,
+          "z2": 1
         }
       }
     }
@@ -64,16 +72,16 @@
     "displaycaseable": true,
     "onshelfTransform": {
       "translation": {
-        "x": -0,
-        "y": -0.1,
+        "x": 0,
+        "y": -0.25,
         "z": 0
       },
       "rotation": {
-        "x": -4,
-        "y": 146,
+        "x": 0,
+        "y": -133,
         "z": 0
       },
-      "scale": 0.69
+      "scale": 0.48
     },
     "onDisplayTransform": {
       "translation": {
@@ -90,15 +98,16 @@
     },
     "groundStorageTransform": {
       "translation": {
-        "x": -0.1,
-        "y": -0,
-        "z": 0.2
+        "x": 0,
+        "y": -0.24,
+        "z": 0.1
       },
       "rotation": {
         "x": 0,
         "y": -144,
         "z": 0
-      }
+      },
+      "scale": 0.5
     }
   },
   "groundTransform": {

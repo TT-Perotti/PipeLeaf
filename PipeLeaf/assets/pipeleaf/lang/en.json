@@ -53,8 +53,12 @@
   "item-smokingpipestem-titanium": "Titanium Smoking Pipe Stem",
   "item-smokingpipestem-uranium": "Uranium Smoking Pipe Stem",
   "item-smokingpipestem-zinc": "Zinc Smoking Pipe Stem",
+  "item-smokingpipe-special1-gold": "Ruby Smoking Pipe",
+  "item-smokingpipe-special2-gold": "Malachite Smoking Pipe",
 
   "item-claysmokingpipe-*": "Clay Smoking Pipe",
+  "item-claysmokingpipe-glass-glass": "Glass Smoking Pipe",
+  "item-claysmokingpipe-diamond-diamond": "Diamond Smoking Pipe",
   "item-claysmokingpipebowl-*-raw": "Raw Clay Smoking Pipe Bowl",
   "item-claysmokingpipebowl-*-fired": "Clay Smoking Pipe Bowl",
   "item-claysmokingpipestem-*-raw": "Raw Clay Smoking Pipe Stem",
@@ -83,7 +87,8 @@
   "item-smokable-ginseng-cured": "Fire-Cured Ginseng",
   "item-smokable-cornflower-cured": "Fire-Cured Cornflower",
   "item-smokable-goldenpoppy-cured": "Fire-Cured Golden Poppy",
-
+  "item-smokable-poisonoak-cured": "Fire-Cured Poison Oak",
+  "item-smokable-catmint-cured": "Fire-Cured Catmint",
 
   "item-smokable-chamomile-shag": "Chamomile Shag",
   "item-smokable-lavender-shag": "Lavender Shag",
@@ -107,8 +112,8 @@
   "item-smokable-ginseng-shag": "Ginseng Shag",
   "item-smokable-cornflower-shag": "Cornflower Shag",
   "item-smokable-goldenpoppy-shag": "Golden Poppy Shag",
-
-
+  "item-smokable-poisonoak-shag": "Poison Oak Shag",
+  "item-smokable-catmint-shag": "Catmint Shag",
 
   "item-smokable-weedbudstropical-cured": "Fire-Cured Weave Buds (Tropical)",
   "item-smokable-weedbudswhite-cured": "Fire-Cured Weave Buds (White)",

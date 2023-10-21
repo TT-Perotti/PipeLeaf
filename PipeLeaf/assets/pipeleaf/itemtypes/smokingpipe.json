@@ -5,19 +5,33 @@
   "variantgroups": [
     {
       "code": "bowl-material",
-      "states": [ "briarburl" ]
+      "states": [ "briarburl", "special1", "special2" ]
     },
     {
       "code": "stem-material",
       "loadFromProperties": "block/metal"
     }
   ],
+  "allowedVariants": ["*-briarburl-*", "*-special*-gold"],
   "shape": { "base": "smokingpipe" },
   "texturesByType": {
+    "smokingpipe-special2-*": {
+      "bowl": { "base": "game:block/stone/gem/malachite" },
+      "ring": { "base": "game:block/stone/gem/diamond" },
+      "stem": { "base": "game:block/glass/green" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
+    },
+    "smokingpipe-special1-*": {
+      "bowl": { "base": "game:block/stone/gem/ruby" },
+      "ring": { "base": "game:block/metal/ingot/gold" },
+      "stem": { "base": "game:block/stone/polishedrock/basalt" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
+    },
     "*": {
       "bowl": { "base": "item/smokingpipebowl/{bowl-material}" },
-      "material": { "base": "game:block/metal/ingot/{stem-material}" },
-      "herb":  { "base": "game:block/cloth/cloth-ruined"}
+      "ring": { "base": "item/smokingpipebowl/{bowl-material}" },
+      "stem": { "base": "game:block/metal/ingot/{stem-material}" },
+      "herb": { "base": "game:block/cloth/cloth-ruined" }
     }
   },
   "heldTpUseAnimation": "eat",
@@ -53,16 +67,16 @@
     "displaycaseable": true,
     "onshelfTransform": {
       "translation": {
-        "x": -0,
-        "y": -0.2,
-        "z": -0.1
+        "x": 0.2,
+        "y": -0.13,
+        "z": 0
       },
       "rotation": {
-        "x": 2,
-        "y": 53,
-        "z": -6
+        "x": -2,
+        "y": -40,
+        "z": -5
       },
-      "scale": 0.56
+      "scale": 0.75
     },
     "onDisplayTransform": {
       "translation": {
@@ -79,14 +93,15 @@
     "groundStorageTransform": {
       "translation": {
         "x": -0.1,
-        "y": -0,
-        "z": 0.2
+        "y": -0.14,
+        "z": 0.1
       },
       "rotation": {
         "x": 0,
         "y": -144,
         "z": 0
-      }
+      },
+      "scale": 0.72
     }
   },
   "groundTransform": {
