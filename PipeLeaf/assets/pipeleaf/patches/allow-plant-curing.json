@@ -5,7 +5,7 @@
     "file": "game:blocktypes/plant/flower",
     "path": "/combustiblePropsByType",
     "value": {
-      "@.*-(goldenpoppy|orangemallow|cornflower)-.*": {
+      "@.*-(catmint|goldenpoppy|orangemallow|cornflower)-.*": {
         "meltingPoint": 150,
         "meltingDuration": 8,
         "smeltedRatio": 1,
