@@ -1,0 +1,72 @@
+{
+  "code": "herbs",
+  "maxstacksize": 64,
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [ "pipeleaf" ]
+    }
+  ],
+  "materialDensity": 600,
+  "texture": { "base": "pipeleaf:item/herbs/pipeleaf" },
+    "creativeinventory": {
+      "general": [ "*" ],
+      "items": [ "*" ],
+      "wildcraft": [ "*" ]
+    },
+    "nutritionProps": {
+      "satiety": 20,
+      "foodcategory": "Vegetable"
+    },
+    "transitionablePropsByType": {
+      "*": [
+        {
+          "type": "Perish",
+          "freshHours": { "avg": 48 },
+          "transitionHours": { "avg": 12 },
+          "transitionedStack": {
+            "type": "item",
+            "code": "game:rot"
+          },
+          "transitionRatio": 0.25
+        }
+      ]
+    },
+    "combustiblePropsByType": {
+      "*": {
+        "meltingPoint": 150,
+        "meltingDuration": 8,
+        "smeltedRatio": 1,
+        "smeltingType": "cook",
+        "smeltedStack": {
+          "type": "item",
+          "code": "pipeleaf:smokable-{type}-cured"
+        },
+        "requiresContainer": false
+      }
+    },
+    "attributes": {
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 180,
+            "y": -45,
+            "z": 180
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    }
+  }
+  
