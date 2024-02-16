@@ -142,6 +142,7 @@ namespace PipeLeaf
                 EnumParticleModel.Quad
             );
             smokeHeld.SelfPropelled = true;
+            smokeHeld.WindAffected = true;
             smokeHeld.AddPos.Set(0.1, 0.1, 0.1);
 
             return smokeHeld;
@@ -170,7 +171,7 @@ namespace PipeLeaf
                     .Ahead(sideWays, 0, byEntity.Pos.Yaw + GameMath.PIHALF)
                 ;
                 SimpleParticleProperties smokeHeld = InitializeSmokeEffect();
-                smokeHeld.MinPos = pos.AddCopy(-0.05, 0.3, -0.05);
+                smokeHeld.MinPos = pos.AddCopy(-0.0, 0.3, -0.05);
                 byEntity.World.SpawnParticles(smokeHeld);
             }
             if (secondsUsed > 8)
