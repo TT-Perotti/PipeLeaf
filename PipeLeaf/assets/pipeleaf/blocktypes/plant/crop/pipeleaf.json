@@ -1,0 +1,192 @@
+﻿{
+  "code": "crop",
+  "class": "BlockCrop",
+  "behaviors": [ { "name": "Unstable" } ],
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [ "pipeleaf" ]
+    },
+    {
+      "code": "stage",
+      "states": [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+    }
+  ],
+  "creativeinventory": {
+    "general": [ "" ],
+    "plants": [ "" ]
+  },
+  "renderpass": "OpaqueNoCull",
+  "shape": { "base": "pipeleaf:block/plant/crop/pipeleaf/stage{stage}" },
+  "blockmaterial": "Plant",
+  "randomizeRotations": true,
+  "randomDrawOffset": true,
+  "attributes": {
+    "butterflyFeedByType": {
+      "*": false,
+      "*-9": true
+    },
+    "beeFeedByType": {
+      "*": false,
+      "*-9": true
+    },
+    "sitHeightByType": {
+      "*-4": 0.7,
+      "*-5": 0.9,
+      "*-6": 1.1,
+      "*-7": 1.3,
+      "*-8": 1.5,
+      "*-9": 1.7
+    },
+    "tickGrowthProbability": 0.05,
+    "handbook": {
+      "includeByType": {
+        "*-9": true,
+        "*": false
+      }
+    },
+    "overrideRandomDrawOffset": 14
+  },
+  "sideopaque": {
+    "all": false
+  },
+  "sidesolid": {
+    "all": false
+  },
+  "replaceable": 3000,
+  "lightAbsorption": 0,
+  "resistance": 0.5,
+  "sounds": {
+    "place": "block/plant",
+    "break": "block/plant",
+    "hit": "block/plant"
+  },
+  "rainPermeable": false,
+  "dropsbytype": {
+    "*-8": [
+      {
+        "type": "item",
+        "code": "pipeleaf:seeds-pipeleaf",
+        "quantity": { "avg": 1 }
+      },
+      {
+        "type": "item",
+        "code": "pipeleaf:herbs-pipeleaf",
+        "quantity": {
+          "avg": 2,
+          "var": 0.5
+        }
+      }
+    ],
+    "*-9": [
+      {
+        "type": "item",
+        "code": "pipeleaf:seeds-pipeleaf",
+        "quantity": { "avg": 1.2 }
+      },
+      {
+        "type": "item",
+        "code": "pipeleaf:herbs-pipeleaf",
+        "quantity": {
+          "avg": 6,
+          "var": 0.5
+        }
+      }
+    ],
+    "*": [
+      {
+        "type": "item",
+        "code": "pipeleaf:seeds-pipeleaf",
+        "quantity": { "avg": 0.7 }
+      }
+    ]
+  },
+  "cropProps": {
+    "requiredNutrient": "K",
+    "nutrientConsumption": 50,
+    "growthStages": 9,
+    "totalGrowthMonths": 3,
+    "coldDamageBelow": 8,
+    "heatDamageAbove": 48
+  },
+  "collisionbox": null,
+  "selectionBoxByType": {
+    "*-1": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 0.175,
+      "z2": 0.875
+    },
+    "*-2": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 0.3,
+      "z2": 0.875
+    },
+    "*-3": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 0.45,
+      "z2": 0.875
+    },
+    "*-4": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 0.625,
+      "z2": 0.875
+    },
+    "*-5": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 0.875,
+      "z2": 0.875
+    },
+    "*-6": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 1.0,
+      "z2": 0.875
+    },
+    "*-7": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 1.25,
+      "z2": 0.875
+    },
+    "*-8": {
+      "x1": 0.125,
+      "y1": -0.0625,
+      "z1": 0.125,
+      "x2": 0.875,
+      "y2": 1.5,
+      "z2": 0.875
+    },
+    "*-9": {
+      "x1": 0.115,
+      "y1": -0.0625,
+      "z1": 0.115,
+      "x2": 0.885,
+      "y2": 1.75,
+      "z2": 0.885
+    }
+  },
+  "materialDensity": 200,
+  "combustibleProps": {
+    "burnTemperature": 600,
+    "burnDuration": 10
+  }
+}

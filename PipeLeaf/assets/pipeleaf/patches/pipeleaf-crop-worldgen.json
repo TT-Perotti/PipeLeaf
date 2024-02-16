@@ -1,0 +1,23 @@
+[
+  {
+    "comment": "World gen properties of Pipeleaf",
+    "op": "add",
+    "file": "game:worldgen/blockpatches/crop",
+    "path": "/0",
+    "value": {
+      "comment": "Small patches of pipeleaf",
+      "blockCodes": [ "pipeleaf:crop-pipeleaf-3", "pipeleaf:crop-pipeleaf-5", "pipeleaf:crop-pipeleaf-7", "pipeleaf:crop-pipeleaf-9" ],
+      "minTemp": 26,
+      "maxTemp": 45,
+      "minRain": 0.7,
+      "maxRain": 1,
+      "minForest": 0.6,
+      "maxForest": 1,
+      "quantity": {
+        "avg": 3,
+        "var": 5
+      },
+      "chance": 0.04
+    }
+  }
+]
