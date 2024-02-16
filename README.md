@@ -25,9 +25,5 @@ The stem of the pipe is crafted separately in a smithing recipe and can use any 
 ### Clay Smoking Pipe
 The Clay Smoking Pipe is also crafted in two parts and each piece can be made out of different types of clay.  Fire the raw pieces and put them together to form the Clay Smoking Pipe.
 
-## TODOS:
-- Narrow down smokable plants
-- Allow plants to be configured to have different effects
-- glowing bowl effect while smoking
-- more pipe models and recipes
-- add custom pipes to luxury trader inventory
+### Cultivating Pipeleaf and Blending
+A new crop called Pipeleaf can be found in rainy temperate climates. Pipeleaf can be cultivated to produce Pipeleaf Shag. Using Pipeleaf Shag as a base, you can mix together two herb shags to produce a blend that combines some of the effects of both herbs!
