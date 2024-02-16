@@ -23,7 +23,7 @@
   },
   "grindingPropsByType": {
     "smokable-*-cured": {
-      "grindedStack": {
+      "GroundStack": {
         "type": "item",
         "stacksize": 1,
         "code": "smokable-{smokables}-shag"
@@ -129,11 +129,6 @@
         {
           "type": "tiredness",
           "amount": 5,
-          "cooldown": 0
-        },
-        {
-          "type": "temporalstability",
-          "amount": 0.15,
           "cooldown": 0
         }
       ],
@@ -254,19 +249,14 @@
     "smokable-sage-shag": {
       "smokableEffects": [
         {
-          "type": "intoxication",
-          "amount": 0.5,
-          "cooldown": 0
-        },
-        {
           "type": "temporalstability", // watchedAttribute, not a Stat 
           "amount": 0.15,
           "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         },
         {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
-          "cooldown": 0 // body temp maxes out and reduces naturally
+          "type": "intoxication",
+          "amount": 0.5,
+          "cooldown": 0
         }
       ],
       "handbook": {
@@ -435,14 +425,14 @@
     "smokable-marjoram-shag": {
       "smokableEffects": [
         {
-          "type": "tiredness",
-          "amount": 4,
-          "cooldown": 0
-        },
-        {
           "type": "hungerrate",
           "amount": -0.15,
           "cooldown": 900 // 15 minutes
+        },
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
         }
       ],
       "handbook": {
@@ -572,7 +562,6 @@
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
-            "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Thyme will boost temporal stability, and warms you in the cold."
           }
         ]
@@ -616,7 +605,6 @@
         "groupBy": [ "smokable-*-shag" ],
         "extraSections": [
           {
-            "title": "pipeleaf:handbook-item-effect",
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Poison Oak sounds like a bad idea."
           }
