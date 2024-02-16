@@ -45,26 +45,47 @@
 	  <Content Include="assets\**">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
+	  <Compile Remove="assets\pipeleaf\shapes\block\plant\crop\pipeleaf2\**" />
 	  <Compile Remove="NewFolder\**" />
+	  <Content Remove="assets\pipeleaf\shapes\block\plant\crop\pipeleaf2\**" />
+	  <EmbeddedResource Remove="assets\pipeleaf\shapes\block\plant\crop\pipeleaf2\**" />
 	  <EmbeddedResource Remove="NewFolder\**" />
+	  <None Remove="assets\pipeleaf\shapes\block\plant\crop\pipeleaf2\**" />
 	  <None Remove="NewFolder\**" />
 	  <Content Remove="assets\pipeleaf\SmokingBuffs.cs" />
 	  <None Remove="assets\pipeleaf\config\handbook\pipeleaf-guide.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\antlerpipe.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipe.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipebowl.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\blocktypes\plant\crop\pipeleaf.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\resources\seeds.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\shagblend.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\smokable.json" />
+	  <None Remove="assets\pipeleaf\patches\ag-trader-pipeleaf.json" />
 	  <None Remove="assets\pipeleaf\patches\allow-plant-curing.json" />
 	  <None Remove="assets\pipeleaf\patches\luxuries-trader.json" />
 	  <None Remove="assets\pipeleaf\patches\panning.json" />
+	  <None Remove="assets\pipeleaf\patches\pipeleaf-crop-worldgen.json" />
 	  <None Remove="assets\pipeleaf\patches\weaversweed.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipebowl.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipestem.json" />
+	  <None Remove="assets\pipeleaf\recipes\grid\antlerpipe.json" />
 	  <None Remove="assets\pipeleaf\recipes\grid\claysmokingpipe.json" />
+	  <None Remove="assets\pipeleaf\recipes\grid\shagblend.json" />
+	  <None Remove="assets\pipeleaf\worldproperties\item\blendable1.json" />
+	  <None Remove="assets\pipeleaf\worldproperties\item\blendable2.json" />
 	  <None Remove="assets\pipeleaf\worldproperties\item\smokables.json" />
+	  <None Remove="assets\utils\generate_blend_effects.py" />
+	  <None Remove="assets\utils\generate_blend_grid.py" />
 	  <Content Include="modinfo.json">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="assets\pipeleaf\textures\block\plant\crop\pipeleaf\" />
+	  <Folder Include="assets\pipeleaf\textures\item\resource\seeds\" />
 	</ItemGroup>
 
 </Project>
