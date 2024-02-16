@@ -1,0 +1,24 @@
+[
+  {
+    "ingredientPattern": "AK",
+    "ingredients": {
+      "A": {
+        "type": "item",
+        "code": "game:antler-*-09"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:antlerpipe",
+      "quantity": 1
+    }
+  }
+]
