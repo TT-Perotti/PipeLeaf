@@ -48,7 +48,7 @@
   {
     "comment": "make wildcraft herbs curable",
     "op": "add",
-    "dependsOn": [{"modid": "wildcraft"}],
+    "dependsOn": [ { "modid": "wildcraft" } ],
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/combustiblePropsByType",
     "value": {
@@ -70,6 +70,56 @@
     "op": "add",
     "dependsOn": [ { "modid": "wildcraft" } ],
     "file": "wildcraft:itemtypes/food/herbs",
+    "path": "/attributes/inFirePitPropsByType",
+    "value": {
+      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": -1.3,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0.850,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    }
+  },
+  {
+    "comment": "make wildcraft herbs curable",
+    "op": "add",
+    "dependsOn": [ { "modid": "wildcraftherb" } ],
+    "file": "wildcraftherb:itemtypes/food/herb",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|poisonoak|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
+        "meltingPoint": 150,
+        "meltingDuration": 8,
+        "smeltedRatio": 1,
+        "smeltingType": "cook",
+        "smeltedStack": {
+          "type": "item",
+          "code": "pipeleaf:smokable-{herbs}-cured"
+        },
+        "requiresContainer": false
+      }
+    }
+  },
+  {
+    "comment": "use firepit spit when cooking these flowers",
+    "op": "add",
+    "dependsOn": [ { "modid": "wildcraftherb" } ],
+    "file": "wildcraftherb:itemtypes/food/herb",
     "path": "/attributes/inFirePitPropsByType",
     "value": {
       "@.*-(chamomile|horehound|lavender|majoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|ginseng)": {
