@@ -75,14 +75,20 @@ namespace PipeLeaf
             return slot;
         }
 
+        public override string GetHeldTpUseAnimation(ItemSlot activeHotbarSlot, Entity byEntity)
+        {
+            return null;
+        }
+
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
 
             if (byEntity.Swimming == true) return;
+            byEntity.AnimManager.StartAnimation("smoke");
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
-            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+            // base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
 
             if (smokableSlot == null || smokableSlot.Itemstack.StackSize < 4)
             {
@@ -93,9 +99,7 @@ namespace PipeLeaf
 
             if (byEntity.World.Side == EnumAppSide.Client)
             {
-                {
-                    byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
-                }
+                byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
             }
 
             handling = EnumHandHandling.PreventDefault;
@@ -158,7 +162,7 @@ namespace PipeLeaf
             {
                 // byEntity.Api.Logger.Debug("Seconds used greater than 2 and client side");
 
-                float sideWays = 0.35f;
+                float sideWays = 0f;
                 IClientWorldAccessor world = byEntity.World as IClientWorldAccessor;
                 if (world.Player.Entity == byEntity && world.Player.CameraMode != EnumCameraMode.FirstPerson)
                 {
@@ -189,6 +193,7 @@ namespace PipeLeaf
             cracklingSound?.Stop();
             cracklingSound?.Dispose();
             cracklingSound = null;
+            byEntity.AnimManager.StopAnimation("smoke");
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             if (smokableSlot == null) return;
