@@ -12,7 +12,7 @@
       "loadFromProperties": "block/metal"
     }
   ],
-  "allowedVariants": ["*-briarburl-*", "*-special*-gold"],
+  "allowedVariants": [ "*-briarburl-*", "*-special*-gold" ],
   "shape": { "base": "smokingpipe" },
   "texturesByType": {
     "smokingpipe-special2-*": {
@@ -34,7 +34,6 @@
       "herb": { "base": "game:block/cloth/cloth-ruined" }
     }
   },
-  "heldTpUseAnimation": "eat",
   "heldTpIdleAnimation": "holdbothhands",
   "behaviors": [
     {

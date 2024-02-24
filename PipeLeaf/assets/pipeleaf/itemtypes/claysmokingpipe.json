@@ -39,7 +39,6 @@
       "herb": { "base": "game:block/cloth/cloth-ruined" }
     }
   },
-  "heldTpUseAnimation": "eat",
   "heldTpIdleAnimation": "holdbothhands",
   "behaviors": [
     {

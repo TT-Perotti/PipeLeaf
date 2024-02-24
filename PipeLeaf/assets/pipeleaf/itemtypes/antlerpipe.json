@@ -4,7 +4,6 @@
   "creativeinventory": { "general": [ "*" ] },
   "blockmaterial": "Bone",
   "shape": { "base": "pipeleaf:antlerpipe" },
-  "heldTpUseAnimation": "eat",
   "heldTpIdleAnimation": "holdbothhands",
   "behaviors": [
     {
