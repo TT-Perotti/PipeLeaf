@@ -11,8 +11,7 @@
   "texture": { "base": "pipeleaf:item/herbs/pipeleaf" },
     "creativeinventory": {
       "general": [ "*" ],
-      "items": [ "*" ],
-      "wildcraft": [ "*" ]
+      "items": [ "*" ]
     },
     "nutritionProps": {
       "satiety": 20,
