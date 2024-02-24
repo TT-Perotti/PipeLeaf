@@ -67,6 +67,7 @@
 	  <None Remove="assets\pipeleaf\patches\luxuries-trader.json" />
 	  <None Remove="assets\pipeleaf\patches\panning.json" />
 	  <None Remove="assets\pipeleaf\patches\pipeleaf-crop-worldgen.json" />
+	  <None Remove="assets\pipeleaf\patches\smoke-animation.json" />
 	  <None Remove="assets\pipeleaf\patches\weaversweed.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipebowl.json" />
 	  <None Remove="assets\pipeleaf\recipes\clayforming\claysmokingpipestem.json" />
