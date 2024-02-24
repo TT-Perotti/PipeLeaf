@@ -14,7 +14,7 @@
       "minForest": 0.6,
       "maxForest": 1,
       "quantity": {
-        "avg": 3,
+        "avg": 10,
         "var": 5
       },
       "chance": 0.04
