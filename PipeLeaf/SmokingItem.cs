@@ -85,7 +85,11 @@ namespace PipeLeaf
             //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
 
             if (byEntity.Swimming == true) return;
-            byEntity.AnimManager.StartAnimation("smoke");
+
+            List<string> fireOffhands = new List<string>();
+            fireOffhands.Add("torch");
+            fireOffhands.Add("candle");
+
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             // base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
@@ -95,7 +99,12 @@ namespace PipeLeaf
                 if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("Must have at least four shag in inventory."));
                 return;
             }
-
+            if (!fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart().ToString()))
+            {
+                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("Must have a candle or torch in your offhand."));
+                return;
+            }
+            byEntity.AnimManager.StartAnimation("smoke");
 
             if (byEntity.World.Side == EnumAppSide.Client)
             {
