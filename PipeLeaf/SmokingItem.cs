@@ -89,6 +89,9 @@ namespace PipeLeaf
             List<string> fireOffhands = new List<string>();
             fireOffhands.Add("torch");
             fireOffhands.Add("candle");
+            fireOffhands.Add("waxcandle");
+            fireOffhands.Add("soycandle");
+            fireOffhands.Add("lardcandle");
 
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
