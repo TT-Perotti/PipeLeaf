@@ -69,7 +69,7 @@
   "item-claysmokingpipestem-*-fired": "Clay Smoking Pipe Stem",
 
 
-"item-smokable-chamomile-cured": "Fire-Cured Chamomile",
+	"item-smokable-chamomile-cured": "Fire-Cured Chamomile",
   "item-smokable-lavender-cured": "Fire-Cured Lavender",
   "item-smokable-marjoram-cured": "Fire-Cured Marjoram",
   "item-smokable-marshmallow-cured": "Fire-Cured Marshmallow",
@@ -136,7 +136,7 @@
   "pipeleaf:block-crop-pipeleaf-9": "Mature Pipeleaf",
   "pipeleaf:item-antlerpipe": "Antlerpipe",
 
-  	"pipeleaf:item-shagblend-catmint-catmint": "Shagblend catmint (catmint)",
+  "pipeleaf:item-shagblend-catmint-catmint": "Shagblend catmint (catmint)",
 	"pipeleaf:item-shagblend-orangemallow-catmint": "Shagblend orangemallow (catmint)",
 	"pipeleaf:item-shagblend-poisonoak-catmint": "Shagblend poisonoak (catmint)",
 	"pipeleaf:item-shagblend-goldenpoppy-catmint": "Shagblend goldenpoppy (catmint)",
@@ -711,5 +711,7 @@
 	"pipeleaf:item-shagblend-angelica-ginseng": "Shagblend angelica (ginseng)",
 	"pipeleaf:item-shagblend-arnica-ginseng": "Shagblend arnica (ginseng)",
 	"pipeleaf:item-shagblend-horehound-ginseng": "Shagblend horehound (ginseng)",
-	"pipeleaf:item-shagblend-ginseng-ginseng": "Shagblend ginseng (ginseng)"
+	"pipeleaf:item-shagblend-ginseng-ginseng": "Shagblend ginseng (ginseng)",
+	"pipeleaf:no-shag": "Must have at least four shag in inventory.",
+	"pipeleaf:no-fire": "Must have a fire source in frame or in your left hand."
 }

@@ -1,15 +1,9 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using Vintagestory.API.Common;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
-using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -89,6 +83,9 @@ namespace PipeLeaf
             List<string> fireOffhands = new List<string>();
             fireOffhands.Add("torch");
             fireOffhands.Add("candle");
+            fireOffhands.Add("waxcandle");
+            fireOffhands.Add("soycandle");
+            fireOffhands.Add("lardcandle");
 
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
@@ -96,22 +93,36 @@ namespace PipeLeaf
 
             if (smokableSlot == null || smokableSlot.Itemstack.StackSize < 4)
             {
-                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("Must have at least four shag in inventory."));
+                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("pipeleaf:no-shag"));
                 return;
             }
-            if (!fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart().ToString()))
+
+            bool fireInOffhand = fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart().ToString());
+            bool selectedCandles = blockSel.Block is BlockBunchOCandles;
+            bool selectedTorch = blockSel.Block is BlockTorch;
+            bool torchLit = false;
+            if (selectedTorch)
             {
-                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("Must have a candle or torch in your offhand."));
+                BlockTorch selectedtorch = (BlockTorch)blockSel.Block;
+                torchLit = !selectedtorch.IsExtinct;
+            }
+
+            if (fireInOffhand || selectedCandles || (selectedTorch & torchLit))
+            {
+                byEntity.AnimManager.StartAnimation("smoke");
+
+                if (byEntity.World.Side == EnumAppSide.Client)
+                {
+                    byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
+                }
+
+                handling = EnumHandHandling.PreventDefault;
                 return;
             }
-            byEntity.AnimManager.StartAnimation("smoke");
-
-            if (byEntity.World.Side == EnumAppSide.Client)
             {
-                byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
+                ICoreClientAPI capi = api as ICoreClientAPI;
+                if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "nofire", Lang.Get("pipeleaf:no-fire"));
             }
-
-            handling = EnumHandHandling.PreventDefault;
         }
 
         private void PlayCrackleSound(float delay)
