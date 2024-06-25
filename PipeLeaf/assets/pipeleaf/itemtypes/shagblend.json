@@ -44,7 +44,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -366,7 +366,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -754,7 +754,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -768,7 +768,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -787,7 +787,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -806,7 +806,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -825,7 +825,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -844,7 +844,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -863,7 +863,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -882,7 +882,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount":-5,
           "cooldown": 0
         },
         {
@@ -901,7 +901,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -920,7 +920,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -939,7 +939,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -958,7 +958,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -972,7 +972,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -991,7 +991,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1010,7 +1010,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1024,7 +1024,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1043,7 +1043,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1062,7 +1062,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1081,7 +1081,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1100,7 +1100,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1119,7 +1119,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1138,7 +1138,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1157,7 +1157,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -1209,7 +1209,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -1521,7 +1521,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -1803,7 +1803,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -2155,7 +2155,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -2482,7 +2482,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -2899,7 +2899,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -3251,7 +3251,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -3518,7 +3518,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -3780,7 +3780,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -4097,7 +4097,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -4499,7 +4499,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -4766,7 +4766,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -5043,7 +5043,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -5410,7 +5410,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -5762,7 +5762,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -6029,7 +6029,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -6296,7 +6296,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -6563,7 +6563,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -6830,7 +6830,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -7097,7 +7097,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
@@ -7364,7 +7364,7 @@
         },
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         }
       ]
