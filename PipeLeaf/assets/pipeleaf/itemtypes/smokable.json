@@ -672,6 +672,20 @@
       }
     },
     "smokable-*-cured": {
+      "mortarProperties": {
+        "shapePath": "pipeleaf:shapes/block/mortar/smokable-mortar.json",
+        "texturePaths": [
+          {
+            "code": "base",
+            "path": "pipeleaf:item/smokable/cured"
+          }
+        ],
+        "groundStack": {
+          "type": "item",
+          "code": "smokable-{smokables}-shag"
+        },
+        "resultQuantity": 1
+      },
       "handbook": {
         "groupBy": [ "smokable-*-cured" ]
       },
