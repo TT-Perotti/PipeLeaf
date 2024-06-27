@@ -103,9 +103,9 @@ namespace PipeLeaf
                 return;
             }
 
-            bool fireInOffhand = fireOffhands.Contains(byEntity?.LeftHandItemSlot?.Itemstack?.Collectible?.Code.FirstCodePart().ToString());
-            bool selectedCandles = blockSel.Block is BlockBunchOCandles;
-            bool selectedTorch = blockSel.Block is BlockTorch;
+            bool fireInOffhand = fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible?.Code.FirstCodePart().ToString());
+            bool selectedCandles = blockSel?.Block is BlockBunchOCandles;
+            bool selectedTorch = blockSel?.Block is BlockTorch;
             bool torchLit = false;
             if (selectedTorch)
             {
@@ -238,7 +238,7 @@ namespace PipeLeaf
 
                 smokableSlot.TakeOut(4);
                 smokableSlot.MarkDirty();
-                (byEntity as EntityPlayer)?.Player?.InventoryManager.BroadcastHotbarSlot();
+                (byEntity as EntityPlayer).Player.InventoryManager.BroadcastHotbarSlot();
             }
         }
 
