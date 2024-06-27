@@ -62,6 +62,7 @@
 	  <None Remove="assets\pipeleaf\itemtypes\resources\seeds.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\shagblend.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\smokable.json" />
+	  <None Remove="assets\pipeleaf\lang\uk.json" />
 	  <None Remove="assets\pipeleaf\patches\ag-trader-pipeleaf.json" />
 	  <None Remove="assets\pipeleaf\patches\allow-plant-curing.json" />
 	  <None Remove="assets\pipeleaf\patches\luxuries-trader.json" />

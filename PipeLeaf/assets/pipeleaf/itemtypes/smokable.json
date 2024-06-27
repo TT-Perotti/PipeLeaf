@@ -712,20 +712,24 @@
       }
     }
   },
-  "transitionablePropsByType": {
-    "*": [
-      {
-        "type": "Perish",
-        "freshHours": { "avg": 336 },
-        "transitionHours": { "avg": 336 },
-        "transitionedStack": {
-          "type": "item",
-          "code": "game:rot"
-        },
-        "transitionRatio": 0.25
+  "transitionableProps": [
+    {
+      "type": "Perish",
+      "freshHoursByType": {
+        "*-cured": { "avg": 8640 },
+        "*-shag": { "avg": 8640 },
+        "*": { "avg": 336 }
+      },
+      "transitionHours": { "avg": 12 },
+      "transitionedStack": {
+        "type": "item",
+        "code": "game:rot"
+      },
+      "transitionRatioByType": {
+        "*": 1
       }
-    ]
-  },
+    }
+  ],
   "nutritionProps": {
     "satiety": 15,
     "foodcategory": "Vegetable"

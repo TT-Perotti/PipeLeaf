@@ -16,7 +16,7 @@
       "loadFromProperties": "pipeleaf:item/blendable2"
     }
   ],
-  "skipVariants": ["*-pipeleaf-*", "*-*-pipeleaf"],
+  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf" ],
   "textureByType": {
     "shagblend-*": { "base": "pipeleaf:item/smokable/shag" }
   },
@@ -7595,20 +7595,22 @@
       ]
     }
   },
-  "transitionablePropsByType": {
-    "*": [
-      {
-        "type": "Perish",
-        "freshHours": { "avg": 336 },
-        "transitionHours": { "avg": 336 },
-        "transitionedStack": {
-          "type": "item",
-          "code": "game:rot"
-        },
-        "transitionRatio": 0.25
+  "transitionableProps": [
+    {
+      "type": "Perish",
+      "freshHoursByType": {
+        "*": { "avg": 8640 }
+      },
+      "transitionHours": { "avg": 12 },
+      "transitionedStack": {
+        "type": "item",
+        "code": "game:rot"
+      },
+      "transitionRatioByType": {
+        "*": 1
       }
-    ]
-  },
+    }
+  ],
   "nutritionProps": {
     "satiety": 15,
     "foodcategory": "Vegetable"
