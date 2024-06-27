@@ -673,7 +673,7 @@
     },
     "smokable-*-cured": {
       "mortarProperties": {
-        "shapePath": "pipeleaf:shapes/block/mortar/smokable-mortar.json",
+        "shapePath": "ancienttools:shapes/block/mortar/resourceshapes/resource_ancienttools_bark_pine",
         "texturePaths": [
           {
             "code": "base",
@@ -682,7 +682,7 @@
         ],
         "groundStack": {
           "type": "item",
-          "code": "smokable-{smokables}-shag"
+          "code": "pipeleaf:smokable-{smokables}-shag"
         },
         "resultQuantity": 1
       },
