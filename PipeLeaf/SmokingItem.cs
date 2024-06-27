@@ -40,7 +40,7 @@ namespace PipeLeaf
 
                 foreach (CollectibleObject obj in api.World.Collectibles)
                 {
-                    if (obj.GetType() == typeof(SmokableItem))
+                    if (obj is SmokableItem)
                     {
                         stacks.Add(new ItemStack(obj));
                     }
@@ -64,7 +64,7 @@ namespace PipeLeaf
             byEntity.WalkInventory((invslot) =>
             {
                 if (invslot is ItemSlotCreative) return true;
-                if (invslot.Itemstack != null && invslot.Itemstack.Collectible.GetType() == typeof(SmokableItem))
+                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize > 4)
                 {
                     slot = invslot;
                     return false;
@@ -207,7 +207,6 @@ namespace PipeLeaf
             if (secondsUsed > 8)
             {
                 //byEntity.Api.Logger.Debug("Seconds used greater than 7, stopping interaction");
-
                 return false;
             }
 
@@ -221,16 +220,17 @@ namespace PipeLeaf
             cracklingSound = null;
             byEntity.AnimManager.StopAnimation("smoke");
 
-            ItemSlot smokableSlot = GetNextSmokable(byEntity);
-            if (smokableSlot == null) return;
-
             if (secondsUsed > 2.5)
             {
                 if (secondsUsed > 6)
                 {
                     OveruseDamage(byEntity);
                 }
-                SmokableItem smokableItem = (SmokableItem) smokableSlot.Itemstack.Collectible;
+
+                ItemSlot smokableSlot = GetNextSmokable(byEntity);
+                if (smokableSlot == null) return;
+                SmokableItem smokableItem = (SmokableItem)smokableSlot.Itemstack.Collectible;
+
                 smokableItem.Smoke(byEntity);
 
                 var ltud = new LongTermUseDebuff();
@@ -248,7 +248,7 @@ namespace PipeLeaf
                 {
                     Source = EnumDamageSource.Internal,
                     Type = EnumDamageType.Poison
-                }, 1);
+                }, Math.Abs(1));
             }
     }
 }
