@@ -51,7 +51,7 @@ namespace PipeLeaf
             );
             foreach (JsonObject effect in effects)
             {
-                string message = $"Your {effect["type"]} has been modified by {effect["amount"]}";
+                string message = $"Your {effect["type"]} stat has been modified by {effect["amount"]}";
 
                 switch (effect["type"].AsString())
                 {
