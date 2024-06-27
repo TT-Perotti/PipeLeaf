@@ -44,14 +44,15 @@ namespace PipeLeaf
 
 
             if (effects == null) { return; }
+            string langCode = Code.Domain + ":item-" + Code.Path;
             player?.SendMessage(
-                GlobalConstants.InfoLogChatGroup,
-                $"You feel the effects of smoking {Lang.Get(Code.ToString())}:",
+                GlobalConstants.GeneralChatGroup,
+                $"You feel the effects of smoking {Lang.Get(langCode)}:",
                 EnumChatType.Notification
             );
             foreach (JsonObject effect in effects)
             {
-                string message = $"Your {effect["type"]} has been modified by {effect["amount"]}";
+                string message = $"Your {effect["type"]} stat has been modified by {effect["amount"]}";
 
                 switch (effect["type"].AsString())
                 {
@@ -89,7 +90,7 @@ namespace PipeLeaf
                 }
 
                 player?.SendMessage(
-                    GlobalConstants.InfoLogChatGroup,
+                    GlobalConstants.GeneralChatGroup,
                     message,
                     EnumChatType.Notification
                 );

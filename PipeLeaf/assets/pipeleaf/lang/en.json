@@ -136,6 +136,9 @@
   "pipeleaf:block-crop-pipeleaf-9": "Mature Pipeleaf",
   "pipeleaf:item-antlerpipe": "Antlerpipe",
 
+	"pipeleaf:no-shag": "Must have at least four shag in inventory.",
+	"pipeleaf:no-fire": "Must have a fire source in frame or in your left hand.",
+
   "pipeleaf:item-shagblend-catmint-catmint": "Shagblend catmint (catmint)",
 	"pipeleaf:item-shagblend-orangemallow-catmint": "Shagblend orangemallow (catmint)",
 	"pipeleaf:item-shagblend-poisonoak-catmint": "Shagblend poisonoak (catmint)",

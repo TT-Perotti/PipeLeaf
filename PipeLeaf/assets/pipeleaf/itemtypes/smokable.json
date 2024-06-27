@@ -592,7 +592,7 @@
       "smokableEffects": [
         {
           "type": "healthpoints",
-          "amount": "-5",
+          "amount": -5,
           "cooldown": 0
         },
         {
@@ -672,6 +672,20 @@
       }
     },
     "smokable-*-cured": {
+      "mortarProperties": {
+        "shapePath": "ancienttools:shapes/block/mortar/resourceshapes/resource_ancienttools_bark_pine",
+        "texturePaths": [
+          {
+            "code": "base",
+            "path": "pipeleaf:item/smokable/cured"
+          }
+        ],
+        "groundStack": {
+          "type": "item",
+          "code": "pipeleaf:smokable-{smokables}-shag"
+        },
+        "resultQuantity": 1
+      },
       "handbook": {
         "groupBy": [ "smokable-*-cured" ]
       },

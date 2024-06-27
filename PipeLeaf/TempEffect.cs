@@ -97,8 +97,8 @@ namespace Pipeleaf
                 effectedEntity.ReceiveDamage(new DamageSource()
                 {
                     Source = EnumDamageSource.Internal,
-                    Type = EnumDamageType.Poison
-                }, effectAmount);
+                    Type = effectAmount > 0 ? EnumDamageType.Heal : EnumDamageType.Poison
+                }, Math.Abs(effectAmount));
             }
             else
             {
