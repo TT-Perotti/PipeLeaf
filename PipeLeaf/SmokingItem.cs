@@ -86,6 +86,7 @@ namespace PipeLeaf
             fireOffhands.Add("waxcandle");
             fireOffhands.Add("soycandle");
             fireOffhands.Add("lardcandle");
+            fireOffhands.Add("lantern");
 
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
