@@ -142,10 +142,8 @@
     }
   },
   {
-    "comment": "World gen properties of Tree Heath",
     "op": "add",
-    "file": "game:worldgen/blockpatches/flower",
-    "path": "/0",
+    "path": "/patches/-",
     "value": {
       "comment": "Rare small patches of Tree Heath",
       "blockCodes": [ "flower-treeheath-free" ],
@@ -162,6 +160,8 @@
         "avg": 6,
         "var": 3
       }
-    }
-  },
+    },
+    "file": "game:worldgen/blockpatches.json",
+    "side": "server"
+  }
 ]
