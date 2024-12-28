@@ -234,7 +234,7 @@ namespace PipeLeaf
         }
 
         private static void OveruseDamage(EntityAgent byEntity)
-            {
+        {
             IServerPlayer player = (
                 byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
                 as IServerPlayer);
@@ -245,11 +245,11 @@ namespace PipeLeaf
                 EnumChatType.Notification
                 );
 
-                byEntity.ReceiveDamage(new DamageSource()
+            byEntity.ReceiveDamage(new DamageSource()
                 {
                     Source = EnumDamageSource.Internal,
                     Type = EnumDamageType.Poison
                 }, Math.Abs(1));
-            }
+        }
     }
 }
