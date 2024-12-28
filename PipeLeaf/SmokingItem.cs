@@ -12,6 +12,7 @@ using Vintagestory.API.Server;
 using System.Net;
 using System.Runtime.CompilerServices;
 using Vintagestory.ServerMods;
+using System;
 
 namespace PipeLeaf
 {
@@ -199,11 +200,6 @@ namespace PipeLeaf
                 smokeHeld.MinPos = pos.AddCopy(-0.0, 0.3, -0.05);
                 byEntity.World.SpawnParticles(smokeHeld);
             }
-            if (secondsUsed > 8)
-            {
-                //byEntity.Api.Logger.Debug("Seconds used greater than 7, stopping interaction");
-                return false;
-            }
 
             return true;
         }
@@ -217,7 +213,7 @@ namespace PipeLeaf
 
             if (secondsUsed > 2.5)
             {
-                if (secondsUsed > 6)
+                if (secondsUsed > 7)
                 {
                     OveruseDamage(byEntity);
                 }
@@ -239,6 +235,16 @@ namespace PipeLeaf
 
         private static void OveruseDamage(EntityAgent byEntity)
             {
+            IServerPlayer player = (
+                byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
+                as IServerPlayer);
+
+            player?.SendMessage(
+                GlobalConstants.GeneralChatGroup,
+                $"...took too much",
+                EnumChatType.Notification
+                );
+
                 byEntity.ReceiveDamage(new DamageSource()
                 {
                     Source = EnumDamageSource.Internal,
