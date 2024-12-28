@@ -58,7 +58,7 @@ namespace PipeLeaf
             byEntity.WalkInventory((invslot) =>
             {
                 if (invslot is ItemSlotCreative) return true;
-                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize > 4)
+                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize >= 4)
                 {
                     slot = invslot;
                     return false;
