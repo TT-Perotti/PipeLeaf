@@ -56,6 +56,7 @@ namespace Pipeleaf
 
         public void SetTempStat()
         {
+            if (effectedEntity.World.Side != EnumAppSide.Server) { return; }
             IServerPlayer player = (
                 effectedEntity.World.PlayerByUid((effectedEntity as EntityPlayer).PlayerUID)
                 as IServerPlayer
