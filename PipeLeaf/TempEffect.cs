@@ -106,7 +106,7 @@ namespace Pipeleaf
 
             }
 
-            if (effectType == "maxhealthExtraPoints")
+            if (effectType == "maxhealthExtraPoints")  // what is this? Did I not implement a max health buff/debuff?
             {
                 effectedEntity.GetBehavior<EntityBehaviorHealth>()?.MarkDirty();  
             }
