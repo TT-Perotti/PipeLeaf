@@ -78,6 +78,7 @@ namespace PipeLeaf
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
+            handling = EnumHandHandling.PreventDefault;
 
             if (byEntity.Swimming == true) return;
 
@@ -118,7 +119,6 @@ namespace PipeLeaf
                     byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
                 }
 
-                handling = EnumHandHandling.PreventDefault;
                 return;
             }
             {
@@ -211,7 +211,10 @@ namespace PipeLeaf
             cracklingSound = null;
             byEntity.AnimManager.StopAnimation("smoke");
 
-            if (secondsUsed > 2.5)
+            if (secondsUsed > 2.5
+                && byEntity.World.Side == EnumAppSide.Server
+                && byEntity is EntityPlayer playerEntity
+                && playerEntity.Player is IServerPlayer serverPlayer)
             {
                 if (secondsUsed > 7)
                 {
@@ -221,7 +224,6 @@ namespace PipeLeaf
                 ItemSlot smokableSlot = GetNextSmokable(byEntity);
                 if (smokableSlot == null) return;
                 SmokableItem smokableItem = (SmokableItem)smokableSlot.Itemstack.Collectible;
-
                 smokableItem.Smoke(byEntity);
 
                 var ltud = new LongTermUseDebuff();
