@@ -1,0 +1,14 @@
+[
+  {
+    "comment": "add raw briar burl to tree hollows",
+    "op": "add",
+    "side": "Server",
+    "dependsOn": [ { "modid": "primitivesurvival" } ],
+    "file": "primitivesurvival:blocktypes/wood/treehollowgrown.json",
+    "path": "/attributes/primitivesurvival/treeHollowContentsByHollowType/all/0",
+    "value": {
+      "code": "pipeleaf:item-briarburl-raw",
+      "amount": 1
+    }
+  }
+]
