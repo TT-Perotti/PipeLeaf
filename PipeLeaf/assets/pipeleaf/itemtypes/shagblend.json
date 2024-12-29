@@ -393,11 +393,6 @@
     "shagblend-orangemallow-cornflower": {
       "smokableEffects": [
         {
-          "type": "intoxication",
-          "amount": 0.15,
-          "cooldown": 0
-        },
-        {
           "type": "hungerrate",
           "amount": -0.15,
           "cooldown": 900
@@ -478,11 +473,6 @@
     "shagblend-orangemallow-mint": {
       "smokableEffects": [
         {
-          "type": "intoxication",
-          "amount": 0.15,
-          "cooldown": 0
-        },
-        {
           "type": "hungerrate",
           "amount": -0.15,
           "cooldown": 900
@@ -529,11 +519,6 @@
     },
     "shagblend-orangemallow-sage": {
       "smokableEffects": [
-        {
-          "type": "intoxication",
-          "amount": 0.15,
-          "cooldown": 0
-        },
         {
           "type": "hungerrate",
           "amount": -0.15,
@@ -586,11 +571,6 @@
     },
     "shagblend-orangemallow-thyme": {
       "smokableEffects": [
-        {
-          "type": "intoxication",
-          "amount": 0.15,
-          "cooldown": 0
-        },
         {
           "type": "hungerrate",
           "amount": -0.15,
