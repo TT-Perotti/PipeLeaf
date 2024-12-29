@@ -8,22 +8,34 @@
       "states": [ "pipeleaf" ]
     }
   ],
-  "texture": { "base": "pipeleaf:item/resource/seeds/pipeleaf" },
+  "shape": { "base": "game:item/resource/seeds/seedbag" },
+  "textures": {
+    "seed": { "base": "pipeleaf:item/resource/seeds/pipeleaf" }
+  },
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]
   },
-  "fpHandTransform": {
+  "tpHandTransform": {
+    "rotation": {
+      "x": -89,
+      "y": -11,
+      "z": -78
+    },
+    "scale": 0.36
+  },
+  "guiTransform": {
     "translation": {
-      "x": 0,
-      "y": 0,
+      "x": -18,
+      "y": -18,
       "z": 0
     },
     "rotation": {
-      "x": 180,
-      "y": 90,
-      "z": 13
-    }
+      "x": -24,
+      "y": 33,
+      "z": -180
+    },
+    "scale": 1.92
   },
   "materialDensity": 450
 }
