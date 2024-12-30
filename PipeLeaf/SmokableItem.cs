@@ -33,17 +33,17 @@ namespace PipeLeaf
 
         public void Smoke(EntityAgent entity)
         {
-            IServerPlayer player = (
-                entity.World.PlayerByUid((entity as EntityPlayer).PlayerUID)
-                as IServerPlayer
-            );
+            entity.World.Api.Logger.Debug($"Smoking {Code}");
+            entity.World.Api.Logger.Debug($"Smoking effects: {effects.ToString()}");
 
-            //entity.World.Api.Logger.Debug($"Smoking {Code}");
-            //entity.World.Api.Logger.Debug($"Smoking Attributes: {Attributes}");
-            //entity.World.Api.Logger.Debug($"Smoking effects: {effects}");
-
-
+            // why are effects coming in null?
             if (effects == null) { return; }
+
+            entity.World.Api.Logger.Debug($"Effects not null");
+
+
+            IServerPlayer player = (entity as EntityPlayer).Player as IServerPlayer;
+
             string langCode = Code.Domain + ":item-" + Code.Path;
             player?.SendMessage(
                 GlobalConstants.GeneralChatGroup,

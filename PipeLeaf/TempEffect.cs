@@ -56,6 +56,7 @@ namespace Pipeleaf
 
         public void SetTempStat()
         {
+            if (effectedEntity.World.Side != EnumAppSide.Server) { return; }
             IServerPlayer player = (
                 effectedEntity.World.PlayerByUid((effectedEntity as EntityPlayer).PlayerUID)
                 as IServerPlayer
@@ -106,7 +107,7 @@ namespace Pipeleaf
 
             }
 
-            if (effectType == "maxhealthExtraPoints")
+            if (effectType == "maxhealthExtraPoints")  // what is this? Did I not implement a max health buff/debuff?
             {
                 effectedEntity.GetBehavior<EntityBehaviorHealth>()?.MarkDirty();  
             }

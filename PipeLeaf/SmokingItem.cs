@@ -12,6 +12,7 @@ using Vintagestory.API.Server;
 using System.Net;
 using System.Runtime.CompilerServices;
 using Vintagestory.ServerMods;
+using System;
 
 namespace PipeLeaf
 {
@@ -58,7 +59,7 @@ namespace PipeLeaf
             byEntity.WalkInventory((invslot) =>
             {
                 if (invslot is ItemSlotCreative) return true;
-                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize > 4)
+                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize >= 4)
                 {
                     slot = invslot;
                     return false;
@@ -77,6 +78,7 @@ namespace PipeLeaf
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             //byEntity.Api.Logger.Debug("Starting Smoking Item interaction");
+            handling = EnumHandHandling.PreventDefault;
 
             if (byEntity.Swimming == true) return;
 
@@ -86,6 +88,7 @@ namespace PipeLeaf
             fireOffhands.Add("waxcandle");
             fireOffhands.Add("soycandle");
             fireOffhands.Add("lardcandle");
+            fireOffhands.Add("lantern");
 
 
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
@@ -99,6 +102,7 @@ namespace PipeLeaf
 
             bool fireInOffhand = fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible?.Code.FirstCodePart().ToString());
             bool selectedCandles = blockSel?.Block is BlockBunchOCandles;
+            bool selectedLantern = blockSel?.Block is BlockLantern; 
             bool selectedTorch = blockSel?.Block is BlockTorch;
             bool torchLit = false;
             if (selectedTorch)
@@ -107,7 +111,7 @@ namespace PipeLeaf
                 torchLit = !selectedtorch.IsExtinct;
             }
 
-            if (fireInOffhand || selectedCandles || (selectedTorch & torchLit))
+            if (fireInOffhand || selectedCandles || selectedLantern || (selectedTorch & torchLit))
             {
                 byEntity.AnimManager.StartAnimation("smoke");
 
@@ -116,7 +120,6 @@ namespace PipeLeaf
                     byEntity.World.RegisterCallback(PlayCrackleSound, 1000);
                 }
 
-                handling = EnumHandHandling.PreventDefault;
                 return;
             }
             {
@@ -198,11 +201,6 @@ namespace PipeLeaf
                 smokeHeld.MinPos = pos.AddCopy(-0.0, 0.3, -0.05);
                 byEntity.World.SpawnParticles(smokeHeld);
             }
-            if (secondsUsed > 8)
-            {
-                //byEntity.Api.Logger.Debug("Seconds used greater than 7, stopping interaction");
-                return false;
-            }
 
             return true;
         }
@@ -214,9 +212,12 @@ namespace PipeLeaf
             cracklingSound = null;
             byEntity.AnimManager.StopAnimation("smoke");
 
-            if (secondsUsed > 2.5)
+            if (secondsUsed > 2.5
+                && byEntity.World.Side == EnumAppSide.Server
+                && byEntity is EntityPlayer playerEntity
+                && playerEntity.Player is IServerPlayer serverPlayer)
             {
-                if (secondsUsed > 6)
+                if (secondsUsed > 7)
                 {
                     OveruseDamage(byEntity);
                 }
@@ -224,7 +225,6 @@ namespace PipeLeaf
                 ItemSlot smokableSlot = GetNextSmokable(byEntity);
                 if (smokableSlot == null) return;
                 SmokableItem smokableItem = (SmokableItem)smokableSlot.Itemstack.Collectible;
-
                 smokableItem.Smoke(byEntity);
 
                 var ltud = new LongTermUseDebuff();
@@ -237,12 +237,22 @@ namespace PipeLeaf
         }
 
         private static void OveruseDamage(EntityAgent byEntity)
-            {
-                byEntity.ReceiveDamage(new DamageSource()
+        {
+            IServerPlayer player = (
+                byEntity.World.PlayerByUid((byEntity as EntityPlayer).PlayerUID)
+                as IServerPlayer);
+
+            player?.SendMessage(
+                GlobalConstants.GeneralChatGroup,
+                $"...took too much",
+                EnumChatType.Notification
+                );
+
+            byEntity.ReceiveDamage(new DamageSource()
                 {
                     Source = EnumDamageSource.Internal,
                     Type = EnumDamageType.Poison
                 }, Math.Abs(1));
-            }
+        }
     }
 }
