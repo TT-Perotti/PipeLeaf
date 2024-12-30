@@ -3,8 +3,8 @@
     "comment": "add pipeleaf seeds to ag trader",
     "side": "Server",
     "op": "add",
-    "path": "/attributes/tradeProps/selling/list/0",
-    "file": "game:entities/humanoid/trader-agriculture.json",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
     "value": {
       "code": "pipeleaf:seeds-pipeleaf",
       "type": "item",
