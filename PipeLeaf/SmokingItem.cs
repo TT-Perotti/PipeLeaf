@@ -102,6 +102,7 @@ namespace PipeLeaf
 
             bool fireInOffhand = fireOffhands.Contains(byEntity.LeftHandItemSlot?.Itemstack?.Collectible?.Code.FirstCodePart().ToString());
             bool selectedCandles = blockSel?.Block is BlockBunchOCandles;
+            bool selectedLantern = blockSel?.Block is BlockLantern; 
             bool selectedTorch = blockSel?.Block is BlockTorch;
             bool torchLit = false;
             if (selectedTorch)
@@ -110,7 +111,7 @@ namespace PipeLeaf
                 torchLit = !selectedtorch.IsExtinct;
             }
 
-            if (fireInOffhand || selectedCandles || (selectedTorch & torchLit))
+            if (fireInOffhand || selectedCandles || selectedLantern || (selectedTorch & torchLit))
             {
                 byEntity.AnimManager.StartAnimation("smoke");
 
