@@ -1,0 +1,54 @@
+{
+  "code": "curedblend",
+  "enabled": true,
+  // "classByType": { "*-shag": "SmokableItem" },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "materialDensity": 300,
+  "maxstacksize": 64,
+  "variantgroups": [
+    {
+      "loadFromProperties": "pipeleaf:item/blendable1"
+    },
+    {
+      "loadFromProperties": "pipeleaf:item/blendable2"
+    }
+  ],
+  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf" ],
+  "textureByType": {
+    "curedblend-*": { "base": "pipeleaf:item/smokable/cured" }
+  },
+  "grindingPropsByType": {
+    "curedblend-*": {
+      "GroundStack": {
+        "type": "item",
+        "stacksize": 1,
+        "code": "pipeleaf:shagblend-{ingredient1}-{ingredient2}"
+      }
+    }
+  },
+  "transitionableProps": [
+    {
+      "type": "Perish",
+      "freshHoursByType": {
+        "*-cured": { "avg": 8640 },
+        "*-shag": { "avg": 8640 },
+        "*": { "avg": 336 }
+      },
+      "transitionHours": { "avg": 12 },
+      "transitionedStack": {
+        "type": "item",
+        "code": "game:rot"
+      },
+      "transitionRatioByType": {
+        "*": 1
+      }
+    }
+  ],
+  "nutritionProps": {
+    "satiety": 15,
+    "foodcategory": "Vegetable"
+  }
+}
