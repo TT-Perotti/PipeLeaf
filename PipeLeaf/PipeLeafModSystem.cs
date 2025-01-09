@@ -21,6 +21,7 @@ namespace PipeLeaf
         public override void StartServerSide(ICoreServerAPI api)
         {
             api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
+            api.World.Logger.StoryEvent("The smoke ascending...");
         }
 
         public void ResetSmokingEffectsOnDeath(IServerPlayer player, DamageSource damageSource)
