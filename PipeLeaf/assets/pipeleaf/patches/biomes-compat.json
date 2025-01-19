@@ -1,0 +1,18 @@
+[
+  {
+    "file": "pipeleaf:blocktypes/plant/crop/pipeleaf.json",
+    "op": "addmerge",
+    "path": "/attributes",
+    "side": "Server",
+    "value": {
+      "biorealm": [
+        "pacific nearctic",
+        "atlantic nearctic",
+        "pacific neotropic",
+        "atlantic neotropic"
+      ],
+      "bioriver": "both"
+    },
+    "dependsOn": [ { "modid": "biomes" } ]
+  }
+]
