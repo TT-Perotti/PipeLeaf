@@ -1,0 +1,34 @@
+[
+  {
+    "file": "pipeleaf:blocktypes/plant/crop/pipeleaf.json",
+    "op": "addmerge",
+    "path": "/attributes",
+    "side": "Server",
+    "value": {
+      "biorealm": [
+        "pacific nearctic",
+        "atlantic nearctic",
+        "pacific neotropic",
+        "atlantic neotropic"
+      ],
+      "bioriver": "both"
+    },
+    "dependsOn": [ { "modid": "biomes" } ]
+  },
+  {
+    "op": "addmerge",
+    "path": "/BlockPatchBiomes",
+    "file": "biomes:config/biomes2.json",
+    "value": {
+      "*-treeheath-*": {
+        "biorealm": [
+          "atlantic palearctic",
+          "central palearctic",
+          "atlantic neotropic"
+        ],
+        "bioriver": "both"
+      }
+    },
+    "dependsOn": [ { "modid": "biomes" } ]
+  }
+]
