@@ -104,14 +104,21 @@ namespace PipeLeaf
             bool selectedCandles = blockSel?.Block is BlockBunchOCandles;
             bool selectedLantern = blockSel?.Block is BlockLantern; 
             bool selectedTorch = blockSel?.Block is BlockTorch;
+            bool selectedFirepit = blockSel?.Block is BlockFirepit;
             bool torchLit = false;
+            bool fireLit = false;
             if (selectedTorch)
             {
                 BlockTorch selectedtorch = (BlockTorch)blockSel.Block;
                 torchLit = !selectedtorch.IsExtinct;
             }
+            if (selectedFirepit)
+            {
+                BlockFirepit selectedpit = (BlockFirepit)blockSel.Block;
+                fireLit = !selectedpit.IsExtinct;
+            }
 
-            if (fireInOffhand || selectedCandles || selectedLantern || (selectedTorch & torchLit))
+            if (fireInOffhand || selectedCandles || selectedLantern || torchLit || fireLit)
             {
                 byEntity.AnimManager.StartAnimation("smoke");
 

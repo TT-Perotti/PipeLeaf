@@ -511,6 +511,11 @@
           "type": "intoxication",
           "amount": 0.2,
           "cooldown": 0
+        },
+        {
+          "type": "bodytemperature", // behavior based, not a stat
+          "amount": 4,
+          "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
       "handbook": {
