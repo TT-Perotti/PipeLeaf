@@ -14,21 +14,5 @@
       "bioriver": "both"
     },
     "dependsOn": [ { "modid": "biomes" } ]
-  },
-  {
-    "op": "addmerge",
-    "path": "/BlockPatchBiomes",
-    "file": "biomes:config/biomes2.json",
-    "value": {
-      "*-treeheath-*": {
-        "biorealm": [
-          "atlantic palearctic",
-          "central palearctic",
-          "atlantic neotropic"
-        ],
-        "bioriver": "both"
-      }
-    },
-    "dependsOn": [ { "modid": "biomes" } ]
   }
 ]

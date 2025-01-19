@@ -163,5 +163,22 @@
     },
     "file": "game:worldgen/blockpatches.json",
     "side": "server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/BlockPatchBiomes",
+    "file": "biomes:config/biomes2.json",
+    "side": "server",
+    "value": {
+      "flower-treeheath-*": {
+        "biorealm": [
+          "atlantic palearctic",
+          "central palearctic",
+          "atlantic neotropic"
+        ],
+        "bioriver": "both"
+      }
+    },
+    "dependsOn": [ { "modid": "biomes" } ]
   }
 ]
