@@ -22,6 +22,8 @@ namespace PipeLeaf
 
         WorldInteraction[] interactions;
 
+        private static int required_shag = 2;
+
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
@@ -59,7 +61,7 @@ namespace PipeLeaf
             byEntity.WalkInventory((invslot) =>
             {
                 if (invslot is ItemSlotCreative) return true;
-                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize >= 4)
+                if (invslot.Itemstack != null && invslot.Itemstack.Collectible is SmokableItem && invslot.Itemstack.StackSize >= required_shag)
                 {
                     slot = invslot;
                     return false;
@@ -94,7 +96,7 @@ namespace PipeLeaf
             ItemSlot smokableSlot = GetNextSmokable(byEntity);
             // base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
 
-            if (smokableSlot == null || smokableSlot.Itemstack.StackSize < 4)
+            if (smokableSlot == null || smokableSlot.Itemstack.StackSize < 2)
             {
                 if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "noshag", Lang.Get("pipeleaf:no-shag"));
                 return;
@@ -187,6 +189,11 @@ namespace PipeLeaf
             IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
             if (byPlayer == null) return false;
             //byEntity.Api.Logger.Debug("Stepping Smoking Item interaction");
+            
+            ItemSlot smokableSlot = GetNextSmokable(byEntity);
+
+            if (smokableSlot == null || smokableSlot.Itemstack.StackSize < required_shag)
+                return false;
 
             if (byEntity.World.Side == EnumAppSide.Client && secondsUsed > 2.5)
             {
@@ -237,7 +244,7 @@ namespace PipeLeaf
                 var ltud = new LongTermUseDebuff();
                 ltud.Apply(byEntity);
 
-                smokableSlot.TakeOut(4);
+                smokableSlot.TakeOut(required_shag);
                 smokableSlot.MarkDirty();
                 (byEntity as EntityPlayer).Player.InventoryManager.BroadcastHotbarSlot();
             }
@@ -251,7 +258,7 @@ namespace PipeLeaf
 
             player?.SendMessage(
                 GlobalConstants.GeneralChatGroup,
-                $"...took too much",
+                $"...too much, too much",
                 EnumChatType.Notification
                 );
 
