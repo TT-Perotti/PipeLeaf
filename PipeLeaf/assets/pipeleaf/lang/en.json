@@ -718,6 +718,4 @@
 	"pipeleaf:item-shagblend-arnica-ginseng": "Shagblend arnica (ginseng)",
 	"pipeleaf:item-shagblend-horehound-ginseng": "Shagblend horehound (ginseng)",
 	"pipeleaf:item-shagblend-ginseng-ginseng": "Shagblend ginseng (ginseng)",
-	"pipeleaf:no-shag": "Must have at least four shag in inventory.",
-	"pipeleaf:no-fire": "Must have a fire source in frame or in your left hand."
 }
