@@ -140,7 +140,7 @@
   "pipeleaf:block-crop-pipeleaf-9": "Mature Pipeleaf",
   "pipeleaf:item-antlerpipe": "Antlerpipe",
 
-	"pipeleaf:no-shag": "Must have at least four shag in inventory.",
+	"pipeleaf:no-shag": "Must have at least two shag in inventory.",
 	"pipeleaf:no-fire": "Must have a fire source in frame or in your left hand.",
 
   "pipeleaf:item-shagblend-catmint-catmint": "Shagblend catmint (catmint)",
@@ -618,7 +618,6 @@
 	"pipeleaf:item-shagblend-mugwort-yarrow": "Shagblend mugwort (yarrow)",
 	"pipeleaf:item-shagblend-chicory-yarrow": "Shagblend chicory (yarrow)",
 	"pipeleaf:item-shagblend-marigold-yarrow": "Shagblend marigold (yarrow)",
-	"pipeleaf:item-shagblend-yarrow-yarrow": "Shagblend yarrow (yarrow)",
 	"pipeleaf:item-shagblend-angelica-yarrow": "Shagblend angelica (yarrow)",
 	"pipeleaf:item-shagblend-arnica-yarrow": "Shagblend arnica (yarrow)",
 	"pipeleaf:item-shagblend-horehound-yarrow": "Shagblend horehound (yarrow)",
@@ -719,6 +718,4 @@
 	"pipeleaf:item-shagblend-arnica-ginseng": "Shagblend arnica (ginseng)",
 	"pipeleaf:item-shagblend-horehound-ginseng": "Shagblend horehound (ginseng)",
 	"pipeleaf:item-shagblend-ginseng-ginseng": "Shagblend ginseng (ginseng)",
-	"pipeleaf:no-shag": "Must have at least four shag in inventory.",
-	"pipeleaf:no-fire": "Must have a fire source in frame or in your left hand."
 }
