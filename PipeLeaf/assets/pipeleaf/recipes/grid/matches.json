@@ -1,0 +1,27 @@
+[
+  {
+    "ingredientPattern": "K,A,F",
+    "ingredients": {
+      "A": {
+        "type": "block",
+        "code": "game:torch-basic-extinct-up"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      },
+      "F": {
+        "type": "item",
+        "code": "game:flint"
+      }
+    },
+    "width": 1,
+    "height": 3,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:match",
+      "quantity": 3
+    }
+  }
+]
