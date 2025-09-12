@@ -1,7 +1,6 @@
 {
   "code": "curedblend",
   "enabled": true,
-  // "classByType": { "*-shag": "SmokableItem" },
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]

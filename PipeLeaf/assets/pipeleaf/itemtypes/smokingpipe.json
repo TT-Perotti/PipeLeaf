@@ -1,6 +1,6 @@
 {
   "code": "smokingpipe",
-  "class": "SmokingItem",
+  "class": "WearablePipe",
   "creativeinventory": { "general": [ "*" ] },
   "variantgroups": [
     {
@@ -13,28 +13,38 @@
     }
   ],
   "allowedVariants": [ "*-briarburl-*", "*-special*-gold" ],
-  "shape": { "base": "smokingpipe" },
+  "shape": { "base": "wearables/pipe_scaled" },
   "texturesByType": {
     "smokingpipe-special2-*": {
-      "bowl": { "base": "game:block/stone/gem/malachite" },
-      "ring": { "base": "game:block/stone/gem/diamond" },
-      "stem": { "base": "game:block/glass/green" },
-      "herb": { "base": "game:block/cloth/cloth-ruined" }
+      "seraph": { "base": "game:block/transparent" },
+      "pipebowl": { "base": "game:block/stone/gem/malachite" },
+      "pipering": { "base": "game:block/stone/gem/diamond" },
+      "pipestem": { "base": "game:block/glass/green" },
+      "pipeherb": { "base": "game:block/cloth/cloth-ruined" },
+      "pipeblank": { "base": "game:block/transparent" }
     },
     "smokingpipe-special1-*": {
-      "bowl": { "base": "game:block/stone/gem/ruby" },
-      "ring": { "base": "game:block/metal/ingot/gold" },
-      "stem": { "base": "game:block/stone/polishedrock/basalt" },
-      "herb": { "base": "game:block/cloth/cloth-ruined" }
+      "seraph": { "base": "game:block/transparent" },
+      "pipebowl": { "base": "game:block/stone/gem/ruby" },
+      "pipering": { "base": "game:block/metal/ingot/gold" },
+      "pipestem": { "base": "game:block/stone/polishedrock/basalt" },
+      "pipeherb": { "base": "game:block/cloth/cloth-ruined" },
+      "pipeblank": { "base": "game:block/transparent" }
     },
     "*": {
-      "bowl": { "base": "item/smokingpipebowl/{bowl-material}" },
-      "ring": { "base": "item/smokingpipebowl/{bowl-material}" },
-      "stem": { "base": "game:block/metal/ingot/{stem-material}" },
-      "herb": { "base": "game:block/cloth/cloth-ruined" }
+      "seraph": {
+        "base": "game:block/transparent"
+      },
+      "pipebowl": { "base": "item/smokingpipebowl/briarburl" },
+      "pipering": { "base": "item/smokingpipebowl/briarburl" },
+      "pipestem": { "base": "game:block/metal/ingot/{stem-material}" },
+      "pipeherb": { "base": "game:block/cloth/cloth-ruined" },
+      "pipeblank": {
+        "base": "game:block/transparent"
+      }
     }
   },
-  "heldTpIdleAnimation": "holdbothhands",
+  "heldTpIdleAnimation": "holdunderarm",
   "behaviors": [
     {
       "name": "GroundStorable",
@@ -51,13 +61,17 @@
       }
     }
   ],
+  "storageFlags": 128,
   "attributes": {
+    "clothescategory": "face",
+    "wearableAttachment": true,
     "handbook": {
+      "include": true,
       "groupBy": [ "smokingpipe-*" ],
       "extraSections": [
         {
-          "title": "handbook-item-use",
-          "text": "Hold right mouse button. If you have smokable shag in your inventory, they be consumed. Don't inhale too long though or you will take damage!"
+          "title": "pipeleaf:smokingpipe-handbook-help-title",
+          "text": "pipeleaf:smokingpipe-handbook-help-text"
         }
       ]
     },
@@ -123,26 +137,26 @@
   },
   "tpHandTransform": {
     "translation": {
-      "x": -1.5,
-      "y": -0.9,
-      "z": -0.9
+      "x": 0.4,
+      "y": -0.7,
+      "z": -0.3
     },
     "rotation": {
-      "x": 74,
+      "x": -121,
       "y": 5,
       "z": -100
     },
-    "scale": 0.58
+    "scale": 0.88
   },
   "guiTransform": {
     "translation": {
-      "x": -7,
-      "y": 0,
+      "x": -19,
+      "y": 139,
       "z": 0
     },
     "rotation": {
       "x": 156,
-      "y": 180,
+      "y": 27,
       "z": -21
     },
     "origin": {
@@ -150,7 +164,7 @@
       "y": 0.1,
       "z": 0.5
     },
-    "scale": 2.98
+    "scale": 4.27
   },
   "fpHandTransform": {
     "translation": {

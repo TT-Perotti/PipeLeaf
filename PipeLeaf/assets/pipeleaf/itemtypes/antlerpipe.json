@@ -1,10 +1,10 @@
 {
   "code": "antlerpipe",
-  "class": "SmokingItem",
+  "class": "WearablePipe",
   "creativeinventory": { "general": [ "*" ] },
   "blockmaterial": "Bone",
   "shape": { "base": "pipeleaf:antlerpipe" },
-  "heldTpIdleAnimation": "holdbothhands",
+  "heldTpIdleAnimation": "holdunderarm",
   "behaviors": [
     {
       "name": "GroundStorable",
@@ -21,13 +21,25 @@
       }
     }
   ],
+  "textures": {
+    "seraph": { "base": "game:block/transparent" }
+  },
+  "storageFlags": 128,
+
   "attributes": {
+    "clothescategory": "face",
+    "wearableAttachment": true,
     "handbook": {
-      "groupBy": [ "*smokingpipe-*" ],
+      "include": true,
+      "groupBy": [ "smokingpipe-briarburl-*" ],
       "extraSections": [
         {
-          "title": "handbook-item-use",
-          "text": "Hold right mouse button. If you have smokable herbs in your inventory, they be consumed. Don't inhale too long though or you will take damage!"
+          "title": "handbook:pipeleaf:intro",
+          "text": "handbook:pipeleaf:using"
+        },
+        {
+          "title": "handbook:pipeleaf:effects",
+          "text": "handbook:pipeleaf:maintenance"
         }
       ]
     },

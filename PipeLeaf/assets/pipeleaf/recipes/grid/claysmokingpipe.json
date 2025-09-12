@@ -4,6 +4,121 @@
     "ingredients": {
       "S": {
         "type": "item",
+        "code": "claysmokingpipestem-blue-fired",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "claysmokingpipebowl-red-fired",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "claysmokingpipe-blue-red",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
+        "code": "claysmokingpipestem-red-fired",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "claysmokingpipebowl-blue-fired",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "claysmokingpipe-red-blue",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
+        "code": "claysmokingpipestem-fire-fired",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "claysmokingpipebowl-red-fired",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "claysmokingpipe-fire-red",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
+        "code": "claysmokingpipestem-red-fired",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "claysmokingpipebowl-fire-fired",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "claysmokingpipe-red-fire",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
+        "code": "claysmokingpipestem-red-fired",
+        "name": "stem-material"
+      },
+      "B": {
+        "type": "item",
+        "code": "claysmokingpipebowl-red-fired",
+        "name": "bowl-material"
+      }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "claysmokingpipe-red-red",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SB",
+    "ingredients": {
+      "S": {
+        "type": "item",
         "code": "claysmokingpipestem-fire-fired",
         "name": "stem-material"
       },

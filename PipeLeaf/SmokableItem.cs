@@ -18,28 +18,93 @@ using Vintagestory.API.Server;
 using System.Net;
 using System.Runtime.CompilerServices;
 using Vintagestory.ServerMods;
-using Pipeleaf;
 
 namespace PipeLeaf
 {
     public class SmokableItem : Item
     {
-        private Array effects;
+        public Array effects;
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
             effects = Attributes?["smokableEffects"].AsArray();
         }
 
-        public void Smoke(EntityAgent entity)
+        public override void OnHeldInteractStart(
+            ItemSlot slot,
+            EntityAgent byEntity,
+            BlockSelection blockSel,
+            EntitySelection entitySel,
+            bool firstEvent,
+            ref EnumHandHandling handling)
         {
-            entity.World.Api.Logger.Debug($"Smoking {Code}");
-            entity.World.Api.Logger.Debug($"Smoking effects: {effects.ToString()}");
+            if (!(byEntity is EntityPlayer eplr)) return;
+
+            var api = byEntity.Api;
+
+            if (!byEntity.Controls.ShiftKey) return;
+            // Find equipped pipe
+            var owningPlayer = api.World.PlayerByUid(eplr.PlayerUID);
+            if (owningPlayer == null) return;
+
+            handling = EnumHandHandling.PreventDefault;
+
+            var wearInv = owningPlayer.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
+            if (wearInv == null) return;
+
+            ItemSlot pipeSlot = null;
+            foreach (var s in wearInv)
+            {
+                if (!s.Empty && s.Itemstack?.Item is WearablePipe)
+                {
+                    pipeSlot = s;
+                    break;
+                }
+            }
+            if (pipeSlot == null) return;
+
+            var pipe = pipeSlot.Itemstack.Item as WearablePipe;
+            string fail;
+            if (pipe.TryLoadFrom(slot, pipeSlot, api, out fail))
+            {
+                handling = EnumHandHandling.PreventDefault; // suppress default use
+                return;
+            }
+
+            // Client feedback
+            var capi = api as ICoreClientAPI;
+            if (capi != null)
+            {
+                switch (fail)
+                {
+                    case "notempty":
+                        capi.TriggerIngameError(this, fail, "You must finish smoking before refilling.");
+                        break;
+                    case "notsmokable":
+                        capi.TriggerIngameError(this, fail, "That can't be smoked.");
+                        break;
+                    case "emptysource":
+                        capi.TriggerIngameError(this, fail, "You’re not holding anything to load.");
+                        break;
+                    case "notenough":
+                        capi.TriggerIngameError(this, fail, "You must have at least 3 shag to load.");
+                        break;
+                    default:
+                        capi.TriggerIngameError(this, fail, "Cannot load pipe.");
+                        break;
+                }
+            }
+        }
+
+        public void Smoke(IWorldAccessor world, EntityAgent entity)
+        {
+            world.Api.Logger.Debug($"Smoking {Code}");
+            world.Api.Logger.Debug($"Smoking effects: {effects.ToString()}");
 
             // why are effects coming in null?
             if (effects == null) { return; }
 
-            entity.World.Api.Logger.Debug($"Effects not null");
+            world.Api.Logger.Debug($"Effects not null");
 
 
             IServerPlayer player = (entity as EntityPlayer).Player as IServerPlayer;
@@ -114,11 +179,21 @@ namespace PipeLeaf
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
 
             dsc.AppendLine("\n" + Lang.Get("pipeleaf:smokable-effects"));
+
             if (effects != null)
             {
                 foreach (JsonObject effect in effects)
                 {
-                    dsc.AppendLine(effect["type"].AsString());
+                    string type = effect["type"].AsString();
+                    double amount = effect["amount"].AsDouble(0);
+
+                    string sign = amount > 0 ? "+" : (amount < 0 ? "-" : "");
+
+                    // If you just want the label with sign:
+                    dsc.AppendLine($"{sign}{type}");
+
+                    // Or, if you also want to show the numeric value:
+                    // dsc.AppendLine($"{sign}{type} ({amount})");
                 }
             }
         }

@@ -232,7 +232,7 @@ namespace PipeLeaf
                 ItemSlot smokableSlot = GetNextSmokable(byEntity);
                 if (smokableSlot == null) return;
                 SmokableItem smokableItem = (SmokableItem)smokableSlot.Itemstack.Collectible;
-                smokableItem.Smoke(byEntity);
+                smokableItem.Smoke(byEntity.World, byEntity);
 
                 var ltud = new LongTermUseDebuff();
                 ltud.Apply(byEntity);

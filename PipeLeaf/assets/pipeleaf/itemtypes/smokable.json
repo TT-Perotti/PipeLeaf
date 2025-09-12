@@ -89,7 +89,7 @@
       "smokableEffects": [
         {
           "type": "temporalstability",
-          "amount": -0.25,
+          "amount": -0.10,
           "cooldown": 0
         }
       ],

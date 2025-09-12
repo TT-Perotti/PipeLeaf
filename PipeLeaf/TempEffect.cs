@@ -8,7 +8,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace Pipeleaf
+namespace PipeLeaf
 {
     public class TempEffect
     {
