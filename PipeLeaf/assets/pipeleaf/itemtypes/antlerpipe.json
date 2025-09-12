@@ -3,7 +3,7 @@
   "class": "WearablePipe",
   "creativeinventory": { "general": [ "*" ] },
   "blockmaterial": "Bone",
-  "shape": { "base": "pipeleaf:antlerpipe" },
+  "shape": { "base": "pipeleaf:wearables/antlerpipe_scaled2" },
   "heldTpIdleAnimation": "holdunderarm",
   "behaviors": [
     {
