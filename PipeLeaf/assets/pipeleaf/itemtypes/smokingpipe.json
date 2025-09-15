@@ -44,7 +44,6 @@
       }
     }
   },
-  "heldTpIdleAnimation": "holdunderarm",
   "behaviors": [
     {
       "name": "GroundStorable",
