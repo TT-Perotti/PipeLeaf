@@ -1,4 +1,5 @@
 ﻿using ProtoBuf;
+using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -12,6 +13,8 @@ namespace PipeLeaf
     [ProtoContract]   // <-- required
     public class SmokePipePacket
     {
+        [ProtoMember(1)]          // Field index must be unique and >0
+        public double held { get; set; }
     }
     public class PipeLeafModSystem : ModSystem
     {
@@ -100,7 +103,7 @@ namespace PipeLeaf
             if (stack?.Item is WearablePipe pipe)
             {
                 // 🔥 Always update burn-down timer while pipe is equipped
-                pipe.UpdateBurn(stack, capi.World);
+                pipe.UpdateBurn(stack, capi.World, eplr);
 
                 if (isInhaling)
                 {
@@ -128,21 +131,40 @@ namespace PipeLeaf
                     string fail;
                     if (!litPipe.TrySmoke(capi.World, eplr, stack, out fail))
                     {
-                        if (fail == "pipenotlit")
+                        if (capi.World.Side == EnumAppSide.Client)
                         {
-                            capi.TriggerIngameError(this, "pipenotlit", Lang.Get("Pipe has gone out."));
+                            if (fail == "pipenotlit")
+                            {
+                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("Pipe has gone out."));
+                            }
+                            else if (fail == "pipeempty")
+                            {
+                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("The pipe is empty."));
+                            }
                         }
-                        else if (fail == "pipeempty")
-                        {
-                            capi.TriggerIngameError(this, "pipeempty", Lang.Get("The pipe is empty."));
-                        }
+                       
                     }
                     else
                     {
-                        clientNet.SendPacket(new SmokePipePacket());
+                        clientNet.SendPacket(new SmokePipePacket { held = held});
                     }
                 }
             }
+        }
+        private void OveruseDamage(IServerPlayer player)
+        {
+
+            player?.SendMessage(
+                GlobalConstants.GeneralChatGroup,
+                Lang.Get("pipeleaf:overuse-warning"),
+                EnumChatType.Notification
+                );
+
+            player.Entity.ReceiveDamage(new DamageSource()
+            {
+                Source = EnumDamageSource.Internal,
+                Type = EnumDamageType.Poison
+            }, Math.Abs(1));
         }
 
         private void OnSmokePipePacket(IServerPlayer fromPlayer, SmokePipePacket packet)
@@ -154,12 +176,22 @@ namespace PipeLeaf
             string fail;
             if (!pipe.TrySmoke(sapi.World, fromPlayer.Entity, stack, out fail))
             {
-                switch (fail)
+                if (capi.World.Side == EnumAppSide.Client)
                 {
-                    case "pipeempty": fromPlayer.SendIngameError("pipeempty", "Your pipe is empty."); break;
-                    case "notsmokable": fromPlayer.SendIngameError("notsmokable", "That’s not smokable."); break;
-                    case "notenough": fromPlayer.SendIngameError("notenough", "Not enough loaded."); break;
-                    default: fromPlayer.SendIngameError("smokefail", "Couldn’t smoke."); break;
+                    switch (fail)
+                    {
+                        case "pipeempty": fromPlayer.SendIngameError("pipeempty", "Your pipe is empty."); break;
+                        case "notsmokable": fromPlayer.SendIngameError("notsmokable", "That’s not smokable."); break;
+                        case "notenough": fromPlayer.SendIngameError("notenough", "Not enough loaded."); break;
+                        default: fromPlayer.SendIngameError("smokefail", "Couldn’t smoke."); break;
+                    }
+                }
+            }
+            else
+            {
+                if (packet.held >= 7000)
+                {
+                    OveruseDamage(fromPlayer);
                 }
             }
         }
