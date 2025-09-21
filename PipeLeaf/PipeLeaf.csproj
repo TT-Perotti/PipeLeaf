@@ -60,6 +60,7 @@
 	  <None Remove="assets\pipeleaf\itemtypes\claysmokingpipestem.json" />
 	  <None Remove="assets\pipeleaf\blocktypes\plant\crop\pipeleaf.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\match.json" />
+	  <None Remove="assets\pipeleaf\itemtypes\pipelighter.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\resources\seeds.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\shagblend.json" />
 	  <None Remove="assets\pipeleaf\itemtypes\smokable.json" />
@@ -78,10 +79,15 @@
 	  <None Remove="assets\pipeleaf\recipes\grid\antlerpipe.json" />
 	  <None Remove="assets\pipeleaf\recipes\grid\claysmokingpipe.json" />
 	  <None Remove="assets\pipeleaf\recipes\grid\matches.json" />
+	  <None Remove="assets\pipeleaf\recipes\grid\pipelighter.json" />
 	  <None Remove="assets\pipeleaf\recipes\grid\shagblend.json" />
 	  <None Remove="assets\pipeleaf\shapes\item\match.json" />
+	  <None Remove="assets\pipeleaf\shapes\item\pipelighter.json" />
+	  <None Remove="assets\pipeleaf\shapes\pipelighter.json" />
+	  <None Remove="assets\pipeleaf\shapes\wearables\antlerpipe_scaled2.json" />
+	  <None Remove="assets\pipeleaf\shapes\wearables\claysmokingpipe2_cleaned.json" />
 	  <None Remove="assets\pipeleaf\shapes\wearables\pipe_scaled.json" />
-	  <None Remove="assets\pipeleaf\textures\item\smokingpipe_4wide.png" />
+	  <None Remove="assets\pipeleaf\textures\item\pipelighter.json" />
 	  <None Remove="assets\pipeleaf\worldproperties\item\blendable1.json" />
 	  <None Remove="assets\pipeleaf\worldproperties\item\blendable2.json" />
 	  <None Remove="assets\pipeleaf\worldproperties\item\smokables.json" />
@@ -95,6 +101,12 @@
 	<ItemGroup>
 	  <Folder Include="assets\pipeleaf\textures\block\plant\crop\pipeleaf\" />
 	  <Folder Include="assets\pipeleaf\textures\item\resource\seeds\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="assets\pipeleaf\shapes\item\pipelighter.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>
