@@ -49,24 +49,14 @@
     {
       "name": "GroundStorable",
       "properties": {
-        "layout": "WallHalves",
-        "wallOffY": 1,
-        "ctrlKey": true,
-        "selectionBox": {
-          "x1": 0,
-          "y1": 0,
-          "z1": 0,
-          "x2": 1,
-          "y2": 0.1,
-          "z2": 1
-        },
+        "layout": "Quadrants",
         "collisionBox": {
           "x1": 0,
           "y1": 0,
           "z1": 0,
-          "x2": 0,
-          "y2": 0,
-          "z2": 0
+          "x2": 1,
+          "y2": 0.125,
+          "z2": 1
         }
       }
     }
@@ -90,41 +80,47 @@
     "displaycaseable": true,
     "onshelfTransform": {
       "translation": {
-        "x": 0.2,
-        "y": -0.13,
-        "z": 0
+        "x": 0.6,
+        "y": -2.33,
+        "z": -0.8
       },
       "rotation": {
-        "x": -2,
-        "y": -40,
-        "z": -5
+        "x": 11,
+        "y": 7,
+        "z": -14
       },
-      "scale": 0.75
+      "origin": {
+        "x": 1.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "scale": 1.49
     },
     "onDisplayTransform": {
       "translation": {
-        "x": 0.1,
-        "y": 0,
-        "z": 0.2
+        "x": 0.4,
+        "y": -2,
+        "z": -0.4
       },
       "rotation": {
         "x": 2,
-        "y": -88,
-        "z": 0
-      }
+        "y": 32,
+        "z": -5
+      },
+      "scale": 1.56
     },
     "groundStorageTransform": {
       "translation": {
-        "x": -0.1,
-        "y": -0.14,
-        "z": 0.1
+        "x": 0.1,
+        "y": -1.14,
+        "z": 1.2
       },
       "rotation": {
-        "x": 0,
-        "y": -144,
-        "z": 0
+        "x": -56,
+        "y": -178,
+        "z": -23
       },
-      "scale": 0.72
+      "scale": 1.21
     }
   },
   "groundTransform": {
@@ -144,19 +140,6 @@
       "z": 0.45
     },
     "scale": 5.18
-  },
-  "tpHandTransform": {
-    "translation": {
-      "x": 0.2,
-      "y": -0,
-      "z": -0.3
-    },
-    "rotation": {
-      "x": -173,
-      "y": 12,
-      "z": -83
-    },
-    "scale": 0.87
   },
   "guiTransform": {
     "translation": {
