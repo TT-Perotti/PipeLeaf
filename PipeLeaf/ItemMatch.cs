@@ -109,8 +109,18 @@ namespace PipeLeaf
             {
                 if (pipe.TryLight(faceSlot.Itemstack, world))
                 {
-                    slot.TakeOut(1); // consume match
-                    slot.MarkDirty();
+                    if (!slot.Itemstack.Item.Code.Path.StartsWith("pipelighter"))
+                    {
+                        slot.TakeOut(1); // consume match
+                        slot.MarkDirty();
+                    }
+                    if (world.Api.Side == EnumAppSide.Server)
+                    {
+                        (eplr.Player as IServerPlayer)?.SendMessage(
+                            GlobalConstants.GeneralChatGroup,
+                            Lang.Get("pipeleaf:pipe-lit"),
+                            EnumChatType.Notification);
+                    }
                 }
             }
         }
@@ -120,12 +130,12 @@ namespace PipeLeaf
             IClientPlayer plr = capi.World.Player;
             EntityPlayer plrentity = plr.Entity;
 
-            if (plrentity.Controls.HandUse == EnumHandInteract.HeldItemInteract)
+            if (plrentity.Controls.HandUse == EnumHandInteract.HeldItemInteract && capi.World.Side == EnumAppSide.Client)
                 if (cracklingSound == null)
                 {
                     cracklingSound = capi.World.LoadSound(new SoundParams()
                     {
-                        Location = new AssetLocation("sounds/effect/embers.ogg"),
+                        Location = new AssetLocation("sounds/effect/embers"),
                         ShouldLoop = true,
                         RelativePosition = true,
                         Position = new Vec3f(),

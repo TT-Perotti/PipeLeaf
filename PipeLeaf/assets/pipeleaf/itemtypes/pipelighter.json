@@ -1,0 +1,98 @@
+{
+  "code": "pipelighter",
+  "class": "ItemMatch",
+  "creativeinventory": { "general": [ "*" ] },
+  "shape": { "base": "item/pipelighter" },
+  "maxstacksize": 1,
+  "variantgroups": [
+    {
+      "code": "material",
+      "loadFromProperties": "block/metal"
+    }
+  ],
+  "texturesByType": {
+    "*": {
+      "case": { "base": "game:block/metal/ingot/{material}" }
+    }
+  },
+  "attributes": {
+    "shelvable": true,
+    "bookshelveable": true,
+    "displaycaseable": true,
+    "onshelfTransform": {
+      "translation": {
+        "x": -0.7,
+        "y": -0.33,
+        "z": 0.1
+      },
+      "rotation": {
+        "x": 0,
+        "y": 5,
+        "z": 0
+      },
+      "origin": {
+        "x": 1.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "scale": 0.3
+    },
+    "onDisplayTransform": {
+      "translation": {
+        "x": 0,
+        "y": -0.3,
+        "z": -0
+      },
+      "rotation": {
+        "x": -1,
+        "y": 0,
+        "z": 0
+      },
+      "scale": 0.41
+    }
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 97,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 1.69
+  },
+  "guiTransform": {
+    "translation": {
+      "x": -5.4,
+      "y": -17.3,
+      "z": 9
+    },
+    "rotation": {
+      "x": -1,
+      "y": 3,
+      "z": 180
+    },
+    "scale": 2.28
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -2.5,
+      "y": -1.4,
+      "z": -1.9
+    },
+    "rotation": {
+      "x": -22,
+      "y": 23,
+      "z": -36
+    },
+    "scale": 0.28
+  }
+}
