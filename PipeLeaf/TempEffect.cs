@@ -65,7 +65,7 @@ namespace PipeLeaf
             if (effectType == "bodytemperature")
             {
                 EntityBehaviorBodyTemperature bh = effectedEntity.GetBehavior<EntityBehaviorBodyTemperature>();
-                if ( bh.CurBodyTemperature <= 33 )
+                if ( bh.CurBodyTemperature <= 35 )
                 {
                     bh.CurBodyTemperature += effectAmount;
                 }

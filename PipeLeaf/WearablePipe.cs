@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -20,7 +21,7 @@ namespace PipeLeaf
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
-        const double BurnIncrementHours = 1.33;
+        const double BurnIncrementHours = .75;
         const double MaxTotalBurnHours = 5;
         const double effectCooldown = 1;
         private string lastDebugState = null;
@@ -29,6 +30,7 @@ namespace PipeLeaf
         {
             UpdateBurnLazy(stack, world);
             double litUntil = stack.Attributes.GetDouble(AttrLitUntil, 0);
+            if (double.IsNaN(litUntil) || litUntil < 0) litUntil = 0;
             double now = world.Calendar.TotalHours;
 
             return litUntil > now;
@@ -69,6 +71,7 @@ namespace PipeLeaf
             UpdateBurnLazy(stack, world);
             ItemStack shag = GetLoaded(stack, world.Api);
             if (shag == null) return false;  // must be loaded
+            if (shag.StackSize <= 0) return false;
 
             double now = world.Calendar.TotalHours;
 
@@ -89,6 +92,8 @@ namespace PipeLeaf
         {
             double now = world.Calendar.TotalHours;
             double litUntil = stack.Attributes.GetDouble(AttrLitUntil, 0);
+            if (double.IsNaN(litUntil) || litUntil < 0) litUntil = 0;
+
             if (litUntil <= 0) return; // already out
 
             double newUntil = litUntil + add_time;
@@ -100,6 +105,8 @@ namespace PipeLeaf
         {
             double now = world.Calendar.TotalHours;
             double litUntil = stack.Attributes.GetDouble(AttrLitUntil, 0);
+            if (double.IsNaN(litUntil) || litUntil < 0) litUntil = 0;
+
 
             if (litUntil <= 0) return;
 
@@ -111,7 +118,12 @@ namespace PipeLeaf
             }
 
             double lastBurn = stack.Attributes.GetDouble(AttrLastBurn, now);
+            if (double.IsNaN(lastBurn) || lastBurn < 0) lastBurn = 0;
+
             double totalLit = stack.Attributes.GetDouble(AttrTotalLit, 0);
+            if (double.IsNaN(totalLit) || totalLit < 0) totalLit = 0;
+
+
             totalLit += (now - lastBurn);
 
             stack.Attributes.SetDouble(AttrTotalLit, totalLit);
@@ -126,10 +138,12 @@ namespace PipeLeaf
             }
         }
 
-        public void UpdateBurn(ItemStack stack, IWorldAccessor world)
+        public void UpdateBurn(ItemStack stack, IWorldAccessor world, EntityPlayer player)
         {
             double now = world.Calendar.TotalHours;
             double litUntil = stack.Attributes.GetDouble(AttrLitUntil, 0);
+            if (double.IsNaN(litUntil) || litUntil < 0) litUntil = 0;
+
 
             // DebugChatState(stack, world.Api, "UpdateBurn-Start");
 
@@ -137,24 +151,40 @@ namespace PipeLeaf
             {
                 // Pipe went out
                 stack.Attributes.RemoveAttribute(AttrLitUntil);
-                api.World.Logger.Notification("Looks like you pipe has gone out.");
-                DebugChatState(stack, world.Api, "PipeOut");
+                if (world.Api.Side == EnumAppSide.Server)
+                {
+                    (player.Player as IServerPlayer)?.SendMessage(
+                        GlobalConstants.GeneralChatGroup,
+                        Lang.Get("pipeleaf:pipe-unlit"),
+                        EnumChatType.Notification);
+                }
+                // DebugChatState(stack, world.Api, "PipeOut");
                 return;
             }
 
             double lastBurn = stack.Attributes.GetDouble(AttrLastBurn, now);
+            if (double.IsNaN(lastBurn) || lastBurn < 0) lastBurn = 0;
 
             // Track total accumulated lit time
             double totalLit = stack.Attributes.GetDouble(AttrTotalLit, 0);
+            if (double.IsNaN(totalLit) || totalLit < 0) totalLit = 0;
+
             totalLit += (now - lastBurn);
             stack.Attributes.SetDouble(AttrTotalLit, totalLit);
             stack.Attributes.SetDouble(AttrLastBurn, now);
 
-            DebugChatState(stack, world.Api, "UpdateBurn-Accumulated");
+            // DebugChatState(stack, world.Api, "UpdateBurn-Accumulated");
 
             // Empty after 20 minutes of real burn
             if (totalLit >= MaxTotalBurnHours)   // 20 minutes in ms
             {
+                if (world.Api.Side == EnumAppSide.Server)
+                {
+                    (player.Player as IServerPlayer)?.SendMessage(
+                        GlobalConstants.GeneralChatGroup,
+                        Lang.Get("pipeleaf:pipe-max-burn"),
+                        EnumChatType.Notification);
+                }
                 api.World.Logger.Notification("All that's left is dottle.");
 
                 SetLoaded(stack, null); // clear shag
@@ -162,7 +192,7 @@ namespace PipeLeaf
                 stack.Attributes.RemoveAttribute(AttrNextEffectReady);
                 stack.Attributes.RemoveAttribute(AttrTotalLit);
 
-                DebugChatState(stack, world.Api, "PipeEmpty");
+                // DebugChatState(stack, world.Api, "PipeEmpty");
             }
         }
 
@@ -229,6 +259,24 @@ namespace PipeLeaf
             var taken = source.TakeOut(3);
             source.MarkDirty();
 
+            if (api.Side == EnumAppSide.Client)
+            {
+                // get the client API
+                ICoreClientAPI capi = api as ICoreClientAPI;
+
+                // find the player doing the action
+                EntityPlayer eplr = capi.World.Player.Entity;
+
+                capi.World.PlaySoundAt(
+                    new AssetLocation("sounds/walk/grass1"),
+                    eplr,                          
+                    null,
+                    false,
+                    16f,
+                    1.0f
+                );
+            }
+
             if (taken == null || taken.StackSize <= 0)
             {
                 failCode = "nothingtaken";
@@ -263,16 +311,22 @@ namespace PipeLeaf
             // Check cooldown for effect
             double now = world.Calendar.TotalHours;
             double nextEffect = pipeStack.Attributes.GetDouble(AttrNextEffectReady, -1);
+            if (double.IsNaN(nextEffect) || nextEffect < 0) nextEffect = 0;
 
             if (nextEffect >= 0 && now >= nextEffect)
             {
-
-                api.World.Logger.Notification($"TrySmoke: next effect ready - {nextEffect}");
+                if (world.Api.Side == EnumAppSide.Server)
+                {
+                    (player.Player as IServerPlayer)?.SendMessage(
+                        GlobalConstants.GeneralChatGroup,
+                        Lang.Get("pipeleaf:effect-ready"),
+                        EnumChatType.Notification);
+                }
 
                 if (shag.Item is SmokableItem smokable)
                 {
                     double nextEffectTime = now + effectCooldown;
-                    api.World.Logger.Notification($"TrySmoke: spawn exhale, smoke shag, reset effect to {nextEffectTime}");
+                    // api.World.Logger.Notification($"TrySmoke: spawn exhale, smoke shag, reset effect to {nextEffectTime}");
 
                     pipeStack.Attributes.SetDouble(AttrNextEffectReady, nextEffectTime); // 2 minutes
                     SpawnExhaleParticles(world, player);
@@ -280,7 +334,7 @@ namespace PipeLeaf
                 }
             }
             UpdateBurnLazy(pipeStack, world);
-            DebugChatState(pipeStack, api, "TrySmoke");
+            // DebugChatState(pipeStack, api, "TrySmoke");
 
             return true;
         }
@@ -295,8 +349,9 @@ namespace PipeLeaf
                 (float)(-Math.Sin(pos.Pitch)),
                 (float)(Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
             );
-            var mouth = pos.XYZ.AddCopy(entity.LocalEyePos).AddCopy(new Vec3d(0, -0.20, 0)).AddCopy(fwd * 0.20f);
-            var forwardPush = fwd * 0.8f;
+            var mouth = pos.XYZ.AddCopy(entity.LocalEyePos).AddCopy(new Vec3d(0, -0.20, 0)).AddCopy(fwd * 0.35f);
+            var forwardPush = fwd * 1.1f;
+            if (!mouth.IsFinite() || !forwardPush.IsFinite()) return; // skip
 
             var smokeHeld = new SimpleParticleProperties(
                 1, 1,
@@ -325,6 +380,7 @@ namespace PipeLeaf
                 (float)(Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
             );
             var mouth = pos.XYZ.AddCopy(entity.LocalEyePos).AddCopy(new Vec3d(0, -0.20, 0)).AddCopy(fwd * 0.20f);
+            if (!mouth.IsFinite()) return; // skip
 
             var smokeExhale = new SimpleParticleProperties(
                 12, 18,
@@ -375,6 +431,7 @@ namespace PipeLeaf
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+            double nowHrs = world.Calendar.TotalHours;
 
             var stack = inSlot.Itemstack;
             if (stack == null) return;
@@ -387,6 +444,10 @@ namespace PipeLeaf
             if (shag != null) {
                 if (shag.Item is SmokableItem smokable)
                 {
+                    double totalLit = stack.Attributes.GetDouble(AttrTotalLit);
+                    if (double.IsNaN(totalLit) || totalLit < 0) totalLit = 0;
+
+                    dsc.AppendLine(Lang.Get($"Shag remaining: {(int)((MaxTotalBurnHours - totalLit) * 60)}"));
                     dsc.AppendLine("Contains: " + Lang.Get($"pipeleaf:item-{smokable.Code.Path}"));
 
                     foreach (JsonObject effect in smokable.effects) {
@@ -402,7 +463,8 @@ namespace PipeLeaf
             }
 
             double nextReady = stack.Attributes.GetDouble(AttrNextEffectReady, 0);
-            double nowHrs = world.Calendar.TotalHours;
+            if (double.IsNaN(nextReady) || nextReady < 0) nextReady = 0;
+
 
             if (nextReady > nowHrs)
             {
