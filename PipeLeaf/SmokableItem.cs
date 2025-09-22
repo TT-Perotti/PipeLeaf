@@ -169,8 +169,6 @@ namespace PipeLeaf
                     "pipeleafmod",  // stat code
                     effect["type"] + " pipeleafmod" // listener/callback id
                 );
-                LongTermUseDebuff ltud = new();
-                ltud.Apply(entity);
             }
         }
 
