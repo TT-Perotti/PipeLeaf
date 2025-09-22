@@ -31,7 +31,6 @@ namespace PipeLeaf
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterItemClass("SmokingItem", typeof(SmokingItem));
             api.RegisterItemClass("SmokableItem", typeof(SmokableItem));
 
             api.RegisterItemClass("WearablePipe", typeof(WearablePipe));
