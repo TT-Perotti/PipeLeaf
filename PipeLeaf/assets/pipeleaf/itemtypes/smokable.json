@@ -89,7 +89,12 @@
       "smokableEffects": [
         {
           "type": "temporalstability",
-          "amount": -0.25,
+          "amount": -0.01,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
           "cooldown": 0
         }
       ],
@@ -167,7 +172,7 @@
       "smokableEffects": [
         {
           "type": "bodytemperature",
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0
         }
       ],
@@ -250,7 +255,7 @@
       "smokableEffects": [
         {
           "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": 0.15,
+          "amount": 0.01,
           "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         },
         {
@@ -294,12 +299,12 @@
       "smokableEffects": [
         {
           "type": "intoxication",
-          "amount": 0.15,
+          "amount": 0.02,
           "cooldown": 0
         },
         {
           "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
@@ -338,12 +343,12 @@
       "smokableEffects": [
         {
           "type": "intoxication",
-          "amount": 0.15,
+          "amount": 0.05,
           "cooldown": 0
         },
         {
           "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
@@ -387,7 +392,7 @@
         },
         {
           "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
@@ -509,12 +514,12 @@
       "smokableEffects": [
         {
           "type": "intoxication",
-          "amount": 0.2,
+          "amount": 0.1,
           "cooldown": 0
         },
         {
           "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
@@ -553,12 +558,12 @@
       "smokableEffects": [
         {
           "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": 0.15,
+          "amount": 0.02,
           "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         },
         {
           "type": "bodytemperature", // behavior based, not a stat
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0 // body temp maxes out and reduces naturally
         }
       ],
@@ -601,9 +606,9 @@
           "cooldown": 0
         },
         {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
+          "type": "temporalstability",
           "amount": -0.60,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
+          "cooldown": 0
         }
       ],
       "handbook": {
@@ -641,7 +646,7 @@
       "smokableEffects": [
         {
           "type": "bodytemperature",
-          "amount": 4,
+          "amount": 5,
           "cooldown": 0
         }
       ],

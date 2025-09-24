@@ -1,7 +1,6 @@
 {
   "code": "curedblend",
   "enabled": true,
-  // "classByType": { "*-shag": "SmokableItem" },
   "creativeinventory": {
     "general": [ "*" ],
     "items": [ "*" ]
@@ -16,7 +15,7 @@
       "loadFromProperties": "pipeleaf:item/blendable2"
     }
   ],
-  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf" ],
+  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf", "curedblend-catmint-catmint", "curedblend-orangemallow-orangemallow", "curedblend-poisonoak-poisonoak", "curedblend-goldenpoppy-goldenpoppy", "curedblend-cornflower-cornflower", "curedblend-chamomile-chamomile", "curedblend-lavender-lavender", "curedblend-marjoram-marjoram", "curedblend-marshmallow-marshmallow", "curedblend-mint-mint", "curedblend-rosemary-rosemary", "curedblend-saffron-saffron", "curedblend-sage-sage", "curedblend-stingingnettle-stingingnettle", "curedblend-stjohnswort-stjohnswort", "curedblend-thyme-thyme", "curedblend-mugwort-mugwort", "curedblend-chicory-chicory", "curedblend-marigold-marigold", "curedblend-yarrow-yarrow", "curedblend-angelica-angelica", "curedblend-arnica-arnica", "curedblend-horehound-horehound", "curedblend-ginseng-ginseng" ],
   "textureByType": {
     "curedblend-*": { "base": "pipeleaf:item/smokable/cured" }
   },

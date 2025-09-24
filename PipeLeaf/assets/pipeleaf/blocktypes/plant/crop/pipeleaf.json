@@ -82,13 +82,13 @@
       {
         "type": "item",
         "code": "pipeleaf:seeds-pipeleaf",
-        "quantity": { "avg": 1.2 }
+        "quantity": { "avg": 1.3 }
       },
       {
         "type": "item",
         "code": "pipeleaf:herbs-pipeleaf",
         "quantity": {
-          "avg": 6,
+          "avg": 12,
           "var": 0.5
         }
       }
@@ -106,7 +106,7 @@
     "nutrientConsumption": 50,
     "growthStages": 9,
     "totalGrowthMonths": 3,
-    "coldDamageBelow": 8,
+    "coldDamageBelow": 6,
     "heatDamageAbove": 48
   },
   "collisionbox": null,
@@ -188,5 +188,6 @@
   "combustibleProps": {
     "burnTemperature": 600,
     "burnDuration": 10
-  }
+  },
+  "frostable": true
 }

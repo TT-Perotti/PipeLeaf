@@ -1,0 +1,36 @@
+{
+  "code": "match",
+  "class": "ItemMatch",
+  "shape": { "base": "game:block/wood/torch/basic-lit-ground" },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "heldTpUseAnimation": "eat",
+  "maxstacksize": 32,
+  "guiTransform": {
+    "translation": {
+      "x": -2.7,
+      "y": -0.6,
+      "z": -0.8
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 145
+    }
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -2.6,
+      "y": -2,
+      "z": -1.7
+    },
+    "rotation": {
+      "x": 145,
+      "y": 180,
+      "z": 61
+    },
+    "scale": 0.25
+  }
+}

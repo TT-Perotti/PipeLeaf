@@ -143,7 +143,7 @@
   },
   {
     "op": "add",
-    "path": "/patches/-",
+    "path": "/0",
     "value": {
       "comment": "Rare small patches of Tree Heath",
       "blockCodes": [ "flower-treeheath-free" ],
@@ -161,7 +161,7 @@
         "var": 3
       }
     },
-    "file": "game:worldgen/blockpatches.json",
+    "file": "game:worldgen/blockpatches/flower.json",
     "side": "server"
   }
 ]

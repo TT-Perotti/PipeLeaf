@@ -1,0 +1,171 @@
+{
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+			"leadsolder": "game:block/metal/ingot/leadsolder"
+	},
+	"elements": [
+		{
+			"name": "case_base",
+			"from": [ 5.0, 0.0, 7.0 ],
+			"to": [ 11.0, 5.0, 9.0 ],
+			"rotationOrigin": [ 5.0, 0.0, 7.0 ],
+			"faces": {
+				"north": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 6.0, 5.0 ]
+				},
+				"east": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 2.0, 5.0 ]
+				},
+				"south": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 6.0, 5.0 ]
+				},
+				"west": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 2.0, 5.0 ]
+				},
+				"up": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 6.0, 2.0 ]
+				},
+				"down": {
+					"reflectiveMode": 3,
+					"texture": "#case",
+					"uv": [ 0.0, 0.0, 6.0, 2.0 ]
+				}
+			},
+			"children": [
+				{
+					"name": "lid",
+					"from": [ 0.0, 5.0, 0.0 ],
+					"to": [ 6.0, 6.0, 2.0 ],
+					"rotationOrigin": [ 0.0, 5.0, 0.0 ],
+					"rotationZ": 45.0,
+					"faces": {
+						"north": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 6.0, 1.0 ]
+						},
+						"east": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 2.0, 1.0 ]
+						},
+						"south": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 6.0, 1.0 ]
+						},
+						"west": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 2.0, 1.0 ]
+						},
+						"up": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 6.0, 2.0 ]
+						},
+						"down": {
+							"reflectiveMode": 3,
+							"texture": "#case",
+							"uv": [ 0.0, 0.0, 6.0, 2.0 ]
+						}
+					}
+				},
+				{
+					"name": "flame",
+					"from": [ 1.8, 4.5, 0.5 ],
+					"to": [ 4.8, 5.6, 1.5 ],
+					"rotationOrigin": [ 1.8, 4.5, 0.5 ],
+					"faces": {
+						"north": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 3.0, 1.0 ]
+						},
+						"east": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"south": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 3.0, 1.0 ]
+						},
+						"west": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"up": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 3.0, 1.0 ]
+						},
+						"down": {
+							"reflectiveMode": 3,
+							"texture": "#leadsolder",
+							"uv": [ 0.0, 0.0, 3.0, 1.0 ]
+						}
+					},
+					"children": [
+						{
+							"name": "Cube2",
+							"from": [ 0.5, 0.5, 0.1 ],
+							"to": [ 2.4, 1.5, 0.9 ],
+							"rotationOrigin": [ 0.5, 0.5, 0.1 ],
+							"faces": {
+								"north": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 5.0, 5.0, 8.0, 8.5 ],
+									"autoUv": false
+								},
+								"east": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 0.0, 0.0, 1.5, 8.0 ],
+									"autoUv": false
+								},
+								"south": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 0.0, 0.0, 5.5, 5.0 ],
+									"autoUv": false
+								},
+								"west": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 7.5, 5.0, 10.0, 7.0 ],
+									"autoUv": false
+								},
+								"up": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 0.0, 0.0, 1.5, 0.5 ]
+								},
+								"down": {
+									"reflectiveMode": 3,
+									"texture": "#leadsolder",
+									"uv": [ 0.0, 0.0, 1.5, 0.5 ]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]}

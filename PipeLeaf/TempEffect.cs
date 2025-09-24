@@ -8,7 +8,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace Pipeleaf
+namespace PipeLeaf
 {
     public class TempEffect
     {
@@ -65,7 +65,7 @@ namespace Pipeleaf
             if (effectType == "bodytemperature")
             {
                 EntityBehaviorBodyTemperature bh = effectedEntity.GetBehavior<EntityBehaviorBodyTemperature>();
-                if ( bh.CurBodyTemperature <= 33 )
+                if ( bh.CurBodyTemperature <= 35 )
                 {
                     bh.CurBodyTemperature += effectAmount;
                 }
