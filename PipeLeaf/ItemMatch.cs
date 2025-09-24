@@ -1,6 +1,7 @@
 ﻿using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -10,6 +11,7 @@ namespace PipeLeaf
     public class ItemMatch : Item
     {
         ILoadedSound cracklingSound;
+        private int lastParticleStep = -1;
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             if (!(byEntity is EntityPlayer eplr)) return;
@@ -28,6 +30,8 @@ namespace PipeLeaf
         {
             if (!(byEntity is EntityPlayer eplr)) return false;
 
+            int currentStep = (int)(secondsUsed / 0.5f);
+
             var charInv = eplr.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
             var faceSlot = charInv[(int)EnumCharacterDressType.Face];
             if (faceSlot.Empty || !(faceSlot.Itemstack?.Item is WearablePipe pipe)) return false;
@@ -39,48 +43,42 @@ namespace PipeLeaf
             {
                 var capi = world.Api as ICoreClientAPI;
                 bool firstPerson = false;
-                if (capi != null)
-                {
-                    firstPerson = (capi.World.Player.CameraMode == EnumCameraMode.FirstPerson);
-                }
 
                 // Base off the player's head/eye
-                Vec3d pos = byEntity.SidedPos.XYZ.AddCopy(byEntity.LocalEyePos);
+                var pos = byEntity.SidedPos;
 
-                // Adjust differently depending on camera mode
-                if (firstPerson)
-                {
-                    // Bring it close to camera and slightly down (like holding to mouth)
-                    pos.Add(-0.04, -0.10, 0.06);
-                }
-                else
-                {
-                    // Third person: move it forward from the face slot area
-                    Vec3f fwd = new Vec3f(
-                        (float)-Math.Sin(byEntity.SidedPos.Yaw),
-                        0,
-                        (float)Math.Cos(byEntity.SidedPos.Yaw)
-                    );
-                    fwd.Normalize();
+                // Forward vector pointing the same way as the player's gaze
+                var fwd = new Vec3f(
+                    (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
+                    (float)(Math.Sin(pos.Pitch)),
+                    (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
+                );
 
-                    pos.Add(fwd.X * 0.1f, -0.15, fwd.Z * 0.1f);
-                }
+                var mouth = pos.XYZ
+                    .AddCopy(byEntity.LocalEyePos)
+                    .AddCopy(new Vec3d(0, -0.15, 0)) // slightly lower for mouth
+                    .AddCopy(fwd * 0.30f); // push forward
+
 
                 var ember = new SimpleParticleProperties(
-                    1, 2,                                        // very few
+                    1, 1,                                        // very few
                     ColorUtil.ToRgba(160, 255, 140, 50),          // small orange glow, semi-transparent
-                    pos, pos,
+                    mouth, mouth,
                     new Vec3f(0, 0.01f, 0),                       // almost stationary, just a tiny lift
-                    new Vec3f(0.005f, 0.02f, 0.005f),             // minimal spread
-                    0.1f, 0.2f,                                   // very short life (quick fade)
+                    new Vec3f(0.05f, 0.02f, 0.05f),             // minimal spread
+                    0.05f, 0.07f,                                   // very short life (quick fade)
                     0.02f, 0.05f,                                 // tiny spark size
                     EnumParticleModel.Quad
                 );
                 ember.SelfPropelled = false;
                 ember.WindAffected = false;
                 ember.AddPos.Set(0.01, 0.01, 0.01);
-
-                world.SpawnParticles(ember);
+                if (currentStep != lastParticleStep)
+                {
+                    lastParticleStep = currentStep;
+                    // Spawn your particle here
+                    world.SpawnParticles(ember);
+                }
 
             }
 
