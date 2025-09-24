@@ -16,7 +16,7 @@
       "loadFromProperties": "pipeleaf:item/blendable2"
     }
   ],
-  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf" ],
+  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf", "shagblend-catmint-catmint", "shagblend-orangemallow-orangemallow", "shagblend-poisonoak-poisonoak", "shagblend-goldenpoppy-goldenpoppy", "shagblend-cornflower-cornflower", "shagblend-chamomile-chamomile", "shagblend-lavender-lavender", "shagblend-marjoram-marjoram", "shagblend-marshmallow-marshmallow", "shagblend-mint-mint", "shagblend-rosemary-rosemary", "shagblend-saffron-saffron", "shagblend-sage-sage", "shagblend-stingingnettle-stingingnettle", "shagblend-stjohnswort-stjohnswort", "shagblend-thyme-thyme", "shagblend-mugwort-mugwort", "shagblend-chicory-chicory", "shagblend-marigold-marigold", "shagblend-yarrow-yarrow", "shagblend-angelica-angelica", "shagblend-arnica-arnica", "shagblend-horehound-horehound", "shagblend-ginseng-ginseng" ],
   "textureByType": {
     "shagblend-*": { "base": "pipeleaf:item/smokable/shag" }
   },
