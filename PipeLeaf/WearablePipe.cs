@@ -344,14 +344,24 @@ namespace PipeLeaf
         public void SpawnInhaleParticles(IWorldAccessor world, Entity entity)
         {
             var pos = entity.SidedPos;
+
+            // Forward vector pointing the same way as the player's gaze
             var fwd = new Vec3f(
                 (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
-                (float)(-Math.Sin(pos.Pitch)),
-                (float)(Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
+                (float)(Math.Sin(pos.Pitch)),
+                (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
             );
-            var mouth = pos.XYZ.AddCopy(entity.LocalEyePos).AddCopy(new Vec3d(0, -0.20, 0)).AddCopy(fwd * 0.35f);
+
+            // Mouth position
+            var mouth = pos.XYZ
+                .AddCopy(entity.LocalEyePos)
+                .AddCopy(new Vec3d(0, -0.15, 0)) // slightly lower for mouth
+                .AddCopy(fwd * 0.30f); // push forward
+
             var forwardPush = fwd * 1.1f;
             if (!mouth.IsFinite() || !forwardPush.IsFinite()) return; // skip
+
+            if (!mouth.IsFinite() || !forwardPush.IsFinite()) return;
 
             var smokeHeld = new SimpleParticleProperties(
                 1, 1,
@@ -371,24 +381,35 @@ namespace PipeLeaf
             world.SpawnParticles(smokeHeld);
         }
 
+
         public void SpawnExhaleParticles(IWorldAccessor world, Entity entity)
         {
             var pos = entity.SidedPos;
+
+            // Forward vector pointing the same way as the player's gaze
             var fwd = new Vec3f(
                 (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
-                (float)(-Math.Sin(pos.Pitch)),
-                (float)(Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
+                (float)(Math.Sin(pos.Pitch)),
+                (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
             );
-            var mouth = pos.XYZ.AddCopy(entity.LocalEyePos).AddCopy(new Vec3d(0, -0.20, 0)).AddCopy(fwd * 0.20f);
-            if (!mouth.IsFinite()) return; // skip
+
+            // Mouth position
+            var mouth = pos.XYZ
+                .AddCopy(entity.LocalEyePos)
+                .AddCopy(new Vec3d(0, -0.15, 0)) // slightly lower for mouth
+                .AddCopy(fwd * 0.30f); // push forward
+
+            var forwardPush = fwd * 2.0f;
+
+            if (!mouth.IsFinite() || !forwardPush.IsFinite()) return;
 
             var smokeExhale = new SimpleParticleProperties(
                 12, 18,
                 ColorUtil.ToRgba(35, 122, 139, 174),
                 mouth, mouth,
-                fwd * 0.10f + new Vec3f(-0.02f, 0.20f, -0.02f),
+                forwardPush + new Vec3f(-0.02f, 0.20f, -0.02f),
                 fwd * 0.25f + new Vec3f(0.02f, 0.35f, 0.02f),
-                3.5f,
+                2.0f,
                 1.0f,
                 1.0f, 1.8f,
                 EnumParticleModel.Quad

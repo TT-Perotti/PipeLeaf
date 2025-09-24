@@ -27,6 +27,7 @@ namespace PipeLeaf
         ICoreServerAPI sapi;
         KeyCombination lastSmokeCombo;
         double nextTooltipRefreshMs;
+        int inhaleParticleTickCounter = 0;
 
         public override void Start(ICoreAPI api)
         {
@@ -96,7 +97,10 @@ namespace PipeLeaf
         private void OnClientTick(float dt)
         {
             var eplr = capi.World.Player?.Entity;
+            
             if (eplr == null) return;
+            
+            inhaleParticleTickCounter++;
 
             var stack = GetEquippedPipeStack(eplr);
             if (stack?.Item is WearablePipe pipe)
@@ -110,7 +114,11 @@ namespace PipeLeaf
                     if (pipe.IsLit(stack, capi.World))
                     {
                         pipe.ExtendBurn(stack, capi.World, 1/120);
-                        pipe.SpawnInhaleParticles(capi.World, eplr);
+                        if (inhaleParticleTickCounter >= 5)
+                        {
+                            inhaleParticleTickCounter = 0;
+                            pipe.SpawnInhaleParticles(capi.World, eplr);
+                        }
                     }
                 }
             }
