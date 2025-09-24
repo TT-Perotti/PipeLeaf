@@ -1,0 +1,33 @@
+{
+  "ingredientPattern": "_F_,PLP,SAS",
+  "ingredients": {
+    "S": {
+      "type": "item",
+      "code": "game:metalscale-*",
+      "name": "metal",
+      "skipVariants": [ "*-cupronickel", "*-nickel", "*-electrum" ]
+    },
+    "P": {
+      "type": "block",
+      "code": "game:metal-parts"
+    },
+    "L": {
+      "type": "item",
+      "code": "game:flaxfibers"
+    },
+    "F": {
+      "type": "item",
+      "code": "game:flint"
+    },
+    "A": {
+      "type": "item",
+      "code": "game:fat"
+    }
+  },
+  "width": 3,
+  "height": 3,
+  "output": {
+    "type": "item",
+    "code": "pipeleaf:pipelighter-{metal}"
+  }
+}

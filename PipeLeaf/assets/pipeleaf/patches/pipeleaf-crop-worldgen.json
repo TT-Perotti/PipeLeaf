@@ -2,7 +2,7 @@
   {
     "comment": "World gen properties of Pipeleaf",
     "op": "add",
-    "file": "game:worldgen/blockpatches/crop",
+    "file": "game:worldgen/blockpatches/crop.json",
     "path": "/0",
     "value": {
       "comment": "Small patches of pipeleaf",

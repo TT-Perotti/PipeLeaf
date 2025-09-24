@@ -1,0 +1,15 @@
+{
+  "type": "json",
+  "shape": {
+    "base": "game:block/wood/torch/torch",
+    "rotateY": 0,
+    "rotateX": 0,
+    "rotateZ": 0
+  },
+  "textures": {
+    "all": "pipeleaf:block/wood/match"
+  },
+  "scaleX": 0.1,
+  "scaleY": 0.1,
+  "scaleZ": 0.1
+}

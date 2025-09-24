@@ -8,7 +8,10 @@
 	"textureWidth": 16,
 	"textureHeight": 16,
 	"textureSizes": {},
-	"textures": {},
+	"textures": {
+		"bone": "pipeleaf:item/antlerpipe",
+		"null": "pipeleaf:item/antlerpipe"
+	},
 	"elements": [
 		{
 			"name": "face",
