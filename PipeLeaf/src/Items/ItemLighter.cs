@@ -8,7 +8,7 @@ using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
-namespace PipeLeaf
+namespace PipeLeaf.Items
 {
     public class ItemLighter : Item
     {
@@ -223,7 +223,7 @@ namespace PipeLeaf
             var pos = byEntity.SidedPos;
             var fwd = new Vec3f(
                 (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
-                (float)(Math.Sin(pos.Pitch)),
+                (float)Math.Sin(pos.Pitch),
                 (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
             );
 

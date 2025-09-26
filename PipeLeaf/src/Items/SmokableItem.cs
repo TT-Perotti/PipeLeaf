@@ -19,7 +19,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using Vintagestory.ServerMods;
 
-namespace PipeLeaf
+namespace PipeLeaf.Items
 {
     public class SmokableItem : Item
     {
