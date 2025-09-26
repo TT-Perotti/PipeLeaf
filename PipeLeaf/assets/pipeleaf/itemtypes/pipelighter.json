@@ -1,6 +1,6 @@
 {
   "code": "pipelighter",
-  "class": "ItemMatch",
+  "class": "ItemLighter",
   "creativeinventory": { "general": [ "*" ] },
   "shape": { "base": "item/pipelighter" },
   "maxstacksize": 1,

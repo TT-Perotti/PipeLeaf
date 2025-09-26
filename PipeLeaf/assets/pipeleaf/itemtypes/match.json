@@ -1,6 +1,6 @@
 {
   "code": "match",
-  "class": "ItemMatch",
+  "class": "ItemLighter",
   "shape": { "base": "game:block/wood/torch/basic-lit-ground" },
   "creativeinventory": {
     "general": [ "*" ],
