@@ -78,19 +78,19 @@ namespace PipeLeaf.Items
                 switch (fail)
                 {
                     case "notempty":
-                        capi.TriggerIngameError(this, fail, "You must finish smoking before refilling.");
+                        capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:ingameerror-notempty"));
                         break;
                     case "notsmokable":
-                        capi.TriggerIngameError(this, fail, "That can't be smoked.");
+                        capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:ingameerror-notsmokable"));
                         break;
                     case "emptysource":
-                        capi.TriggerIngameError(this, fail, "You’re not holding anything to load.");
+                        capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:ingameerror-emptysource"));
                         break;
                     case "notenough":
-                        capi.TriggerIngameError(this, fail, "You must have at least 3 shag to load.");
+                        capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:ingameerror-notenough-loaded"));
                         break;
                     default:
-                        capi.TriggerIngameError(this, fail, "Cannot load pipe.");
+                        capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:ingameerror-unknown"));
                         break;
                 }
             }
@@ -112,45 +112,43 @@ namespace PipeLeaf.Items
             string langCode = Code.Domain + ":item-" + Code.Path;
             player?.SendMessage(
                 GlobalConstants.GeneralChatGroup,
-                $"You feel the effects of smoking {Lang.Get(langCode)}:",
+                Lang.Get("pipeleaf:pipe-effect-applied", [Lang.Get(langCode)]),
                 EnumChatType.Notification
             );
             foreach (JsonObject effect in effects)
             {
-                string message = $"Your {effect["type"]} stat has been modified by {effect["amount"]}";
+                string message = Lang.Get("pipeleaf:stat-modified-by-effect", [effect["type"], effect["amount"]]);
 
                 switch (effect["type"].AsString())
                 {
                     case "temporalstability":
-                        if ( effect["amount"].AsFloat() < 0 )
+                        if (effect["amount"].AsFloat() < 0)
                         {
-                            message = "The darkness surrounds you.";
+                            message = Lang.Get("pipeleaf:effect-temporalstability-debuff");
                         }
                         else
                         {
-                            message = "You feel focused and less inclined to insanity.";
-
+                            message = Lang.Get("pipeleaf:effect-temporalstability-buff");
                         }
                         break;
                     case "bodytemperature":
-                        message = "You feel warm inside.";
+                        message = Lang.Get("pipeleaf:effect-bodytemperature-buff");
                         break;
                     case "hungerrate":
                         if (effect["amount"].AsFloat() < 0)
                         {
-                            message = "Your appetite is supressed.";
+                            message = Lang.Get("pipeleaf:effect-hungerrate-buff");
                         }
                         else
                         {
-                            message = "Smoking made you hungrier.";
-
+                            message = Lang.Get("pipeleaf:effect-hungerrate-debuff");
                         }
                         break;
                     case "tiredness":
-                        message = "You feel a little napish.";
+                        message = Lang.Get("pipeleaf:effect-tiredness-debuff");
                         break;
                     case "intoxication":
-                        message = "You feel kind of woozy.";
+                        message = Lang.Get("pipeleaf:effect-tiredness-debuff");
                         break;
                 }
 
@@ -183,12 +181,13 @@ namespace PipeLeaf.Items
                 foreach (JsonObject effect in effects)
                 {
                     string type = effect["type"].AsString();
+                    string description = Lang.Get($"pipeleaf:effect-{type}-desc");
                     double amount = effect["amount"].AsDouble(0);
 
                     string sign = amount > 0 ? "+" : (amount < 0 ? "-" : "");
 
                     // If you just want the label with sign:
-                    dsc.AppendLine($"{sign}{type}");
+                    dsc.AppendLine($"{sign}{description}");
 
                     // Or, if you also want to show the numeric value:
                     // dsc.AppendLine($"{sign}{type} ({amount})");

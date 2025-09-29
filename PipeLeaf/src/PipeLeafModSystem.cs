@@ -49,7 +49,7 @@ namespace PipeLeaf
                 .SetMessageHandler<SmokePipePacket>(OnSmokePipePacket);
 
             api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
-            api.World.Logger.StoryEvent("Smoke ascending...");
+            api.World.Logger.StoryEvent(Lang.Get("pipeleaf:storyevent-smoke-ascending"));
 
         }
 
@@ -57,7 +57,7 @@ namespace PipeLeaf
         {
             player.SendMessage(
                 GlobalConstants.InfoLogChatGroup,
-                "You feel the effects of smoking dissipate.",
+                Lang.Get("pipeleaf:pipe-effect-dissipates"),
                 EnumChatType.Notification
             );
             TempEffect tempEffect = new();
@@ -74,7 +74,7 @@ namespace PipeLeaf
                 .RegisterChannel("pipeleaf")
                 .RegisterMessageType<SmokePipePacket>();
 
-            capi.Input.RegisterHotKey("smokepipe", "Smoke Pipe", GlKeys.R, HotkeyType.CharacterControls);
+            capi.Input.RegisterHotKey("smokepipe", Lang.Get("pipeleaf:hotkey-smokepipe"), GlKeys.R, HotkeyType.CharacterControls);
             capi.Input.SetHotKeyHandler("smokepipe", OnSmokePipePressed);
 
             // Poll for release + show inhale particles
@@ -98,9 +98,9 @@ namespace PipeLeaf
         private void OnClientTick(float dt)
         {
             var eplr = capi.World.Player?.Entity;
-            
+
             if (eplr == null) return;
-            
+
             inhaleParticleTickCounter++;
 
             var stack = GetEquippedPipeStack(eplr);
@@ -114,7 +114,7 @@ namespace PipeLeaf
                     // Only spawn particles if the pipe is lit
                     if (pipe.IsLit(stack, capi.World))
                     {
-                        pipe.ExtendBurn(stack, capi.World, 1/120);
+                        pipe.ExtendBurn(stack, capi.World, 1 / 120);
                         if (inhaleParticleTickCounter >= 5)
                         {
                             inhaleParticleTickCounter = 0;
@@ -143,18 +143,18 @@ namespace PipeLeaf
                         {
                             if (fail == "pipenotlit")
                             {
-                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("Pipe has gone out."));
+                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("pipeleaf:ingameerror-pipenotlit"));
                             }
                             else if (fail == "pipeempty")
                             {
-                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("The pipe is empty."));
+                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
                             }
                         }
-                       
+
                     }
                     else
                     {
-                        clientNet.SendPacket(new SmokePipePacket { held = held});
+                        clientNet.SendPacket(new SmokePipePacket { held = held });
                     }
                 }
             }
@@ -188,10 +188,10 @@ namespace PipeLeaf
                 {
                     switch (fail)
                     {
-                        case "pipeempty": fromPlayer.SendIngameError("pipeempty", "Your pipe is empty."); break;
-                        case "notsmokable": fromPlayer.SendIngameError("notsmokable", "That’s not smokable."); break;
-                        case "notenough": fromPlayer.SendIngameError("notenough", "Not enough loaded."); break;
-                        default: fromPlayer.SendIngameError("smokefail", "Couldn’t smoke."); break;
+                        case "pipeempty": fromPlayer.SendIngameError("pipeempty"); break;
+                        case "notsmokable": fromPlayer.SendIngameError("notsmokable"); break;
+                        case "notenough": fromPlayer.SendIngameError("notenough"); break;
+                        default: fromPlayer.SendIngameError("smokefail"); break;
                     }
                 }
             }
@@ -234,4 +234,4 @@ namespace PipeLeaf
     }
 
 }
-   
+

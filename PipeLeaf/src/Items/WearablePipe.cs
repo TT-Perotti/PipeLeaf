@@ -44,7 +44,7 @@ namespace PipeLeaf.Items
             double now = api.World.Calendar.TotalHours;
 
             string msg = $"[PipeDebug:{context}] " +
-                         $"LitUntil={litUntil}, Remaining={litUntil-now}, " +
+                         $"LitUntil={litUntil}, Remaining={litUntil - now}, " +
                          $"TotalLit={totalLit}, NextEffectIn={nextEffect - now}s, Now={now}";
 
             // Only send to chat if state changed
@@ -98,7 +98,8 @@ namespace PipeLeaf.Items
 
             double newUntil = litUntil + add_time;
             // cap the possible extension to 2 minutes from now
-            if (litUntil + add_time - now > 2) { newUntil = now + 2; };
+            if (litUntil + add_time - now > 2) { newUntil = now + 2; }
+            ;
             stack.Attributes.SetDouble(AttrLitUntil, newUntil);
         }
         public void UpdateBurnLazy(ItemStack stack, IWorldAccessor world)
@@ -250,7 +251,7 @@ namespace PipeLeaf.Items
             var pipeStack = pipeSlot.Itemstack;
             var loaded_shag = GetLoaded(pipeStack, api);
 
-            if (loaded_shag != null )
+            if (loaded_shag != null)
             {
                 failCode = "notempty";
                 return false;
@@ -269,7 +270,7 @@ namespace PipeLeaf.Items
 
                 capi.World.PlaySoundAt(
                     new AssetLocation("sounds/walk/grass1"),
-                    eplr,                          
+                    eplr,
                     null,
                     false,
                     16f,
@@ -306,7 +307,7 @@ namespace PipeLeaf.Items
                 return false;
             }
 
-            ExtendBurn(pipeStack, world, 2/3); // successful puff keeps pipe alive
+            ExtendBurn(pipeStack, world, 2 / 3); // successful puff keeps pipe alive
 
             // Check cooldown for effect
             double now = world.Calendar.TotalHours;
@@ -462,23 +463,26 @@ namespace PipeLeaf.Items
             dsc.AppendLine(Lang.Get(lit ? "pipeleaf:Lit" : "pipeleaf:Unlit"));
 
             ItemStack shag = GetLoaded(stack, world.Api);
-            if (shag != null) {
+            if (shag != null)
+            {
                 if (shag.Item is SmokableItem smokable)
                 {
                     double totalLit = stack.Attributes.GetDouble(AttrTotalLit);
                     if (double.IsNaN(totalLit) || totalLit < 0) totalLit = 0;
 
-                    dsc.AppendLine(Lang.Get($"Shag remaining: {(int)((MaxTotalBurnHours - totalLit) * 60)}"));
-                    dsc.AppendLine("Contains: " + Lang.Get($"pipeleaf:item-{smokable.Code.Path}"));
+                    dsc.AppendLine(Lang.Get("pipeleaf:pipe-shag-remaining", [(int)((MaxTotalBurnHours - totalLit) * 60)]));
+                    dsc.AppendLine(Lang.Get("pipeleaf:pipe-contents", [Lang.Get($"pipeleaf:item-{smokable.Code.Path}")]));
 
-                    foreach (JsonObject effect in smokable.effects) {
+                    foreach (JsonObject effect in smokable.effects)
+                    {
                         string type = effect["type"].AsString();
+                        string description = Lang.Get($"pipeleaf:effect-{type}-desc");
                         double amount = effect["amount"].AsDouble(0);
 
                         string sign = amount > 0 ? "+" : (amount < 0 ? "-" : "");
 
                         // If you just want the label with sign:
-                        dsc.AppendLine($"{sign}{type}");
+                        dsc.AppendLine($"{sign}{description}");
                     }
                 }
             }
@@ -491,13 +495,13 @@ namespace PipeLeaf.Items
             {
                 double diffHrs = nextReady - nowHrs;
 
-                double secondsLeft = diffHrs * 60; 
+                double secondsLeft = diffHrs * 60;
 
-                dsc.AppendLine(Lang.Get("Effect ready in {0} seconds", (int)secondsLeft));
+                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-in", [(int)secondsLeft]));
             }
             else
             {
-                dsc.AppendLine(Lang.Get("Effect ready now"));
+                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-now"));
             }
         }
     }
