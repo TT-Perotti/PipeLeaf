@@ -1,4 +1,5 @@
-﻿using ProtoBuf;
+﻿using PipeLeaf.Items;
+using ProtoBuf;
 using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -35,7 +36,7 @@ namespace PipeLeaf
             api.RegisterItemClass("SmokableItem", typeof(SmokableItem));
 
             api.RegisterItemClass("WearablePipe", typeof(WearablePipe));
-            api.RegisterItemClass("ItemMatch", typeof(ItemMatch));
+            api.RegisterItemClass("ItemLighter", typeof(ItemLighter));
         }
 
         public override void StartServerSide(ICoreServerAPI api)

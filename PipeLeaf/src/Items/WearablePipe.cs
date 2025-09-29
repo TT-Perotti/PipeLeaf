@@ -10,7 +10,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace PipeLeaf
+namespace PipeLeaf.Items
 {
     public class WearablePipe : ItemWearable
     {
@@ -21,8 +21,8 @@ namespace PipeLeaf
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
-        const double BurnIncrementHours = .75;
-        const double MaxTotalBurnHours = 5;
+        const double BurnIncrementHours = 1;
+        const double MaxTotalBurnHours = 4;
         const double effectCooldown = 1;
         private string lastDebugState = null;
 
