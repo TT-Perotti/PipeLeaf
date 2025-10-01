@@ -155,19 +155,36 @@ namespace PipeLeaf.Items
                     }
                     catch { } // ignore disposal errors
 
-                    if (secondsUsed >= 2f && pipe.TryLight(faceSlot.Itemstack, byEntity.World))
+                    if (secondsUsed >= 2f)
                     {
-                        if (!slot.Itemstack.Item.Code.Path.StartsWith("pipelighter"))
+                        string fail;
+                        if (pipe.TryLight(faceSlot.Itemstack, byEntity.World, out fail))
                         {
-                            slot.TakeOut(1);
-                            slot.MarkDirty();
-                        }
+                            // Consume the lighter if appropriate
+                            if (!slot.Itemstack.Item.Code.Path.StartsWith("pipelighter"))
+                            {
+                                slot.TakeOut(1);
+                                slot.MarkDirty();
+                            }
+                            faceSlot.MarkDirty();
 
-                        if (byEntity.World.Side == EnumAppSide.Server)
-                            (eplr.Player as IServerPlayer)?.SendMessage(
-                                GlobalConstants.GeneralChatGroup,
-                                Lang.Get("pipeleaf:pipe-lit"),
-                                EnumChatType.Notification);
+                            // Only send success message if pipe actually lit
+                            if (byEntity.World.Side == EnumAppSide.Server)
+                                (eplr.Player as IServerPlayer)?.SendMessage(
+                                    GlobalConstants.GeneralChatGroup,
+                                    Lang.Get("pipeleaf:pipe-lit"),
+                                    EnumChatType.Notification);
+                        }
+                        else
+                        {
+                            // Show red ingame error if lighting failed
+                            if (byEntity.World.Side == EnumAppSide.Client)
+                            {
+                                var capi = byEntity.World.Api as ICoreClientAPI;
+                                if (capi != null && fail != null)
+                                    capi.TriggerIngameError(this, fail, Lang.Get("pipeleaf:pipe-empty"));
+                            }
+                        }
                     }
                 }
             }
