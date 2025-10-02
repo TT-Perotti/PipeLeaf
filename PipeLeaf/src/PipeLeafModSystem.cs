@@ -51,7 +51,7 @@ namespace PipeLeaf
             api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
             api.Event.RegisterGameTickListener(OnServerTick, 1000); // once per second
 
-            api.World.Logger.StoryEvent("Smoke ascending...");
+            api.World.Logger.StoryEvent(Lang.Get("pipeleaf:storyevent-smoke-ascending"));
 
         }
 
@@ -59,7 +59,7 @@ namespace PipeLeaf
         {
             player.SendMessage(
                 GlobalConstants.InfoLogChatGroup,
-                "You feel the effects of smoking dissipate.",
+                Lang.Get("pipeleaf:pipe-effect-dissipates"),
                 EnumChatType.Notification
             );
             TempEffect tempEffect = new();
@@ -76,7 +76,7 @@ namespace PipeLeaf
                 .RegisterChannel("pipeleaf")
                 .RegisterMessageType<SmokePipePacket>();
 
-            capi.Input.RegisterHotKey("smokepipe", "Smoke Pipe", GlKeys.R, HotkeyType.CharacterControls);
+            capi.Input.RegisterHotKey("smokepipe", Lang.Get("pipeleaf:hotkey-smokepipe"), GlKeys.R, HotkeyType.CharacterControls);
             capi.Input.SetHotKeyHandler("smokepipe", OnSmokePipePressed);
 
             // Poll for release + show inhale particles
@@ -149,18 +149,18 @@ namespace PipeLeaf
                         {
                             if (fail == "pipenotlit")
                             {
-                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("Pipe has gone out."));
+                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("pipeleaf:ingameerror-pipenotlit"));
                             }
                             else if (fail == "pipeempty")
                             {
-                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("The pipe is empty."));
+                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
                             }
                         }
-                       
+
                     }
                     else
                     {
-                        clientNet.SendPacket(new SmokePipePacket { held = held});
+                        clientNet.SendPacket(new SmokePipePacket { held = held });
                     }
                 }
             }
@@ -237,4 +237,4 @@ namespace PipeLeaf
     }
 
 }
-   
+

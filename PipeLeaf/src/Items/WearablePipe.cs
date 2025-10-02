@@ -110,7 +110,8 @@ namespace PipeLeaf.Items
 
             double newUntil = litUntil + add_time;
             // cap the possible extension to 2 minutes from now
-            if (litUntil + add_time - now > 2) { newUntil = now + 2; };
+            if (litUntil + add_time - now > 2) { newUntil = now + 2; }
+            ;
             stack.Attributes.SetDouble(AttrLitUntil, newUntil);
         }
 
@@ -315,7 +316,7 @@ namespace PipeLeaf.Items
             var pipeStack = pipeSlot.Itemstack;
             var loaded_shag = GetLoaded(pipeStack, api);
 
-            if (loaded_shag != null )
+            if (loaded_shag != null)
             {
                 failCode = "notempty";
                 return false;
@@ -334,7 +335,7 @@ namespace PipeLeaf.Items
 
                 capi.World.PlaySoundAt(
                     new AssetLocation("sounds/walk/grass1"),
-                    eplr,                          
+                    eplr,
                     null,
                     false,
                     16f,
@@ -547,11 +548,11 @@ namespace PipeLeaf.Items
 
                 double secondsLeft = diffHrs * 60;
 
-                dsc.AppendLine(Lang.Get("Effect ready in {0} seconds", (int)secondsLeft));
+                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-in", [(int)secondsLeft]));
             }
             else
             {
-                dsc.AppendLine(Lang.Get("Effect ready now"));
+                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-now"));
             }
         }
     }
