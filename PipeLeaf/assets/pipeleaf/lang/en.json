@@ -14,7 +14,9 @@
 	"pipeleaf:effect-ready": "Smoking effect cooldown ready.",
 	"pipeleaf:pipe-lit": "Your pipe is lit.",
 	"pipeleaf:pipe-unlit": "Your pipe has gone out.",
-	"pipeleaf:pipe-max-burn": "Your bowl is now empty.",
+	"pipeleaf:pipe-max-burn": "Your pipe is now empty.",
+	"pipeleaf:pipe-item-info-empty": "Empty",
+	"pipeleaf:pipe-empty": "all that's left is dottle...",
 	"game:blockdesc-flower-treeheath-*": "Break with a shovel for a change to find a Briar Burl, an ingredient in the Briar Burl Smoking Pipe.",
 
 	"storyevent-smoke-ascending": "Smoke ascending...",
