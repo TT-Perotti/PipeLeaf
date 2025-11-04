@@ -21,7 +21,7 @@ namespace PipeLeaf.Items
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
-        const double BurnIncrementHours = 1;
+        const double BurnIncrementHours = 1.25;
         const double MaxTotalBurnHours = 5;
         const double effectCooldown = 1;
         private string lastDebugState = null;
@@ -372,7 +372,7 @@ namespace PipeLeaf.Items
                 failCode = "pipeempty";
                 return false;
             }
-
+            SpawnExhaleParticles(world, player);
             // Check cooldown for effect
             double now = world.Calendar.TotalHours;
             double nextEffect = pipeStack.Attributes.GetDouble(AttrNextEffectReady, -1);
@@ -387,7 +387,6 @@ namespace PipeLeaf.Items
                     // api.World.Logger.Notification($"TrySmoke: spawn exhale, smoke shag, reset effect to {nextEffectTime}");
 
                     pipeStack.Attributes.SetDouble(AttrNextEffectReady, nextEffectTime); // 2 minutes
-                    SpawnExhaleParticles(world, player);
                     smokable.Smoke(world, player);
                 }
             }
