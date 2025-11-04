@@ -30,6 +30,11 @@ namespace PipeLeaf
         double nextTooltipRefreshMs;
         int inhaleParticleTickCounter = 0;
 
+        // 🔥 new: throttled update timers
+        double serverBurnAccumulator = 0;
+        const double ServerBurnUpdateInterval = 1.0; // seconds
+        const int ClientTickRateMs = 50; // 20x per second
+
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
@@ -49,8 +54,8 @@ namespace PipeLeaf
                 .SetMessageHandler<SmokePipePacket>(OnSmokePipePacket);
 
             api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
-            api.Event.RegisterGameTickListener(OnServerTick, 1000); // once per second
-
+            // 🔹 Hook for burn updates (throttled)
+            sapi.Event.RegisterGameTickListener(OnServerTick, ClientTickRateMs);
             api.World.Logger.StoryEvent(Lang.Get("pipeleaf:storyevent-smoke-ascending"));
 
         }
@@ -98,14 +103,16 @@ namespace PipeLeaf
         }
         private void OnServerTick(float dt)
         {
+            serverBurnAccumulator += dt;
+            if (serverBurnAccumulator < ServerBurnUpdateInterval) return; // skip most ticks
+            serverBurnAccumulator = 0;
+
             foreach (var player in sapi.World.AllOnlinePlayers)
             {
-                var splayer = player as IServerPlayer;
-                var slot = GetEquippedPipeSlot(splayer);
-                var stack = slot?.Itemstack;
-                if (stack?.Item is WearablePipe pipe)
+                var slot = GetEquippedPipeSlot(player);
+                if (slot?.Itemstack?.Item is WearablePipe pipe)
                 {
-                    pipe.UpdateBurn(stack, sapi.World, splayer.Entity);
+                    pipe.UpdateBurn(slot.Itemstack, sapi.World, player.Entity);
                 }
             }
         }
@@ -140,28 +147,34 @@ namespace PipeLeaf
                 isInhaling = false;
                 inhaleStartTime = -1;
 
-                if (held >= 2000 && stack?.Item is WearablePipe litPipe)
-                {
-                    string fail;
-                    if (!litPipe.TrySmoke(capi.World, eplr, stack, out fail))
-                    {
-                        if (capi.World.Side == EnumAppSide.Client)
-                        {
-                            if (fail == "pipenotlit")
-                            {
-                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("pipeleaf:ingameerror-pipenotlit"));
-                            }
-                            else if (fail == "pipeempty")
-                            {
-                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
-                            }
-                        }
 
-                    }
-                    else
+                if (stack?.Item is WearablePipe litPipe)
+                {
+                    litPipe.SpawnExhaleParticles(capi.World, eplr);
+                    if (held >= 2000)
                     {
-                        clientNet.SendPacket(new SmokePipePacket { held = held });
+                        string fail;
+                        if (!litPipe.TrySmoke(capi.World, eplr, stack, out fail))
+                        {
+                            if (capi.World.Side == EnumAppSide.Client)
+                            {
+                                if (fail == "pipenotlit")
+                                {
+                                    capi.TriggerIngameError(this, "pipenotlit", Lang.Get("pipeleaf:ingameerror-pipenotlit"));
+                                }
+                                else if (fail == "pipeempty")
+                                {
+                                    capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            clientNet.SendPacket(new SmokePipePacket { held = held });
+                        }
                     }
+                    
                 }
             }
         }
