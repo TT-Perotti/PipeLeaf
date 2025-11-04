@@ -30,6 +30,11 @@ namespace PipeLeaf
         double nextTooltipRefreshMs;
         int inhaleParticleTickCounter = 0;
 
+        // 🔥 new: throttled update timers
+        double serverBurnAccumulator = 0;
+        const double ServerBurnUpdateInterval = 1.0; // seconds
+        const int ClientTickRateMs = 50; // 20x per second
+
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
@@ -49,7 +54,9 @@ namespace PipeLeaf
                 .SetMessageHandler<SmokePipePacket>(OnSmokePipePacket);
 
             api.Event.PlayerDeath += ResetSmokingEffectsOnDeath;
-            api.World.Logger.StoryEvent("Smoke ascending...");
+            // 🔹 Hook for burn updates (throttled)
+            sapi.Event.RegisterGameTickListener(OnServerTick, ClientTickRateMs);
+            api.World.Logger.StoryEvent(Lang.Get("pipeleaf:storyevent-smoke-ascending"));
 
         }
 
@@ -57,7 +64,7 @@ namespace PipeLeaf
         {
             player.SendMessage(
                 GlobalConstants.InfoLogChatGroup,
-                "You feel the effects of smoking dissipate.",
+                Lang.Get("pipeleaf:pipe-effect-dissipates"),
                 EnumChatType.Notification
             );
             TempEffect tempEffect = new();
@@ -74,7 +81,7 @@ namespace PipeLeaf
                 .RegisterChannel("pipeleaf")
                 .RegisterMessageType<SmokePipePacket>();
 
-            capi.Input.RegisterHotKey("smokepipe", "Smoke Pipe", GlKeys.R, HotkeyType.CharacterControls);
+            capi.Input.RegisterHotKey("smokepipe", Lang.Get("pipeleaf:hotkey-smokepipe"), GlKeys.R, HotkeyType.CharacterControls);
             capi.Input.SetHotKeyHandler("smokepipe", OnSmokePipePressed);
 
             // Poll for release + show inhale particles
@@ -90,36 +97,42 @@ namespace PipeLeaf
             {
                 inhaleStartTime = capi.World.ElapsedMilliseconds;
                 isInhaling = true;
-                capi.World.Logger.Notification("PipeLeaf: inhale started");
+                // capi.World.Logger.Notification("PipeLeaf: inhale started");
             }
             return true;
+        }
+        private void OnServerTick(float dt)
+        {
+            serverBurnAccumulator += dt;
+            if (serverBurnAccumulator < ServerBurnUpdateInterval) return; // skip most ticks
+            serverBurnAccumulator = 0;
+
+            foreach (var player in sapi.World.AllOnlinePlayers)
+            {
+                var slot = GetEquippedPipeSlot(player);
+                if (slot?.Itemstack?.Item is WearablePipe pipe)
+                {
+                    pipe.UpdateBurn(slot.Itemstack, sapi.World, player.Entity);
+                }
+            }
         }
 
         private void OnClientTick(float dt)
         {
             var eplr = capi.World.Player?.Entity;
-            
             if (eplr == null) return;
-            
+
             inhaleParticleTickCounter++;
-
             var stack = GetEquippedPipeStack(eplr);
-            if (stack?.Item is WearablePipe pipe)
+            if (stack?.Item is WearablePipe pipe && isInhaling)
             {
-                // 🔥 Always update burn-down timer while pipe is equipped
-                pipe.UpdateBurn(stack, capi.World, eplr);
-
-                if (isInhaling)
+                if (pipe.IsLit(stack, capi.World))
                 {
-                    // Only spawn particles if the pipe is lit
-                    if (pipe.IsLit(stack, capi.World))
+                    pipe.ExtendBurn(stack, capi.World, 2.0 / 60.0);
+                    if (inhaleParticleTickCounter >= 5)
                     {
-                        pipe.ExtendBurn(stack, capi.World, 1/120);
-                        if (inhaleParticleTickCounter >= 5)
-                        {
-                            inhaleParticleTickCounter = 0;
-                            pipe.SpawnInhaleParticles(capi.World, eplr);
-                        }
+                        inhaleParticleTickCounter = 0;
+                        pipe.SpawnInhaleParticles(capi.World, eplr);
                     }
                 }
             }
@@ -134,28 +147,34 @@ namespace PipeLeaf
                 isInhaling = false;
                 inhaleStartTime = -1;
 
-                if (held >= 2000 && stack?.Item is WearablePipe litPipe)
+
+                if (stack?.Item is WearablePipe litPipe)
                 {
-                    string fail;
-                    if (!litPipe.TrySmoke(capi.World, eplr, stack, out fail))
+                    litPipe.SpawnExhaleParticles(capi.World, eplr);
+                    if (held >= 2000)
                     {
-                        if (capi.World.Side == EnumAppSide.Client)
+                        string fail;
+                        if (!litPipe.TrySmoke(capi.World, eplr, stack, out fail))
                         {
-                            if (fail == "pipenotlit")
+                            if (capi.World.Side == EnumAppSide.Client)
                             {
-                                capi.TriggerIngameError(this, "pipenotlit", Lang.Get("Pipe has gone out."));
+                                if (fail == "pipenotlit")
+                                {
+                                    capi.TriggerIngameError(this, "pipenotlit", Lang.Get("pipeleaf:ingameerror-pipenotlit"));
+                                }
+                                else if (fail == "pipeempty")
+                                {
+                                    capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
+                                }
                             }
-                            else if (fail == "pipeempty")
-                            {
-                                capi.TriggerIngameError(this, "pipeempty", Lang.Get("The pipe is empty."));
-                            }
+
                         }
-                       
+                        else
+                        {
+                            clientNet.SendPacket(new SmokePipePacket { held = held });
+                        }
                     }
-                    else
-                    {
-                        clientNet.SendPacket(new SmokePipePacket { held = held});
-                    }
+                    
                 }
             }
         }
@@ -184,38 +203,39 @@ namespace PipeLeaf
             string fail;
             if (!pipe.TrySmoke(sapi.World, fromPlayer.Entity, stack, out fail))
             {
-                if (capi.World.Side == EnumAppSide.Client)
+                // Server-side: send chat message / notification
+                string msg;
+                switch (fail)
                 {
-                    switch (fail)
-                    {
-                        case "pipeempty": fromPlayer.SendIngameError("pipeempty", "Your pipe is empty."); break;
-                        case "notsmokable": fromPlayer.SendIngameError("notsmokable", "That’s not smokable."); break;
-                        case "notenough": fromPlayer.SendIngameError("notenough", "Not enough loaded."); break;
-                        default: fromPlayer.SendIngameError("smokefail", "Couldn’t smoke."); break;
-                    }
+                    case "pipeempty": msg = "Your pipe is empty."; break;
+                    case "pipenotlit": msg = "Your pipe has gone out."; break;
+                    default: msg = "Couldn’t smoke."; break;
                 }
+
+                fromPlayer.SendMessage(GlobalConstants.GeneralChatGroup, msg, EnumChatType.Notification);
+                return;
             }
-            else
+
+            // Overuse damage if held too long
+            if (packet.held >= 7000)
             {
-                if (packet.held >= 7000)
-                {
-                    OveruseDamage(fromPlayer);
-                }
+                OveruseDamage(fromPlayer);
             }
+            slot.MarkDirty();
+
         }
+
 
         private ItemSlot GetEquippedPipeSlot(IServerPlayer splayer)
         {
             var wearInv = splayer.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
             if (wearInv == null) return null;
 
-            foreach (var slot in wearInv)
-            {
-                if (!slot.Empty && slot.Itemstack?.Item is WearablePipe)
-                    return slot;
-            }
-            return null;
+            // Face slot is always at index of EnumCharacterDressType.Face
+            var faceSlot = wearInv[(int)EnumCharacterDressType.Face];
+            return (!faceSlot.Empty && faceSlot.Itemstack?.Item is WearablePipe) ? faceSlot : null;
         }
+
         private ItemStack GetEquippedPipeStack(EntityPlayer eplr)
         {
             var owningPlayer = capi.World.PlayerByUid(eplr.PlayerUID);
@@ -224,14 +244,10 @@ namespace PipeLeaf
             var wearInv = owningPlayer.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
             if (wearInv == null) return null;
 
-            foreach (var slot in wearInv)
-            {
-                if (!slot.Empty && slot.Itemstack?.Item is WearablePipe)
-                    return slot.Itemstack;
-            }
-            return null;
+            var faceSlot = wearInv[(int)EnumCharacterDressType.Face];
+            return (!faceSlot.Empty && faceSlot.Itemstack?.Item is WearablePipe) ? faceSlot.Itemstack : null;
         }
     }
 
 }
-   
+
