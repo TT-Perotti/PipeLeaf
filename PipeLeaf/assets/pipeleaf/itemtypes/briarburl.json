@@ -62,7 +62,7 @@
       {
         "type": "Dry",
         "freshHours": { "avg": 0 },
-        "transitionHours": { "avg": 168 },
+        "transitionHours": { "avg": 80 },
         "transitionedStack": {
           "type": "item",
           "code": "briarburl-dried"

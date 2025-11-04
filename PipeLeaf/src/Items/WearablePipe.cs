@@ -187,7 +187,7 @@ namespace PipeLeaf.Items
             double litUntil = stack.Attributes.GetDouble(AttrLitUntil, 0);
             if (double.IsNaN(litUntil) || litUntil == 0) return;
 
-            DebugChatState(stack, world.Api, "UpdateBurn-Start");
+            //  DebugChatState(stack, world.Api, "UpdateBurn-Start");
 
             if (now > litUntil)
             {
@@ -203,7 +203,7 @@ namespace PipeLeaf.Items
                 var wearInv = player.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
                 var faceSlot = wearInv?[(int)EnumCharacterDressType.Face];
                 faceSlot?.MarkDirty();
-                DebugChatState(stack, world.Api, "PipeOut");
+                // DebugChatState(stack, world.Api, "PipeOut");
                 return;
             }
 
@@ -248,7 +248,7 @@ namespace PipeLeaf.Items
                 var faceSlot = wearInv?[(int)EnumCharacterDressType.Face];
                 faceSlot?.MarkDirty();
 
-                DebugChatState(stack, world.Api, "PipeEmpty");
+                // DebugChatState(stack, world.Api, "PipeEmpty");
             }
         }
 
