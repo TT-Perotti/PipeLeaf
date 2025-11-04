@@ -731,8 +731,8 @@
     {
       "type": "Perish",
       "freshHoursByType": {
-        "*-cured": { "avg": 8640 },
-        "*-shag": { "avg": 8640 },
+        "*-cured": { "avg": 4320 },
+        "*-shag": { "avg": 4320 },
         "*": { "avg": 336 }
       },
       "transitionHours": { "avg": 12 },
