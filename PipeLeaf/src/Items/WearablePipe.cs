@@ -21,9 +21,9 @@ namespace PipeLeaf.Items
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
-        const double BurnIncrementHours = 1.5;
-        const double MaxTotalBurnHours = 5;
-        const double effectCooldown = 1;
+        const double BurnIncrementHours = 2;
+        const double MaxTotalBurnHours = 6;
+        const double effectCooldown = 1.25;
         private string lastDebugState = null;
 
         public bool IsLit(ItemStack stack, IWorldAccessor world)
