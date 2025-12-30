@@ -1,5 +1,5 @@
 {
-  "ingredientPattern": "_F_,PLP,SAS",
+  "ingredientPattern": "HFG,PLP,SAS",
   "ingredients": {
     "H": {
       "type": "item",
