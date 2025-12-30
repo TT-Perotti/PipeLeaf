@@ -460,14 +460,24 @@ namespace PipeLeaf.Items
 
             if (!mouth.IsFinite() || !forwardPush.IsFinite()) return;
 
+            // 🎲 Randomize scale
+            Random rand = world.Rand;
+            float scaleMult = 1f + (float)(rand.NextDouble() * 0.4 - 0.2); // ~±20% size variance
+
+            // 🎲 Rare "big puff" event — 1 in 100 chance
+            if (rand.Next(0, 100) == 0)
+            {
+                scaleMult *= 3.0f;
+            }
+
             var smokeExhale = new SimpleParticleProperties(
                 12, 18,
                 ColorUtil.ToRgba(35, 122, 139, 174),
                 mouth, mouth,
                 forwardPush + new Vec3f(-0.02f, 0.20f, -0.02f),
                 fwd * 0.25f + new Vec3f(0.02f, 0.35f, 0.02f),
-                2.0f,
-                1.0f,
+                2.0f * scaleMult,   // minSize
+                1.0f * scaleMult,   // maxSize
                 1.0f, 1.8f,
                 EnumParticleModel.Quad
             );
