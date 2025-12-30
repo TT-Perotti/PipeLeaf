@@ -109,10 +109,14 @@ namespace PipeLeaf
 
             foreach (var player in sapi.World.AllOnlinePlayers)
             {
-                var slot = GetEquippedPipeSlot(player);
+                var slot = GetEquippedPipeSlot(player as IServerPlayer);
                 if (slot?.Itemstack?.Item is WearablePipe pipe)
                 {
-                    pipe.UpdateBurn(slot.Itemstack, sapi.World, player.Entity);
+                    var eplr = player.Entity as EntityPlayer;
+                    if (eplr != null)
+                    {
+                        pipe.UpdateBurn(slot.Itemstack, sapi.World, eplr);
+                    }
                 }
             }
         }
@@ -150,7 +154,9 @@ namespace PipeLeaf
 
                 if (stack?.Item is WearablePipe litPipe)
                 {
-                    litPipe.SpawnExhaleParticles(capi.World, eplr);
+                    if (litPipe.IsLit(stack, capi.World)) {
+                        litPipe.SpawnExhaleParticles(capi.World, eplr);
+                    }
                     if (held >= 2000)
                     {
                         string fail;

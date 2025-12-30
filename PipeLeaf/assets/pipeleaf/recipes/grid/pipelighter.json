@@ -1,6 +1,15 @@
 {
-  "ingredientPattern": "_F_,PLP,SAS",
+  "ingredientPattern": "HFG,PLP,SAS",
   "ingredients": {
+    "H": {
+      "type": "item",
+      "code": "game:hammer-*",
+      "isTool": true
+    },
+    "G": {
+      "type": "item",
+      "code": "game:gear-rusty"
+    },
     "S": {
       "type": "item",
       "code": "game:metalscale-*",
