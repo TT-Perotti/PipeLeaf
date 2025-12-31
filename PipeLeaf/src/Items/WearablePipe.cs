@@ -177,9 +177,7 @@ namespace PipeLeaf.Items
 
             if (computed >= MaxTotalBurnHours)
             {
-                SetLoaded(stack, null); // empty pipe
-                stack.Attributes.RemoveAttribute(AttrLitUntil);
-                stack.Attributes.RemoveAttribute(AttrTotalLit);
+                OnBurnFinished(stack, world);
             }
         }
 
@@ -239,10 +237,7 @@ namespace PipeLeaf.Items
                         EnumChatType.Notification);
                 }
 
-                // Clear everything so the pipe really empties
-                SetLoaded(stack, null);
-                stack.Attributes.RemoveAttribute(AttrLitUntil);
-                stack.Attributes.RemoveAttribute(AttrTotalLit);
+                OnBurnFinished(stack, world);
                 // stack.Attributes.RemoveAttribute(AttrNextEffectReady);
 
                 // Mark face slot dirty to sync to client
@@ -254,7 +249,16 @@ namespace PipeLeaf.Items
             }
         }
 
-
+        protected virtual void OnBurnFinished(
+            ItemStack stack,
+            IWorldAccessor world,
+            EntityPlayer player = null)
+        {
+            // Default pipe behavior: empty the pipe
+            SetLoaded(stack, null);
+            stack.Attributes.RemoveAttribute(AttrLitUntil);
+            stack.Attributes.RemoveAttribute(AttrTotalLit);
+        }
 
         // --------- Attribute helpers ---------
 
