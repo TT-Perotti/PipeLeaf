@@ -8,14 +8,234 @@
     "value": {
       "code": "pipeleaf:seeds-pipeleaf",
       "type": "item",
-      "stacksize": 5,
+      "stacksize": 8,
       "stock": {
         "avg": 1,
         "var": 0.25
       },
       "price": {
-        "avg": 12,
-        "var": 5.5
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-orangemallow-catmint",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-orangemallow-goldenpoppy",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-orangemallow-lavender",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-cornflower-marjoram",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-chamomile-marjoram",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-lavender-sage",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-mint-mugwort",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-sage-orangemallow",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:shagblend-sage-marjoram",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:smokable-cornflower-shag",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
+      }
+    }
+  },
+  {
+    "comment": "add pipeleaf blends to ag trader",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-agriculture.json",
+    "value": {
+      "code": "pipeleaf:smokable-orangemallow-shag",
+      "type": "item",
+      "stacksize": 8,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 5,
+        "var": 1
       }
     }
   }
