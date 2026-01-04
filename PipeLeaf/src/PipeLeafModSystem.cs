@@ -8,7 +8,6 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 
 
-
 namespace PipeLeaf
 {
     [ProtoContract]   // <-- required
@@ -27,8 +26,6 @@ namespace PipeLeaf
         IServerNetworkChannel serverNet;
         ICoreClientAPI capi;
         ICoreServerAPI sapi;
-        KeyCombination lastSmokeCombo;
-        double nextTooltipRefreshMs;
         int inhaleParticleTickCounter = 0;
 
         // 🔥 new: throttled update timers

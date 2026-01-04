@@ -21,9 +21,9 @@ namespace PipeLeaf.Items
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
-        double BurnIncrementHours => PipeLeafModSystem.Config.BurnIncrementHours;
-        double MaxTotalBurnHours => PipeLeafModSystem.Config.MaxTotalBurnHours;
-        double effectCooldown => PipeLeafModSystem.Config.EffectCooldown;
+        protected virtual double BurnIncrementHours => PipeLeafModSystem.Config.BurnIncrementHours;
+        protected virtual double MaxTotalBurnHours => PipeLeafModSystem.Config.MaxTotalBurnHours;
+        protected virtual double EffectCooldown => PipeLeafModSystem.Config.EffectCooldown;
 
 
         private string lastDebugState = null;
@@ -175,10 +175,6 @@ namespace PipeLeaf.Items
                 return;
             }
 
-            if (computed >= MaxTotalBurnHours)
-            {
-                OnBurnFinished(stack, world);
-            }
         }
 
         public void UpdateBurn(ItemStack stack, IWorldAccessor world, EntityPlayer player)
@@ -237,27 +233,30 @@ namespace PipeLeaf.Items
                         EnumChatType.Notification);
                 }
 
-                OnBurnFinished(stack, world);
-                // stack.Attributes.RemoveAttribute(AttrNextEffectReady);
-
-                // Mark face slot dirty to sync to client
                 var wearInv = player.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
                 var faceSlot = wearInv?[(int)EnumCharacterDressType.Face];
-                faceSlot?.MarkDirty();
 
-                // DebugChatState(stack, world.Api, "PipeEmpty");
+                if (faceSlot?.Itemstack == stack)
+                {
+                    var newStack = OnBurnFinished(stack, world, player);
+                    faceSlot.Itemstack = newStack;
+                    faceSlot.MarkDirty();
+                }
+
+                return;
             }
+
         }
 
-        protected virtual void OnBurnFinished(
+        protected virtual ItemStack OnBurnFinished(
             ItemStack stack,
             IWorldAccessor world,
             EntityPlayer player = null)
         {
-            // Default pipe behavior: empty the pipe
             SetLoaded(stack, null);
             stack.Attributes.RemoveAttribute(AttrLitUntil);
             stack.Attributes.RemoveAttribute(AttrTotalLit);
+            return stack;
         }
 
         // --------- Attribute helpers ---------
@@ -279,7 +278,7 @@ namespace PipeLeaf.Items
             return load;
         }
 
-        private void SetLoaded(ItemStack pipeStack, ItemStack toSet)
+        protected virtual void SetLoaded(ItemStack pipeStack, ItemStack toSet)
         {
             if (toSet == null)
             {
@@ -298,7 +297,7 @@ namespace PipeLeaf.Items
 
         // --------- Loading ---------
 
-        public bool TryLoadFrom(ItemSlot source, ItemSlot pipeSlot, ICoreAPI api, out string failCode)
+        public virtual bool TryLoadFrom(ItemSlot source, ItemSlot pipeSlot, ICoreAPI api, out string failCode)
         {
             failCode = null;
 
@@ -389,7 +388,7 @@ namespace PipeLeaf.Items
                 if (shag.Item is SmokableItem smokable)
                 {
                     ExtendBurn(pipeStack, world, 2 / 3); // successful puff keeps pipe alive
-                    double nextEffectTime = now + effectCooldown;
+                    double nextEffectTime = now + EffectCooldown;
                     // api.World.Logger.Notification($"TrySmoke: spawn exhale, smoke shag, reset effect to {nextEffectTime}");
 
                     pipeStack.Attributes.SetDouble(AttrNextEffectReady, nextEffectTime); // 2 minutes
