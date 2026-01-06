@@ -1,5 +1,1301 @@
 [
   {
+    "ingredientPattern": "_E_C_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "C": {
+        "type": "item",
+        "code": "pipeleaf:smokable-catmint-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-catmint",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_O_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "O": {
+        "type": "item",
+        "code": "pipeleaf:smokable-orangemallow-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-orangemallow",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_P_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "P": {
+        "type": "item",
+        "code": "pipeleaf:smokable-poisonoak-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-poisonoak",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_G_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "G": {
+        "type": "item",
+        "code": "pipeleaf:smokable-goldenpoppy-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-goldenpoppy",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_F_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "F": {
+        "type": "item",
+        "code": "pipeleaf:smokable-cornflower-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-cornflower",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_H_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "H": {
+        "type": "item",
+        "code": "pipeleaf:smokable-chamomile-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-chamomile",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_L_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "L": {
+        "type": "item",
+        "code": "pipeleaf:smokable-lavender-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-lavender",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_J_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "J": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marjoram-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-marjoram",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_W_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "W": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marshmallow-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-marshmallow",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_M_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "M": {
+        "type": "item",
+        "code": "pipeleaf:smokable-mint-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-mint",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_R_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "R": {
+        "type": "item",
+        "code": "pipeleaf:smokable-rosemary-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-rosemary",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_A_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "A": {
+        "type": "item",
+        "code": "pipeleaf:smokable-saffron-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-saffron",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_G_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "G": {
+        "type": "item",
+        "code": "pipeleaf:smokable-sage-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-sage",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_N_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "N": {
+        "type": "item",
+        "code": "pipeleaf:smokable-stingingnettle-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-stingingnettle",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_J_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "J": {
+        "type": "item",
+        "code": "pipeleaf:smokable-stjohnswort-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-stjohnswort",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_T_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "T": {
+        "type": "item",
+        "code": "pipeleaf:smokable-thyme-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-thyme",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_U_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "U": {
+        "type": "item",
+        "code": "pipeleaf:smokable-mugwort-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-mugwort",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_I_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "I": {
+        "type": "item",
+        "code": "pipeleaf:smokable-chicory-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-chicory",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_D_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "D": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marigold-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-marigold",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_Y_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "Y": {
+        "type": "item",
+        "code": "pipeleaf:smokable-yarrow-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-yarrow",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_B_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "B": {
+        "type": "item",
+        "code": "pipeleaf:smokable-angelica-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-angelica",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_K_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "K": {
+        "type": "item",
+        "code": "pipeleaf:smokable-arnica-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-arnica",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_O_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "O": {
+        "type": "item",
+        "code": "pipeleaf:smokable-horehound-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-horehound",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_E_X_S",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 3
+      },
+      "X": {
+        "type": "item",
+        "code": "pipeleaf:smokable-ginseng-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-edelweiss-ginseng",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_C_E_S",
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "pipeleaf:smokable-catmint-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-catmint-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_O_E_S",
+    "ingredients": {
+      "O": {
+        "type": "item",
+        "code": "pipeleaf:smokable-orangemallow-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-orangemallow-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_P_E_S",
+    "ingredients": {
+      "P": {
+        "type": "item",
+        "code": "pipeleaf:smokable-poisonoak-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-poisonoak-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_G_E_S",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "pipeleaf:smokable-goldenpoppy-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-goldenpoppy-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_F_E_S",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "pipeleaf:smokable-cornflower-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-cornflower-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_H_E_S",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "pipeleaf:smokable-chamomile-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-chamomile-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_L_E_S",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "pipeleaf:smokable-lavender-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-lavender-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_J_E_S",
+    "ingredients": {
+      "J": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marjoram-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-marjoram-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_W_E_S",
+    "ingredients": {
+      "W": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marshmallow-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-marshmallow-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_M_E_S",
+    "ingredients": {
+      "M": {
+        "type": "item",
+        "code": "pipeleaf:smokable-mint-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-mint-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_R_E_S",
+    "ingredients": {
+      "R": {
+        "type": "item",
+        "code": "pipeleaf:smokable-rosemary-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-rosemary-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_A_E_S",
+    "ingredients": {
+      "A": {
+        "type": "item",
+        "code": "pipeleaf:smokable-saffron-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-saffron-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_G_E_S",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "pipeleaf:smokable-sage-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-sage-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_N_E_S",
+    "ingredients": {
+      "N": {
+        "type": "item",
+        "code": "pipeleaf:smokable-stingingnettle-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-stingingnettle-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_J_E_S",
+    "ingredients": {
+      "J": {
+        "type": "item",
+        "code": "pipeleaf:smokable-stjohnswort-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-stjohnswort-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_T_E_S",
+    "ingredients": {
+      "T": {
+        "type": "item",
+        "code": "pipeleaf:smokable-thyme-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-thyme-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_U_E_S",
+    "ingredients": {
+      "U": {
+        "type": "item",
+        "code": "pipeleaf:smokable-mugwort-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-mugwort-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_I_E_S",
+    "ingredients": {
+      "I": {
+        "type": "item",
+        "code": "pipeleaf:smokable-chicory-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-chicory-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_D_E_S",
+    "ingredients": {
+      "D": {
+        "type": "item",
+        "code": "pipeleaf:smokable-marigold-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-marigold-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_Y_E_S",
+    "ingredients": {
+      "Y": {
+        "type": "item",
+        "code": "pipeleaf:smokable-yarrow-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-yarrow-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_B_E_S",
+    "ingredients": {
+      "B": {
+        "type": "item",
+        "code": "pipeleaf:smokable-angelica-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-angelica-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_K_E_S",
+    "ingredients": {
+      "K": {
+        "type": "item",
+        "code": "pipeleaf:smokable-arnica-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-arnica-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_O_E_S",
+    "ingredients": {
+      "O": {
+        "type": "item",
+        "code": "pipeleaf:smokable-horehound-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-horehound-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
+    "ingredientPattern": "_X_E_S",
+    "ingredients": {
+      "X": {
+        "type": "item",
+        "code": "pipeleaf:smokable-ginseng-shag",
+        "quantity": 3
+      },
+      "E": {
+        "type": "item",
+        "code": "pipeleaf:smokable-edelweiss-shag",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "pipeleaf:smokable-pipeleaf-shag",
+        "quantity": 1
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "pipeleaf:shagblend-ginseng-edelweiss",
+      "quantity": 6
+    }
+  },
+  {
     "ingredientPattern": "_P_H_S",
     "ingredients": {
       "P": {

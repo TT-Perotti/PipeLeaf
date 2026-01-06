@@ -174,11 +174,6 @@
           "type": "bodytemperature",
           "amount": 5,
           "cooldown": 0
-        },
-        {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": 0.40,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         }
       ],
       "handbook": {
@@ -187,6 +182,45 @@
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Cornflower Shag will make you feel warmer in the cold."
+          }
+        ]
+      },
+      "inFirePitProps": {
+        "transform": {
+          "scale": 0.37,
+          "origin": {
+            "x": 0.5,
+            "y": 0.0625,
+            "z": 0.5
+          },
+          "translation": {
+            "x": 0.03125,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 45,
+            "z": 0
+          }
+        },
+        "useFirepitModel": "Spit"
+      }
+    },
+    "smokable-edelweiss-shag": {
+      "smokableEffects": [
+        {
+          "type": "temporalstability", // watchedAttribute, not a Stat 
+          "amount": 0.25,
+          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
+        }
+      ],
+      "handbook": {
+        "groupBy": [ "smokable-*-shag" ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Edelweiss Shag will boost your sanity in the deep."
           }
         ]
       },
