@@ -2,8 +2,12 @@
   "code": "curedblend",
   "enabled": true,
   "creativeinventory": {
-    "general": [ "*" ],
-    "items": [ "*" ]
+    "general": [
+      "*"
+    ],
+    "items": [
+      "*"
+    ]
   },
   "materialDensity": 300,
   "maxstacksize": 64,
@@ -15,9 +19,39 @@
       "loadFromProperties": "pipeleaf:item/blendable2"
     }
   ],
-  "skipVariants": [ "*-pipeleaf-*", "*-*-pipeleaf", "curedblend-catmint-catmint", "curedblend-orangemallow-orangemallow", "curedblend-poisonoak-poisonoak", "curedblend-goldenpoppy-goldenpoppy", "curedblend-cornflower-cornflower", "curedblend-chamomile-chamomile", "curedblend-lavender-lavender", "curedblend-marjoram-marjoram", "curedblend-marshmallow-marshmallow", "curedblend-mint-mint", "curedblend-rosemary-rosemary", "curedblend-saffron-saffron", "curedblend-sage-sage", "curedblend-stingingnettle-stingingnettle", "curedblend-stjohnswort-stjohnswort", "curedblend-thyme-thyme", "curedblend-mugwort-mugwort", "curedblend-chicory-chicory", "curedblend-marigold-marigold", "curedblend-yarrow-yarrow", "curedblend-angelica-angelica", "curedblend-arnica-arnica", "curedblend-horehound-horehound", "curedblend-ginseng-ginseng" ],
+  "skipVariants": [
+    "curedblend-catmint-catmint",
+    "curedblend-edelweiss-edelweiss",
+    "curedblend-orangemallow-orangemallow",
+    "curedblend-poisonoak-poisonoak",
+    "curedblend-goldenpoppy-goldenpoppy",
+    "curedblend-cornflower-cornflower",
+    "curedblend-chamomile-chamomile",
+    "curedblend-lavender-lavender",
+    "curedblend-marjoram-marjoram",
+    "curedblend-marshmallow-marshmallow",
+    "curedblend-mint-mint",
+    "curedblend-rosemary-rosemary",
+    "curedblend-saffron-saffron",
+    "curedblend-sage-sage",
+    "curedblend-stingingnettle-stingingnettle",
+    "curedblend-stjohnswort-stjohnswort",
+    "curedblend-thyme-thyme",
+    "curedblend-mugwort-mugwort",
+    "curedblend-chicory-chicory",
+    "curedblend-marigold-marigold",
+    "curedblend-yarrow-yarrow",
+    "curedblend-angelica-angelica",
+    "curedblend-arnica-arnica",
+    "curedblend-horehound-horehound",
+    "curedblend-ginseng-ginseng",
+    "*-pipeleaf-*",
+    "*-*-pipeleaf"
+  ],
   "textureByType": {
-    "curedblend-*": { "base": "pipeleaf:item/smokable/cured" }
+    "curedblend-*": {
+      "base": "pipeleaf:item/smokable/cured"
+    }
   },
   "grindingPropsByType": {
     "curedblend-*": {
@@ -32,11 +66,19 @@
     {
       "type": "Perish",
       "freshHoursByType": {
-        "*-cured": { "avg": 8640 },
-        "*-shag": { "avg": 8640 },
-        "*": { "avg": 336 }
+        "*-cured": {
+          "avg": 8640
+        },
+        "*-shag": {
+          "avg": 8640
+        },
+        "*": {
+          "avg": 336
+        }
       },
-      "transitionHours": { "avg": 12 },
+      "transitionHours": {
+        "avg": 12
+      },
       "transitionedStack": {
         "type": "item",
         "code": "game:rot"

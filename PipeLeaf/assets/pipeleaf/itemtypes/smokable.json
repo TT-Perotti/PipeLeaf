@@ -1,10 +1,16 @@
 {
   "code": "smokable",
   "enabled": true,
-  "classByType": { "*-shag": "SmokableItem" },
+  "classByType": {
+    "*-shag": "SmokableItem"
+  },
   "creativeinventory": {
-    "general": [ "*" ],
-    "items": [ "*" ]
+    "general": [
+      "*"
+    ],
+    "items": [
+      "*"
+    ]
   },
   "materialDensity": 300,
   "maxstacksize": 64,
@@ -14,12 +20,19 @@
     },
     {
       "code": "type",
-      "states": [ "cured", "shag" ]
+      "states": [
+        "cured",
+        "shag"
+      ]
     }
   ],
   "textureByType": {
-    "smokable-*-cured": { "base": "pipeleaf:item/smokable/cured" },
-    "smokable-*-shag": { "base": "pipeleaf:item/smokable/shag" }
+    "smokable-*-cured": {
+      "base": "pipeleaf:item/smokable/cured"
+    },
+    "smokable-*-shag": {
+      "base": "pipeleaf:item/smokable/shag"
+    }
   },
   "grindingPropsByType": {
     "smokable-*-cured": {
@@ -31,58 +44,24 @@
     }
   },
   "attributesByType": {
-    "smokable-weedbuds*-shag": {
+    "smokable-pipeleaf-shag": {
       "smokableEffects": [
         {
-          "type": "tiredness",
+          "type": "bodytemperature",
           "amount": 5,
           "cooldown": 0
-        },
-        {
-          "type": "intoxication",
-          "amount": 0.5,
-          "cooldown": 0
-        },
-        {
-          "type": "hungerrate",
-          "amount": 0.25,
-          "cooldown": 900
-        },
-        {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": -0.2,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
-            "text": "Stoned."
+            "text": "Smoking this will warm you in the cold."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
     "smokable-catmint-shag": {
@@ -99,151 +78,35 @@
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Catmint may cause temporary insanity."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-goldenpoppy-shag": {
-      "smokableEffects": [
-        {
-          "type": "tiredness",
-          "amount": 5,
-          "cooldown": 0
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Golden Poppy will boost temporal stability and makes you sleepy."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-cornflower-shag": {
-      "smokableEffects": [
-        {
-          "type": "bodytemperature",
-          "amount": 5,
-          "cooldown": 0
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Cornflower Shag will make you feel warmer in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
     "smokable-edelweiss-shag": {
       "smokableEffects": [
         {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
+          "type": "temporalstability",
           "amount": 0.25,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
+          "cooldown": 0
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Edelweiss Shag will boost your sanity in the deep."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
     "smokable-orangemallow-shag": {
@@ -255,386 +118,20 @@
         },
         {
           "type": "hungerrate",
-          "amount": -0.50,
-          "cooldown": 900 // 15 minutes
+          "amount": -0.5,
+          "cooldown": 900
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Orange Mallow has a mild intoxicating effect and makes you less hungry."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-sage-shag": {
-      "smokableEffects": [
-        {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": 0.40,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
-        },
-        {
-          "type": "intoxication",
-          "amount": 0.5,
-          "cooldown": 0
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Sage has a heavy intoxicating effect, will boost temporal stability, and warms you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-mugwort-shag": {
-      "smokableEffects": [
-        {
-          "type": "intoxication",
-          "amount": 0.02,
-          "cooldown": 0
-        },
-        {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 5,
-          "cooldown": 0 // body temp maxes out and reduces naturally
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Mugwort has mild intoxicating effects and warms you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-marshmallow-shag": {
-      "smokableEffects": [
-        {
-          "type": "intoxication",
-          "amount": 0.05,
-          "cooldown": 0
-        },
-        {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 5,
-          "cooldown": 0 // body temp maxes out and reduces naturally
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Marshmallow has mild intoxicating effects and warms you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-chamomile-shag": {
-      "smokableEffects": [
-        {
-          "type": "tiredness",
-          "amount": 4,
-          "cooldown": 0
-        },
-        {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 5,
-          "cooldown": 0 // body temp maxes out and reduces naturally
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Chamomile makes you sleepy and warms you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-marjoram-shag": {
-      "smokableEffects": [
-        {
-          "type": "hungerrate",
-          "amount": -0.50,
-          "cooldown": 900 // 15 minutes
-        },
-        {
-          "type": "tiredness",
-          "amount": 4,
-          "cooldown": 0
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Majorum makes you sleepy and less hungry."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-lavender-shag": {
-      "smokableEffects": [
-        {
-          "type": "tiredness",
-          "amount": 4,
-          "cooldown": 0
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Lavendar makes you sleepy."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-saffron-shag": {
-      "smokableEffects": [
-        {
-          "type": "intoxication",
-          "amount": 0.1,
-          "cooldown": 0
-        },
-        {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 5,
-          "cooldown": 0 // body temp maxes out and reduces naturally
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Saffron has mild intoxicating effects and warm you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
-      }
-    },
-    "smokable-thyme-shag": {
-      "smokableEffects": [
-        {
-          "type": "temporalstability", // watchedAttribute, not a Stat 
-          "amount": 0.40,
-          "cooldown": 0 // natural environment wears down the buff so no need to remove buff manually
-        },
-        {
-          "type": "bodytemperature", // behavior based, not a stat
-          "amount": 5,
-          "cooldown": 0 // body temp maxes out and reduces naturally
-        }
-      ],
-      "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
-        "extraSections": [
-          {
-            "title": "pipeleaf:handbook-item-effect",
-            "text": "Smoking Thyme will boost temporal stability, and warms you in the cold."
-          }
-        ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
     "smokable-poisonoak-shag": {
@@ -646,42 +143,43 @@
         },
         {
           "type": "temporalstability",
-          "amount": -0.60,
+          "amount": -0.6,
           "cooldown": 0
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking Poison Oak sounds like a bad idea."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
-    "smokable-*-shag": {
+    "smokable-goldenpoppy-shag": {
+      "smokableEffects": [
+        {
+          "type": "tiredness",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Golden Poppy will boost temporal stability and makes you sleepy."
+          }
+        ]
+      }
+    },
+    "smokable-cornflower-shag": {
       "smokableEffects": [
         {
           "type": "bodytemperature",
@@ -690,74 +188,430 @@
         }
       ],
       "handbook": {
-        "groupBy": [ "smokable-*-shag" ],
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Cornflower Shag will make you feel warmer in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-chamomile-shag": {
+      "smokableEffects": [
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Chamomile makes you sleepy and warms you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-lavender-shag": {
+      "smokableEffects": [
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Lavendar makes you sleepy."
+          }
+        ]
+      }
+    },
+    "smokable-marjoram-shag": {
+      "smokableEffects": [
+        {
+          "type": "hungerrate",
+          "amount": -0.5,
+          "cooldown": 900
+        },
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Majorum makes you sleepy and less hungry."
+          }
+        ]
+      }
+    },
+    "smokable-marshmallow-shag": {
+      "smokableEffects": [
+        {
+          "type": "intoxication",
+          "amount": 0.05,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Marshmallow has mild intoxicating effects and warms you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-mint-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
         "extraSections": [
           {
             "title": "pipeleaf:handbook-item-effect",
             "text": "Smoking this will warm you in the cold."
           }
         ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
-          }
-        },
-        "useFirepitModel": "Spit"
       }
     },
-    "smokable-*-cured": {
-      "mortarProperties": {
-        "shapePath": "ancienttools:shapes/block/mortar/resourceshapes/resource_ancienttools_bark_pine",
-        "texturePaths": [
-          {
-            "code": "base",
-            "path": "pipeleaf:item/smokable/cured"
-          }
-        ],
-        "groundStack": {
-          "type": "item",
-          "code": "pipeleaf:smokable-{smokables}-shag"
-        },
-        "resultQuantity": 1
-      },
+    "smokable-rosemary-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
       "handbook": {
-        "groupBy": [ "smokable-*-cured" ]
-      },
-      "inFirePitProps": {
-        "transform": {
-          "scale": 0.37,
-          "origin": {
-            "x": 0.5,
-            "y": 0.0625,
-            "z": 0.5
-          },
-          "translation": {
-            "x": 0.03125,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": {
-            "x": 0,
-            "y": 45,
-            "z": 0
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
           }
+        ]
+      }
+    },
+    "smokable-saffron-shag": {
+      "smokableEffects": [
+        {
+          "type": "intoxication",
+          "amount": 0.1,
+          "cooldown": 0
         },
-        "useFirepitModel": "Spit"
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Saffron has mild intoxicating effects and warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-sage-shag": {
+      "smokableEffects": [
+        {
+          "type": "temporalstability",
+          "amount": 0.4,
+          "cooldown": 0
+        },
+        {
+          "type": "intoxication",
+          "amount": 0.5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Sage has a heavy intoxicating effect, will boost temporal stability, and warms you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-stingingnettle-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-stjohnswort-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-thyme-shag": {
+      "smokableEffects": [
+        {
+          "type": "temporalstability",
+          "amount": 0.4,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Thyme will boost temporal stability, and warms you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-mugwort-shag": {
+      "smokableEffects": [
+        {
+          "type": "intoxication",
+          "amount": 0.02,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking Mugwort has mild intoxicating effects and warms you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-chicory-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-marigold-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-yarrow-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-angelica-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-arnica-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-horehound-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
+      }
+    },
+    "smokable-ginseng-shag": {
+      "smokableEffects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbook": {
+        "groupBy": [
+          "smokable-*-shag"
+        ],
+        "extraSections": [
+          {
+            "title": "pipeleaf:handbook-item-effect",
+            "text": "Smoking this will warm you in the cold."
+          }
+        ]
       }
     }
   },
@@ -765,11 +619,19 @@
     {
       "type": "Perish",
       "freshHoursByType": {
-        "*-cured": { "avg": 4320 },
-        "*-shag": { "avg": 4320 },
-        "*": { "avg": 336 }
+        "*-cured": {
+          "avg": 8640
+        },
+        "*-shag": {
+          "avg": 8640
+        },
+        "*": {
+          "avg": 336
+        }
       },
-      "transitionHours": { "avg": 12 },
+      "transitionHours": {
+        "avg": 12
+      },
       "transitionedStack": {
         "type": "item",
         "code": "game:rot"
