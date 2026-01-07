@@ -1,16 +1,20 @@
 using System;
 using System.IO;
 using Cake.Common;
+using Cake.Common.Diagnostics;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Clean;
 using Cake.Common.Tools.DotNet.Publish;
 using Cake.Core;
+using Cake.Core.IO;
 using Cake.Frosting;
 using Cake.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Vintagestory.API.Common;
+using PipeLeaf;
+
 
 public static class Program
 {
@@ -41,7 +45,48 @@ public class BuildContext : FrostingContext
     }
 }
 
+[TaskName("GenerateBlends")]
+public sealed class GenerateBlendsTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        context.Information("Generating shagblend definitions and recipes...");
+
+        var smokableJsonPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/itemtypes/smokable.json";
+        var smokablesJsonPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/worldproperties/item/smokables.json";
+        var outputShagblendPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/itemtypes/shagblend.json";
+        var outputRecipesPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/recipes/grid/shagblend-recipes.json";
+        var outputLangPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/lang/en.json";
+        var outputCuredBlendPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/itemtypes/cured-blends.json";
+        var outputCuredRecipesPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/recipes/grid/cured-blends.json";
+        var ingredientsConfigPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/config/ingredients-config.json";
+
+        // Call the generator directly
+        var config = new BlendGeneratorConfig
+        {
+            SmokableJsonPath = smokableJsonPath,
+            SmokablesJsonPath = smokablesJsonPath,
+            OutputShagblendPath = outputShagblendPath,
+            OutputRecipesPath = outputRecipesPath,
+            OutputLangPath = outputLangPath,
+            OutputCuredBlendPath = outputCuredBlendPath,
+            OutputCuredRecipesPath = outputCuredRecipesPath,
+            GenerateFromConfig = true,
+            IngredientsConfigPath = ingredientsConfigPath,
+            OutputBlendable1Path = $"../{BuildContext.ProjectName}/assets/pipeleaf/worldproperties/item/blendable1.json",
+            OutputBlendable2Path = $"../{BuildContext.ProjectName}/assets/pipeleaf/worldproperties/item/blendable2.json",
+
+        };
+
+        var generator = new ShagBlendGenerator(config);
+        generator.Generate();
+
+        context.Information("Blend generation complete!");
+    }
+}
+
 [TaskName("ValidateJson")]
+[IsDependentOn(typeof(GenerateBlendsTask))]
 public sealed class ValidateJsonTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
