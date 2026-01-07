@@ -18,7 +18,7 @@
       "effects": [
         {
           "type": "temporalstability",
-          "amount": -0.1,
+          "amount": -0.15,
           "cooldown": 0
         },
         {
@@ -27,7 +27,7 @@
           "cooldown": 0
         }
       ],
-      "handbookDescription": "Smoking Catmint may cause temporary insanity."
+      "handbookDescription": "Smoking Catmint may cause temporary insanity but makes you warmer in the cold."
     },
     {
       "code": "edelweiss",
@@ -85,7 +85,7 @@
           "cooldown": 0
         }
       ],
-      "handbookDescription": "Smoking Golden Poppy will boost temporal stability and makes you sleepy."
+      "handbookDescription": "Smoking Golden Poppy makes you sleepy."
     },
     {
       "code": "cornflower",
@@ -218,7 +218,7 @@
           "cooldown": 0
         }
       ],
-      "handbookDescription": "Smoking Sage has a heavy intoxicating effect, will boost temporal stability, and warms you in the cold."
+      "handbookDescription": "Smoking Sage has a heavy intoxicating effect and will boost temporal stability."
     },
     {
       "code": "stingingnettle",
