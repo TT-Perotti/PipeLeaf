@@ -298,6 +298,10 @@ namespace PipeLeaf
 
             foreach (var ingredient in _ingredientsConfig.Ingredients)
             {
+                // Always store display names for ALL ingredients (for language file generation)
+                _ingredientDisplayNames[ingredient.Code] = ingredient.DisplayName;
+
+                // Only store effects for non-excluded ingredients (for blending)
                 if (!_config.ExcludeIngredients.Contains(ingredient.Code))
                 {
                     // Convert IngredientEffect to SmokableEffect
@@ -307,8 +311,6 @@ namespace PipeLeaf
                         Amount = e.Amount,
                         Cooldown = e.Cooldown
                     }).ToList();
-
-                    _ingredientDisplayNames[ingredient.Code] = ingredient.DisplayName;
                 }
             }
         }
