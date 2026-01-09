@@ -25,6 +25,15 @@ namespace PipeLeaf.Items
         protected virtual double MaxTotalBurnHours => PipeLeafModSystem.Config.MaxTotalBurnHours;
         protected virtual double EffectCooldown => PipeLeafModSystem.Config.EffectCooldown;
 
+        // ✨ NEW: Virtual methods for message keys - allows subclasses to override
+        protected virtual string GetUnlitMessageKey() => "pipeleaf:pipe-unlit";
+        protected virtual string GetMaxBurnMessageKey() => "pipeleaf:pipe-max-burn";
+        protected virtual string GetNotLitFailCode() => "pipenotlit";
+        protected virtual string GetEmptyFailCode() => "pipeempty";
+        protected virtual string GetLitStatusKey(bool isLit) => isLit ? "pipeleaf:Lit" : "pipeleaf:Unlit";
+        protected virtual string GetEmptyInfoKey() => "pipeleaf:pipe-item-info-empty";
+        protected virtual string GetEffectReadyInKey() => "pipeleaf:pipe-effect-ready-in";
+        protected virtual string GetEffectReadyNowKey() => "pipeleaf:pipe-effect-ready-now";
 
         private string lastDebugState = null;
 
@@ -52,7 +61,7 @@ namespace PipeLeaf.Items
             double now = api.World.Calendar.TotalHours;
 
             string msg = $"[PipeDebug:{context}] \n" +
-                         $"LitUntil={litUntil},\n Remaining={litUntil-now}, \n" +
+                         $"LitUntil={litUntil},\n Remaining={litUntil - now}, \n" +
                          $"TotalLit={totalLit}, \nNextEffectIn={nextEffect - now}s, \nNow={now}";
 
             // Only send to chat if state changed
@@ -187,13 +196,13 @@ namespace PipeLeaf.Items
 
             if (now > litUntil)
             {
-                // Pipe went out
+                // Pipe went out - ✨ USE VIRTUAL METHOD
                 stack.Attributes.RemoveAttribute(AttrLitUntil);
                 if (world.Api.Side == EnumAppSide.Server)
                 {
                     (player.Player as IServerPlayer)?.SendMessage(
                         GlobalConstants.GeneralChatGroup,
-                        Lang.Get("pipeleaf:pipe-unlit"),
+                        Lang.Get(GetUnlitMessageKey()),
                         EnumChatType.Notification);
                 }
                 var wearInv = player.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
@@ -225,11 +234,12 @@ namespace PipeLeaf.Items
 
             if (computed >= MaxTotalBurnHours)
             {
+                // ✨ USE VIRTUAL METHOD
                 if (world.Api.Side == EnumAppSide.Server)
                 {
                     (player.Player as IServerPlayer)?.SendMessage(
                         GlobalConstants.GeneralChatGroup,
-                        Lang.Get("pipeleaf:pipe-max-burn"),
+                        Lang.Get(GetMaxBurnMessageKey()),
                         EnumChatType.Notification);
                 }
 
@@ -367,14 +377,16 @@ namespace PipeLeaf.Items
             failCode = null;
             if (!IsLit(pipeStack, world))
             {
-                failCode = "pipenotlit";
+                // ✨ USE VIRTUAL METHOD
+                failCode = GetNotLitFailCode();
                 return false;
             }
 
             ItemStack shag = GetLoaded(pipeStack, world.Api);
             if (shag == null)
             {
-                failCode = "pipeempty";
+                // ✨ USE VIRTUAL METHOD
+                failCode = GetEmptyFailCode();
                 return false;
             }
             SpawnExhaleParticles(world, player);
@@ -512,7 +524,7 @@ namespace PipeLeaf.Items
                     stack.Attributes.RemoveAttribute(AttrLitUntil);
                     stack.Attributes.RemoveAttribute(AttrLastBurn);
                     stack.Attributes.RemoveAttribute(AttrTotalLit);
-                    
+
                     var rot = new ItemStack(world.GetItem(new AssetLocation("game:rot")));
                     world.SpawnItemEntity(rot, entityItem.SidedPos.XYZ);
                 }
@@ -529,7 +541,8 @@ namespace PipeLeaf.Items
 
             var (totalLit, _, lit) = GetBurnState(stack, world);
 
-            dsc.AppendLine(Lang.Get(lit ? "pipeleaf:Lit" : "pipeleaf:Unlit"));
+            // ✨ USE VIRTUAL METHOD
+            dsc.AppendLine(Lang.Get(GetLitStatusKey(lit)));
 
             ItemStack shag = GetLoaded(stack, world.Api);
             if (shag != null && shag.Item is SmokableItem smokable)
@@ -548,7 +561,8 @@ namespace PipeLeaf.Items
             }
             else
             {
-                dsc.AppendLine(Lang.Get("pipeleaf:pipe-item-info-empty"));
+                // ✨ USE VIRTUAL METHOD
+                dsc.AppendLine(Lang.Get(GetEmptyInfoKey()));
             }
 
             double nextReady = stack.Attributes.GetDouble(AttrNextEffectReady, 0);
@@ -562,11 +576,13 @@ namespace PipeLeaf.Items
 
                 double secondsLeft = diffHrs * 60;
 
-                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-in", [(int)secondsLeft]));
+                // ✨ USE VIRTUAL METHOD
+                dsc.AppendLine(Lang.Get(GetEffectReadyInKey(), [(int)secondsLeft]));
             }
             else
             {
-                dsc.AppendLine(Lang.Get("pipeleaf:pipe-effect-ready-now"));
+                // ✨ USE VIRTUAL METHOD
+                dsc.AppendLine(Lang.Get(GetEffectReadyNowKey()));
             }
         }
     }
