@@ -997,15 +997,22 @@ namespace PipeLeaf
 
         private void WriteWorldProperties()
         {
-            var variants = _ingredientsConfig.Ingredients
+            // All ingredients for smokables.json (including excluded ones like pipeleaf)
+            var allVariants = _ingredientsConfig.Ingredients
                 .Select(i => new { code = i.Code })
                 .ToList();
 
-            // Write smokables.json
+            // Only blendable ingredients (excluding pipeleaf, etc.)
+            var blendableVariants = _ingredientsConfig.Ingredients
+                .Where(i => !_config.ExcludeIngredients.Contains(i.Code))
+                .Select(i => new { code = i.Code })
+                .ToList();
+
+            // Write smokables.json (all ingredients)
             var smokables = new
             {
                 code = "smokables",
-                variants
+                variants = allVariants
             };
 
             var options = new JsonSerializerOptions
@@ -1016,20 +1023,20 @@ namespace PipeLeaf
 
             File.WriteAllText(_config.SmokablesJsonPath, JsonSerializer.Serialize(smokables, options));
 
-            // Write blendable1.json
+            // Write blendable1.json (only blendable ingredients)
             var blendable1 = new
             {
                 code = "ingredient1",
-                variants
+                variants = blendableVariants
             };
 
             File.WriteAllText(_config.OutputBlendable1Path, JsonSerializer.Serialize(blendable1, options));
 
-            // Write blendable2.json
+            // Write blendable2.json (only blendable ingredients)
             var blendable2 = new
             {
                 code = "ingredient2",
-                variants
+                variants = blendableVariants
             };
 
             File.WriteAllText(_config.OutputBlendable2Path, JsonSerializer.Serialize(blendable2, options));
