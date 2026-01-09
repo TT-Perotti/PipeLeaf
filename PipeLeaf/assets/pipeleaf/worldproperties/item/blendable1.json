@@ -2,9 +2,6 @@
   "code": "ingredient1",
   "variants": [
     {
-      "code": "pipeleaf"
-    },
-    {
       "code": "catmint"
     },
     {
