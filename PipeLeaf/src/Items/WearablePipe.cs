@@ -37,7 +37,7 @@ namespace PipeLeaf.Items
 
         private string lastDebugState = null;
 
-        public bool IsLit(ItemStack stack, IWorldAccessor world)
+        public virtual bool IsLit(ItemStack stack, IWorldAccessor world)
         {
             // Only update burn-down on server
             if (world.Side == EnumAppSide.Server)
