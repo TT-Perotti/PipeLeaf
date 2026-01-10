@@ -61,6 +61,7 @@ public sealed class GenerateBlendsTask : FrostingTask<BuildContext>
         var outputCuredBlendPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/itemtypes/cured-blends.json";
         var outputCuredRecipesPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/recipes/grid/cured-blends.json";
         var ingredientsConfigPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/config/ingredients-config.json";
+        var outputPatchesPath = $"../{BuildContext.ProjectName}/assets/pipeleaf/patches/allow-plant-curing.json";
 
         // Define special blends - 15 total (5 vanilla-only, 5 mixed, 5 wildcraft-only)
         var specialBlends = new List<SpecialBlend>
@@ -281,6 +282,7 @@ public sealed class GenerateBlendsTask : FrostingTask<BuildContext>
             IngredientsConfigPath = ingredientsConfigPath,
             OutputBlendable1Path = $"../{BuildContext.ProjectName}/assets/pipeleaf/worldproperties/item/blendable1.json",
             OutputBlendable2Path = $"../{BuildContext.ProjectName}/assets/pipeleaf/worldproperties/item/blendable2.json",
+            OutputPatchesPath = outputPatchesPath,
             SpecialBlends = specialBlends
         };
 

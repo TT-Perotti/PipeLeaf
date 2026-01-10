@@ -69,6 +69,9 @@ namespace PipeLeaf
 
         [JsonPropertyName("handbookDescription")]
         public string HandbookDescription { get; set; }
+        [JsonPropertyName("vanilla")]
+        public bool IsVanilla { get; set; } = false;
+
     }
 
     public class IngredientsConfig
@@ -138,6 +141,7 @@ namespace PipeLeaf
         public string OutputLangPath { get; set; }
         public string OutputBlendable1Path { get; set; }
         public string OutputBlendable2Path { get; set; }
+        public string OutputPatchesPath { get; set; }
         public List<string> ExcludeIngredients { get; set; } = new List<string> { "pipeleaf" };
         public int MaxEffectsPerBlend { get; set; } = 2;
         public string FillerIngredient { get; set; } = "pipeleaf";
@@ -273,6 +277,12 @@ namespace PipeLeaf
 
             Console.WriteLine("Writing language file...");
             WriteLangFile();
+
+            if (_config.GenerateFromConfig && !string.IsNullOrEmpty(_config.OutputPatchesPath))
+            {
+                Console.WriteLine("Writing patches file...");
+                WritePatchesJson();
+            }
 
             Console.WriteLine("Generation complete!");
         }
@@ -1040,6 +1050,138 @@ namespace PipeLeaf
             };
 
             File.WriteAllText(_config.OutputBlendable2Path, JsonSerializer.Serialize(blendable2, options));
+        }
+
+        private void WritePatchesJson()
+        {
+            if (string.IsNullOrEmpty(_config.OutputPatchesPath))
+            {
+                return;
+            }
+
+            // Separate ingredients by vanilla flag, excluding only pipeleaf
+            var vanillaFlowers = _ingredientsConfig.Ingredients
+                .Where(i => i.IsVanilla && i.Code != "pipeleaf")
+                .Select(i => i.Code)
+                .ToList();
+
+            var wildcraftHerbs = _ingredientsConfig.Ingredients
+                .Where(i => !i.IsVanilla && i.Code != "pipeleaf")
+                .Select(i => i.Code)
+                .ToList();
+
+            var patches = new List<object>();
+
+            // Only add vanilla patches if there are vanilla flowers
+            if (vanillaFlowers.Any())
+            {
+                var vanillaPattern = string.Join("|", vanillaFlowers);
+
+                patches.Add(new
+                {
+                    comment = "make flowers curable",
+                    op = "add",
+                    file = "game:blocktypes/plant/flower",
+                    path = "/combustiblePropsByType",
+                    value = new Dictionary<string, object>
+                    {
+                        [$"@.*-({vanillaPattern})-.*"] = new
+                        {
+                            meltingPoint = 150,
+                            meltingDuration = 8,
+                            smeltedRatio = 1,
+                            smeltingType = "cook",
+                            smeltedStack = new
+                            {
+                                type = "item",
+                                code = "pipeleaf:smokable-{flower}-cured"
+                            },
+                            requiresContainer = false
+                        }
+                    }
+                });
+
+                patches.Add(new
+                {
+                    comment = "use firepit spit when cooking these flowers",
+                    op = "add",
+                    file = "game:blocktypes/plant/flower",
+                    path = "/attributes/inFirePitProps",
+                    value = new
+                    {
+                        transform = new
+                        {
+                            scale = 0.37,
+                            origin = new { x = 0.5, y = 0.0625, z = 0.5 },
+                            translation = new { x = 0.03125, y = 0.850, z = 0 },
+                            rotation = new { x = 0, y = 45, z = 180 }
+                        },
+                        useFirepitModel = "Spit"
+                    }
+                });
+            }
+
+            // Only add wildcraft patches if there are wildcraft herbs
+            if (wildcraftHerbs.Any())
+            {
+                var wildcraftPattern = string.Join("|", wildcraftHerbs);
+
+                patches.Add(new
+                {
+                    comment = "make wildcraft herbs curable",
+                    op = "add",
+                    dependsOn = new[] { new { modid = "wildcraft" } },
+                    file = "wildcraft:itemtypes/food/herbs",
+                    path = "/combustiblePropsByType",
+                    value = new Dictionary<string, object>
+                    {
+                        [$"@.*-({wildcraftPattern})"] = new
+                        {
+                            meltingPoint = 150,
+                            meltingDuration = 8,
+                            smeltedRatio = 1,
+                            smeltingType = "cook",
+                            smeltedStack = new
+                            {
+                                type = "item",
+                                code = "pipeleaf:smokable-{herbs}-cured"
+                            },
+                            requiresContainer = false
+                        }
+                    }
+                });
+
+                patches.Add(new
+                {
+                    comment = "use firepit spit when cooking wildcraft flowers",
+                    op = "add",
+                    dependsOn = new[] { new { modid = "wildcraft" } },
+                    file = "wildcraft:itemtypes/food/herbs",
+                    path = "/attributes/inFirePitPropsByType",
+                    value = new Dictionary<string, object>
+                    {
+                        [$"@.*-({wildcraftPattern})"] = new
+                        {
+                            transform = new
+                            {
+                                scale = 0.37,
+                                origin = new { x = 0.5, y = -1.3, z = 0.5 },
+                                translation = new { x = 0.03125, y = 0.850, z = 0 },
+                                rotation = new { x = 0, y = 45, z = 0 }
+                            },
+                            useFirepitModel = "Spit"
+                        }
+                    }
+                });
+            }
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.Never
+            };
+
+            File.WriteAllText(_config.OutputPatchesPath, JsonSerializer.Serialize(patches, options));
         }
     }
 }

@@ -3,6 +3,7 @@
     {
       "code": "pipeleaf",
       "displayName": "Pipeleaf",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -15,6 +16,7 @@
     {
       "code": "catmint",
       "displayName": "Catmint",
+      "vanilla": true,
       "effects": [
         {
           "type": "temporalstability",
@@ -32,6 +34,7 @@
     {
       "code": "edelweiss",
       "displayName": "Edelweiss",
+      "vanilla": true,
       "effects": [
         {
           "type": "temporalstability",
@@ -44,6 +47,7 @@
     {
       "code": "orangemallow",
       "displayName": "Orange Mallow",
+      "vanilla": true,
       "effects": [
         {
           "type": "intoxication",
@@ -61,6 +65,7 @@
     {
       "code": "poisonoak",
       "displayName": "Poison Oak",
+      "vanilla": false,
       "effects": [
         {
           "type": "healthpoints",
@@ -78,6 +83,7 @@
     {
       "code": "goldenpoppy",
       "displayName": "Golden Poppy",
+      "vanilla": true,
       "effects": [
         {
           "type": "tiredness",
@@ -90,6 +96,7 @@
     {
       "code": "cornflower",
       "displayName": "Cornflower",
+      "vanilla": true,
       "effects": [
         {
           "type": "bodytemperature",
@@ -102,6 +109,7 @@
     {
       "code": "chamomile",
       "displayName": "Chamomile",
+      "vanilla": false,
       "effects": [
         {
           "type": "tiredness",
@@ -119,6 +127,7 @@
     {
       "code": "lavender",
       "displayName": "Lavender",
+      "vanilla": false,
       "effects": [
         {
           "type": "tiredness",
@@ -131,6 +140,7 @@
     {
       "code": "marjoram",
       "displayName": "Marjoram",
+      "vanilla": false,
       "effects": [
         {
           "type": "hungerrate",
@@ -148,6 +158,7 @@
     {
       "code": "marshmallow",
       "displayName": "Marshmallow",
+      "vanilla": false,
       "effects": [
         {
           "type": "intoxication",
@@ -165,6 +176,7 @@
     {
       "code": "mint",
       "displayName": "Mint",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -177,6 +189,7 @@
     {
       "code": "rosemary",
       "displayName": "Rosemary",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -189,6 +202,7 @@
     {
       "code": "saffron",
       "displayName": "Saffron",
+      "vanilla": false,
       "effects": [
         {
           "type": "intoxication",
@@ -206,6 +220,7 @@
     {
       "code": "sage",
       "displayName": "Sage",
+      "vanilla": false,
       "effects": [
         {
           "type": "temporalstability",
@@ -223,6 +238,7 @@
     {
       "code": "stingingnettle",
       "displayName": "Stinging Nettle",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -235,6 +251,7 @@
     {
       "code": "stjohnswort",
       "displayName": "St John's Wort",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -247,6 +264,7 @@
     {
       "code": "thyme",
       "displayName": "Thyme",
+      "vanilla": false,
       "effects": [
         {
           "type": "temporalstability",
@@ -264,6 +282,7 @@
     {
       "code": "mugwort",
       "displayName": "Mugwort",
+      "vanilla": false,
       "effects": [
         {
           "type": "intoxication",
@@ -281,6 +300,7 @@
     {
       "code": "chicory",
       "displayName": "Chicory",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -293,6 +313,7 @@
     {
       "code": "marigold",
       "displayName": "Marigold",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -305,6 +326,7 @@
     {
       "code": "yarrow",
       "displayName": "Yarrow",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -317,6 +339,7 @@
     {
       "code": "angelica",
       "displayName": "Angelica",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -329,6 +352,7 @@
     {
       "code": "arnica",
       "displayName": "Arnica",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -341,6 +365,7 @@
     {
       "code": "horehound",
       "displayName": "Horehound",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
@@ -353,6 +378,7 @@
     {
       "code": "ginseng",
       "displayName": "Ginseng",
+      "vanilla": false,
       "effects": [
         {
           "type": "bodytemperature",
