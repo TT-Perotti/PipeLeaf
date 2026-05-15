@@ -400,7 +400,7 @@ namespace PipeLeaf.Items
 
         public void SpawnInhaleParticles(IWorldAccessor world, Entity entity)
         {
-            var pos = entity.SidedPos;
+            var pos = entity.Pos;
 
             // Forward vector pointing the same way as the player's gaze
             var fwd = new Vec3f(
@@ -441,7 +441,7 @@ namespace PipeLeaf.Items
 
         public void SpawnExhaleParticles(IWorldAccessor world, Entity entity)
         {
-            var pos = entity.SidedPos;
+            var pos = entity.Pos;
 
             // Forward vector pointing the same way as the player's gaze
             var fwd = new Vec3f(
@@ -494,7 +494,7 @@ namespace PipeLeaf.Items
         {
             base.OnGroundIdle(entityItem);
             var world = entityItem.World;
-            var block = world.BlockAccessor.GetBlock(entityItem.SidedPos.AsBlockPos);
+            var block = world.BlockAccessor.GetBlock(entityItem.Pos.AsBlockPos);
 
             if (block.LiquidCode == "water")
             {
@@ -509,7 +509,7 @@ namespace PipeLeaf.Items
                     stack.Attributes.RemoveAttribute(AttrTotalLit);
                     
                     var rot = new ItemStack(world.GetItem(new AssetLocation("game:rot")));
-                    world.SpawnItemEntity(rot, entityItem.SidedPos.XYZ);
+                    world.SpawnItemEntity(rot, entityItem.Pos.XYZ);
                 }
             }
         }

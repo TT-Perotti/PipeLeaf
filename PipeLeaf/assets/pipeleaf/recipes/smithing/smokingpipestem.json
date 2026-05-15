@@ -33,6 +33,7 @@
     ]
   ],
   "name": "Smoking Pipe Stem",
+  "code": "pipeleaf:smokingpipestem-{metal}",
   "output": {
     "type": "item",
     "code": "smokingpipestem-{metal}"
