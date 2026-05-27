@@ -399,7 +399,7 @@ namespace PipeLeaf.Items
                 if (shag.Item is SmokableItem smokable)
                 {
                     ExtendBurn(pipeStack, world, 2 / 3); // successful puff keeps pipe alive
-                    double nextEffectTime = now + effectCooldown;
+                    double nextEffectTime = now + EffectCooldown;
                     // api.World.Logger.Notification($"TrySmoke: spawn exhale, smoke shag, reset effect to {nextEffectTime}");
 
                     pipeStack.Attributes.SetDouble(AttrNextEffectReady, nextEffectTime); // 2 minutes
