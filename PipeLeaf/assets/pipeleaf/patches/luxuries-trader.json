@@ -1,5 +1,85 @@
 [
   {
+    "comment": "add special lighter to luxury trader goods",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-luxuries.json",
+    "value": {
+      "code": "pipeleaf:pipelighter-brass",
+      "type": "item",
+      "stacksize": 1,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 12,
+        "var": 2
+      }
+    }
+  },
+  {
+    "comment": "add special lighter to luxury trader goods",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-luxuries.json",
+    "value": {
+      "code": "pipeleaf:pipelighter-cupronickel",
+      "type": "item",
+      "stacksize": 1,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 12,
+        "var": 2
+      }
+    }
+  },
+  {
+    "comment": "add special lighter to luxury trader goods",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-luxuries.json",
+    "value": {
+      "code": "pipeleaf:pipelighter-gold",
+      "type": "item",
+      "stacksize": 1,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 12,
+        "var": 2
+      }
+    }
+  },
+  {
+    "comment": "add special lighter to luxury trader goods",
+    "side": "Server",
+    "op": "add",
+    "path": "/selling/list/0",
+    "file": "game:config/tradelists/trader-luxuries.json",
+    "value": {
+      "code": "pipeleaf:pipelighter-bismuth",
+      "type": "item",
+      "stacksize": 1,
+      "stock": {
+        "avg": 1,
+        "var": 0.25
+      },
+      "price": {
+        "avg": 12,
+        "var": 2
+      }
+    }
+  },
+  {
     "comment": "add special pipe to luxury trader goods",
     "side": "Server",
     "op": "add",

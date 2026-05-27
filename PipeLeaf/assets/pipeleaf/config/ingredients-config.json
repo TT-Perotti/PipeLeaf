@@ -1,0 +1,397 @@
+{
+  "ingredients": [
+    {
+      "code": "pipeleaf",
+      "displayName": "Pipeleaf",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "catmint",
+      "displayName": "Catmint",
+      "vanilla": true,
+      "effects": [
+        {
+          "type": "temporalstability",
+          "amount": -0.15,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Catmint may cause temporary insanity but makes you warmer in the cold."
+    },
+    {
+      "code": "edelweiss",
+      "displayName": "Edelweiss",
+      "vanilla": true,
+      "effects": [
+        {
+          "type": "temporalstability",
+          "amount": 0.25,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Edelweiss Shag will boost your sanity in the deep."
+    },
+    {
+      "code": "orangemallow",
+      "displayName": "Orange Mallow",
+      "vanilla": true,
+      "effects": [
+        {
+          "type": "intoxication",
+          "amount": 0.15,
+          "cooldown": 0
+        },
+        {
+          "type": "hungerrate",
+          "amount": -0.50,
+          "cooldown": 900
+        }
+      ],
+      "handbookDescription": "Smoking Orange Mallow has a mild intoxicating effect and makes you less hungry."
+    },
+    {
+      "code": "poisonoak",
+      "displayName": "Poison Oak",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "healthpoints",
+          "amount": -5,
+          "cooldown": 0
+        },
+        {
+          "type": "temporalstability",
+          "amount": -0.60,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Poison Oak sounds like a bad idea."
+    },
+    {
+      "code": "goldenpoppy",
+      "displayName": "Golden Poppy",
+      "vanilla": true,
+      "effects": [
+        {
+          "type": "tiredness",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Golden Poppy makes you sleepy."
+    },
+    {
+      "code": "cornflower",
+      "displayName": "Cornflower",
+      "vanilla": true,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Cornflower Shag will make you feel warmer in the cold."
+    },
+    {
+      "code": "chamomile",
+      "displayName": "Chamomile",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Chamomile makes you sleepy and warms you in the cold."
+    },
+    {
+      "code": "lavender",
+      "displayName": "Lavender",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Lavendar makes you sleepy."
+    },
+    {
+      "code": "marjoram",
+      "displayName": "Marjoram",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "hungerrate",
+          "amount": -0.50,
+          "cooldown": 900
+        },
+        {
+          "type": "tiredness",
+          "amount": 4,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Majorum makes you sleepy and less hungry."
+    },
+    {
+      "code": "marshmallow",
+      "displayName": "Marshmallow",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "intoxication",
+          "amount": 0.05,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Marshmallow has mild intoxicating effects and warms you in the cold."
+    },
+    {
+      "code": "mint",
+      "displayName": "Mint",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "rosemary",
+      "displayName": "Rosemary",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "saffron",
+      "displayName": "Saffron",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "intoxication",
+          "amount": 0.1,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Saffron has mild intoxicating effects and warm you in the cold."
+    },
+    {
+      "code": "sage",
+      "displayName": "Sage",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "temporalstability",
+          "amount": 0.40,
+          "cooldown": 0
+        },
+        {
+          "type": "intoxication",
+          "amount": 0.5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Sage has a heavy intoxicating effect and will boost temporal stability."
+    },
+    {
+      "code": "stingingnettle",
+      "displayName": "Stinging Nettle",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "stjohnswort",
+      "displayName": "St John's Wort",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "thyme",
+      "displayName": "Thyme",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "temporalstability",
+          "amount": 0.40,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Thyme will boost temporal stability, and warms you in the cold."
+    },
+    {
+      "code": "mugwort",
+      "displayName": "Mugwort",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "intoxication",
+          "amount": 0.02,
+          "cooldown": 0
+        },
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking Mugwort has mild intoxicating effects and warms you in the cold."
+    },
+    {
+      "code": "chicory",
+      "displayName": "Chicory",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "marigold",
+      "displayName": "Marigold",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "yarrow",
+      "displayName": "Yarrow",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "angelica",
+      "displayName": "Angelica",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "arnica",
+      "displayName": "Arnica",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "horehound",
+      "displayName": "Horehound",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    },
+    {
+      "code": "ginseng",
+      "displayName": "Ginseng",
+      "vanilla": false,
+      "effects": [
+        {
+          "type": "bodytemperature",
+          "amount": 5,
+          "cooldown": 0
+        }
+      ],
+      "handbookDescription": "Smoking this will warm you in the cold."
+    }
+  ],
+  "defaultEffect": {
+    "type": "bodytemperature",
+    "amount": 5,
+    "cooldown": 0
+  }
+}
