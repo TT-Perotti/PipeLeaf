@@ -8,7 +8,6 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 
 
-
 namespace PipeLeaf
 {
     [ProtoContract]   // <-- required
@@ -21,13 +20,12 @@ namespace PipeLeaf
     {
         // Called on server and client
         // Useful for registering block/entity classes on both sides
+        public static PipeleafConfig Config;
 
         IClientNetworkChannel clientNet;
         IServerNetworkChannel serverNet;
         ICoreClientAPI capi;
         ICoreServerAPI sapi;
-        KeyCombination lastSmokeCombo;
-        double nextTooltipRefreshMs;
         int inhaleParticleTickCounter = 0;
 
         // 🔥 new: throttled update timers
@@ -38,6 +36,14 @@ namespace PipeLeaf
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
+            Config = api.LoadModConfig<PipeleafConfig>("pipeleaf.json");
+
+            if (Config == null)
+            {
+                Config = new PipeleafConfig();
+                Config.Validate(api);
+                api.StoreModConfig(Config, "pipeleaf.json");
+            }
             api.RegisterItemClass("SmokableItem", typeof(SmokableItem));
 
             api.RegisterItemClass("WearablePipe", typeof(WearablePipe));
