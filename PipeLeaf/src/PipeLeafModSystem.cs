@@ -133,6 +133,7 @@ namespace PipeLeaf
                 if (pipe.IsLit(stack, capi.World))
                 {
                     pipe.ExtendBurn(stack, capi.World, 2.0 / 60.0);
+                    pipe.SpawnAmbientSmoke(capi.World, eplr, stack);
                     if (inhaleParticleTickCounter >= 5)
                     {
                         inhaleParticleTickCounter = 0;
