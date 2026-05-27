@@ -51,11 +51,11 @@ namespace PipeLeaf.Items
             }
 
             // --- 2. Attempt to light pipe if no ignitable block selected ---
-            if (!(byEntity is EntityPlayer eplr)) return;
+            if (!(byEntity is EntityPlayer eplr) || eplr.Player == null) return;
 
-            var charInv = eplr.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
-            var faceSlot = charInv[(int)EnumCharacterDressType.Face];
-            if (faceSlot.Empty || !(faceSlot.Itemstack?.Item is WearablePipe pipe)) return;
+            var charInv = eplr.Player.InventoryManager?.GetOwnInventory(GlobalConstants.characterInvClassName);
+            var faceSlot = charInv?[(int)EnumCharacterDressType.Face];
+            if (faceSlot == null || faceSlot.Empty || !(faceSlot.Itemstack?.Item is WearablePipe pipe)) return;
 
             handling = EnumHandHandling.PreventDefault;
 
@@ -88,10 +88,10 @@ namespace PipeLeaf.Items
             }
 
             // --- Pipe lighting step ---
-            if (!(byEntity is EntityPlayer eplr)) return false;
-            var charInv2 = eplr.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
-            var faceSlot2 = charInv2[(int)EnumCharacterDressType.Face];
-            if (faceSlot2.Empty || !(faceSlot2.Itemstack?.Item is WearablePipe pipe2)) return false;
+            if (!(byEntity is EntityPlayer eplr) || eplr.Player == null) return false;
+            var charInv2 = eplr.Player.InventoryManager?.GetOwnInventory(GlobalConstants.characterInvClassName);
+            var faceSlot2 = charInv2?[(int)EnumCharacterDressType.Face];
+            if (faceSlot2 == null || faceSlot2.Empty || !(faceSlot2.Itemstack?.Item is WearablePipe pipe2)) return false;
 
             int currentStep = (int)(secondsUsed / 0.5f);
             if (currentStep != lastParticleStep)
@@ -141,11 +141,11 @@ namespace PipeLeaf.Items
             }
 
             // --- Pipe lighting only if NOT lighting a fire ---
-            if (!isLightingFire && byEntity is EntityPlayer eplr)
+            if (!isLightingFire && byEntity is EntityPlayer eplr && eplr.Player != null)
             {
-                var charInv = eplr.Player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
-                var faceSlot = charInv[(int)EnumCharacterDressType.Face];
-                if (!faceSlot.Empty && faceSlot.Itemstack?.Item is WearablePipe pipe)
+                var charInv = eplr.Player.InventoryManager?.GetOwnInventory(GlobalConstants.characterInvClassName);
+                var faceSlot = charInv?[(int)EnumCharacterDressType.Face];
+                if (faceSlot != null && !faceSlot.Empty && faceSlot.Itemstack?.Item is WearablePipe pipe)
                 {
                     try
                     {
@@ -237,7 +237,7 @@ namespace PipeLeaf.Items
 
         private void SpawnPipeParticles(EntityAgent byEntity)
         {
-            var pos = byEntity.SidedPos;
+            var pos = byEntity.Pos;
             var fwd = new Vec3f(
                 (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
                 (float)Math.Sin(pos.Pitch),
