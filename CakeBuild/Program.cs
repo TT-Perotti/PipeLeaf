@@ -325,18 +325,22 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.DotNetClean($"../{BuildContext.ProjectName}/{BuildContext.ProjectName}.csproj",
-            new DotNetCleanSettings
-            {
-                Configuration = context.BuildConfiguration
-            });
+        var modOutputDir = $"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods/pipeleaf";
 
+        // Clean the entire Mods folder first to avoid stale duplicates
+        if (context.DirectoryExists($"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods"))
+            context.CleanDirectory($"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods");
 
         context.DotNetPublish($"../{BuildContext.ProjectName}/{BuildContext.ProjectName}.csproj",
             new DotNetPublishSettings
             {
-                Configuration = context.BuildConfiguration
+                Configuration = context.BuildConfiguration,
+                OutputDirectory = modOutputDir
             });
+
+        context.CopyDirectory($"../{BuildContext.ProjectName}/assets", $"{modOutputDir}/assets");
+        context.CopyFile($"../{BuildContext.ProjectName}/modinfo.json", $"{modOutputDir}/modinfo.json");
+        context.CopyFile($"../{BuildContext.ProjectName}/modicon.png", $"{modOutputDir}/modicon.png");
     }
 }
 
@@ -349,11 +353,12 @@ public sealed class PackageTask : FrostingTask<BuildContext>
         context.EnsureDirectoryExists("../Releases");
         context.CleanDirectory("../Releases");
         context.EnsureDirectoryExists($"../Releases/{context.Name}");
-        context.CopyFiles($"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods/mod/publish/*", $"../Releases/{context.Name}");
-        context.CopyDirectory($"../{BuildContext.ProjectName}/assets", $"../Releases/{context.Name}/assets");
-        context.CopyFile($"../{BuildContext.ProjectName}/modinfo.json", $"../Releases/{context.Name}/modinfo.json");
 
-        context.CopyFile($"../{BuildContext.ProjectName}/modicon.png", $"../Releases/{context.Name}/modicon.png");
+        // Copy from the new mod output location
+        var modOutputDir = $"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods/pipeleaf";
+        context.CopyFiles($"{modOutputDir}/*", $"../Releases/{context.Name}");
+        context.CopyDirectory($"{modOutputDir}/assets", $"../Releases/{context.Name}/assets");
+
         context.Zip($"../Releases/{context.Name}", $"../Releases/{context.Name}_{context.Version}.zip");
     }
 }

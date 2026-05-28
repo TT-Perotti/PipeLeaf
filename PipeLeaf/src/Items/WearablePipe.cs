@@ -12,7 +12,7 @@ using Vintagestory.GameContent;
 
 namespace PipeLeaf.Items
 {
-    public class WearablePipe : ItemWearable
+    public class WearablePipe : Item
     {
         const string AttrPipeContents = "pipeContents";
         const string AttrLoad = "stack";
