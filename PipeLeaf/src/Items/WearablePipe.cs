@@ -24,7 +24,7 @@ namespace PipeLeaf.Items
 
         // Ambient smoke timing
         private long lastAmbientSmokeMs = 0;
-        private const long AmbientSmokeIntervalMs = 1500; // Spawn smoke every 1.5 seconds
+        private const long AmbientSmokeIntervalMs = 3000; // Spawn smoke every 1.5 seconds
 
         protected virtual double BurnIncrementHours => PipeLeafModSystem.Config.BurnIncrementHours;
         protected virtual double MaxTotalBurnHours => PipeLeafModSystem.Config.MaxTotalBurnHours;
@@ -470,7 +470,7 @@ namespace PipeLeaf.Items
                 velocity,
                 0.5f, // minSize
                 0.2f, // maxSize  
-                1.5f, 2.5f, // lifetime
+                0.75f, 1.25f, // lifetime
                 EnumParticleModel.Quad
             );
 
