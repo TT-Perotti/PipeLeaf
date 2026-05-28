@@ -134,12 +134,14 @@ namespace PipeLeaf
 
             inhaleParticleTickCounter++;
             var stack = GetEquippedPipeStack(eplr);
-            if (stack?.Item is WearablePipe pipe && isInhaling)
+
+            if (stack?.Item is WearablePipe pipe)
             {
-                if (pipe.IsLit(stack, capi.World))
+                pipe.SpawnAmbientSmoke(capi.World, eplr, stack);
+
+                if (isInhaling && pipe.IsLit(stack, capi.World))
                 {
                     pipe.ExtendBurn(stack, capi.World, 2.0 / 60.0);
-                    pipe.SpawnAmbientSmoke(capi.World, eplr, stack);
                     if (inhaleParticleTickCounter >= 5)
                     {
                         inhaleParticleTickCounter = 0;
@@ -158,10 +160,10 @@ namespace PipeLeaf
                 isInhaling = false;
                 inhaleStartTime = -1;
 
-
                 if (stack?.Item is WearablePipe litPipe)
                 {
-                    if (litPipe.IsLit(stack, capi.World)) {
+                    if (litPipe.IsLit(stack, capi.World))
+                    {
                         litPipe.SpawnExhaleParticles(capi.World, eplr);
                     }
                     if (held >= 2000)
@@ -180,14 +182,12 @@ namespace PipeLeaf
                                     capi.TriggerIngameError(this, "pipeempty", Lang.Get("pipeleaf:ingameerror-pipeempty"));
                                 }
                             }
-
                         }
                         else
                         {
                             clientNet.SendPacket(new SmokePipePacket { held = held });
                         }
                     }
-                    
                 }
             }
         }
