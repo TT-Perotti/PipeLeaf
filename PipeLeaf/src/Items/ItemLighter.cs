@@ -145,7 +145,8 @@ namespace PipeLeaf.Items
             {
                 var charInv = eplr.Player.InventoryManager?.GetOwnInventory(GlobalConstants.characterInvClassName);
                 var faceSlot = charInv?[(int)EnumCharacterDressType.Face];
-                if (faceSlot != null && !faceSlot.Empty && faceSlot.Itemstack?.Item is WearablePipe pipe)
+                var pipe = faceSlot?.Itemstack?.Item as WearablePipe;
+                if (faceSlot != null && !faceSlot.Empty && pipe != null)
                 {
                     try
                     {
