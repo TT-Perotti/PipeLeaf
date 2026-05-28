@@ -4,8 +4,10 @@
   "creativeinventory": { "general": [ "*" ] },
   "blockmaterial": "Bone",
   "shape": { "base": "pipeleaf:wearables/antlerpipe_scaled2" },
-  // "heldTpIdleAnimation": "holdunderarm",
   "behaviors": [
+    {
+      "name": "Wearable"
+    },
     {
       "name": "GroundStorable",
       "properties": {
