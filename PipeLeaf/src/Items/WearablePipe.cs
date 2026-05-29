@@ -12,7 +12,7 @@ using Vintagestory.GameContent;
 
 namespace PipeLeaf.Items
 {
-    public class WearablePipe : ItemWearable
+    public class WearablePipe : Item
     {
         const string AttrPipeContents = "pipeContents";
         const string AttrLoad = "stack";
@@ -21,6 +21,11 @@ namespace PipeLeaf.Items
         const string AttrLastBurn = "lastBurnCheck";
         const string AttrTotalLit = "pipeTotalLit";
         const string AttrNextEffectReady = "pipeNextEffectReady";
+
+        // Ambient smoke timing
+        private long lastAmbientSmokeMs = 0;
+        private const long AmbientSmokeIntervalMs = 3000; // Spawn smoke every 1.5 seconds
+
         protected virtual double BurnIncrementHours => PipeLeafModSystem.Config.BurnIncrementHours;
         protected virtual double MaxTotalBurnHours => PipeLeafModSystem.Config.MaxTotalBurnHours;
         protected virtual double EffectCooldown => PipeLeafModSystem.Config.EffectCooldown;
@@ -415,6 +420,133 @@ namespace PipeLeaf.Items
 
         // --------- Particles ---------
 
+        public void SpawnSmokeRing(IWorldAccessor world, Entity entity)
+        {
+            if (world.Side != EnumAppSide.Client) return;
+
+            var pos = entity.Pos;
+            var fwd = new Vec3f(
+                (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
+                (float)(Math.Sin(pos.Pitch)),
+                (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
+            );
+
+            var mouth = pos.XYZ
+                .AddCopy(entity.LocalEyePos)
+                .AddCopy(new Vec3d(0, -0.15, 0))
+                .AddCopy(fwd * 0.30f);  // was 0.35f, match exhale exactlys
+
+            if (!mouth.IsFinite()) return;
+
+            // Build two perpendicular axes to the forward vector for the ring plane
+            var up = new Vec3f(0, 1, 0);
+            var right = fwd.Cross(up);
+            right.Normalize();
+            var ringUp = right.Cross(fwd);
+            ringUp.Normalize();
+
+            int ringParticles = 20;
+            float ringRadius = 0.03f;
+            int g = 190 + world.Rand.Next(30);
+
+            for (int i = 0; i < ringParticles; i++)
+            {
+                double angle = i * (Math.PI * 2.0 / ringParticles);
+                float ox = (float)Math.Cos(angle) * ringRadius;
+                float oy = (float)Math.Sin(angle) * ringRadius;
+
+                // Position on the ring
+                var spawnPos = mouth
+                    .AddCopy(right * ox)
+                    .AddCopy(ringUp * oy);
+
+                // Velocity: outward from ring center + forward drift
+                var outward = right * ox + ringUp * oy;
+                outward.Normalize();
+                
+                var smoke = new SimpleParticleProperties(
+                    1, 1,
+                    ColorUtil.ToRgba(100, g, g, g),
+                    spawnPos, spawnPos,
+                    fwd * 0.6f + outward * 0.15f,
+                    fwd * 0.8f + outward * 0.25f,
+                    1.5f,
+                    0f,
+                    0.08f, 0.12f,
+                    EnumParticleModel.Quad
+                );
+
+                smoke.WindAffected = false; // wind would break the ring shape
+                smoke.GravityEffect = -0.02f;
+                smoke.OpacityEvolve = EvolvingNatFloat.create(EnumTransformFunction.QUADRATIC, -15);
+                smoke.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, 0.4f);
+
+                world.SpawnParticles(smoke);
+            }
+        }
+        
+        /// <summary>
+        /// Spawns ambient smoke wisps from the pipe bowl when lit.
+        /// Call this periodically (e.g., in OnHeldInteractStep or a tick handler).
+        /// </summary>
+        public void SpawnAmbientSmoke(IWorldAccessor world, Entity entity, ItemStack pipeStack)
+        {
+            // Only spawn on client side
+            if (world.Side != EnumAppSide.Client) return;
+
+            // Only spawn if pipe is lit
+            if (!IsLit(pipeStack, world)) return;
+
+            // Throttle particle spawning
+            long nowMs = world.ElapsedMilliseconds;
+            if (nowMs - lastAmbientSmokeMs < AmbientSmokeIntervalMs) return;
+            lastAmbientSmokeMs = nowMs;
+
+            var pos = entity.SidedPos;
+
+            // Forward vector (where entity is facing)
+            var fwd = new Vec3f(
+                (float)(-Math.Sin(pos.Yaw) * Math.Cos(pos.Pitch)),
+                (float)(Math.Sin(pos.Pitch)),
+                (float)(-Math.Cos(pos.Yaw) * Math.Cos(pos.Pitch))
+            );
+
+            // Pipe bowl position - offset from mouth
+            var pipeBowl = pos.XYZ
+                .AddCopy(entity.LocalEyePos)
+                .AddCopy(new Vec3d(0, -0.15, 0)) // mouth level
+                .AddCopy(fwd * 0.35f); // extend forward to pipe bowl
+
+            if (!pipeBowl.IsFinite()) return;
+
+            // Gentle upward drift with slight randomness
+            Random rand = world.Rand;
+            var velocity = new Vec3f(
+                (float)(rand.NextDouble() * 0.04 - 0.02), // slight x drift
+                0.15f + (float)(rand.NextDouble() * 0.1), // upward
+                (float)(rand.NextDouble() * 0.04 - 0.02)  // slight z drift
+            );
+
+            var ambientSmoke = new SimpleParticleProperties(
+                1, 2, // spawn 1-2 particles
+                ColorUtil.ToRgba(40, 110, 130, 160), // semi-transparent smoke
+                pipeBowl, pipeBowl,
+                velocity,
+                velocity,
+                0.5f, // minSize
+                0.2f, // maxSize  
+                0.75f, 1.25f, // lifetime
+                EnumParticleModel.Quad
+            );
+
+            ambientSmoke.SelfPropelled = false;
+            ambientSmoke.WindAffected = true;
+            ambientSmoke.AddPos.Set(0.02, 0.02, 0.02); // small spawn area
+            ambientSmoke.GravityEffect = -0.03f; // slight upward force
+
+            world.SpawnParticles(ambientSmoke);
+        }
+
         public void SpawnInhaleParticles(IWorldAccessor world, Entity entity)
         {
             var pos = entity.Pos;
@@ -505,6 +637,10 @@ namespace PipeLeaf.Items
             smokeExhale.GravityEffect = -0.02f;
 
             world.SpawnParticles(smokeExhale);
+            if (world.Rand.Next(0, 10) == 0) // 10% chance
+            {
+                SpawnSmokeRing(world, entity);
+            }
         }
 
         public override void OnGroundIdle(EntityItem entityItem)

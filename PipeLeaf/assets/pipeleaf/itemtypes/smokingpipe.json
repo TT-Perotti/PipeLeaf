@@ -46,6 +46,9 @@
   },
   "behaviors": [
     {
+      "name": "Wearable"
+    },
+    {
       "name": "GroundStorable",
       "properties": {
         "layout": "Quadrants",
