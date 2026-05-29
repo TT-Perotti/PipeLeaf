@@ -5,7 +5,7 @@
     "file": "game:blocktypes/plant/flower",
     "path": "/combustiblePropsByType",
     "value": {
-      "@.*-(catmint|edelweiss|orangemallow|goldenpoppy|cornflower)-.*": {
+      "@.*-(catmint|edelweiss|orangemallow|goldenpoppy|cornflower|mugwort)-.*": {
         "meltingPoint": 150,
         "meltingDuration": 8,
         "smeltedRatio": 1,
@@ -56,7 +56,7 @@
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/combustiblePropsByType",
     "value": {
-      "@.*-(poisonoak|chamomile|lavender|marjoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|horehound|ginseng)": {
+      "@.*-(poisonoak|chamomile|lavender|marjoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|chicory|marigold|yarrow|angelica|arnica|horehound|ginseng)": {
         "meltingPoint": 150,
         "meltingDuration": 8,
         "smeltedRatio": 1,
@@ -80,7 +80,7 @@
     "file": "wildcraft:itemtypes/food/herbs",
     "path": "/attributes/inFirePitPropsByType",
     "value": {
-      "@.*-(poisonoak|chamomile|lavender|marjoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|mugwort|chicory|marigold|yarrow|angelica|arnica|horehound|ginseng)": {
+      "@.*-(poisonoak|chamomile|lavender|marjoram|marshmallow|mint|rosemary|saffron|sage|stingingnettle|stjohnswort|thyme|chicory|marigold|yarrow|angelica|arnica|horehound|ginseng)": {
         "transform": {
           "scale": 0.37,
           "origin": {
