@@ -6,7 +6,7 @@
     "TTPerotti"
   ],
   "description": "A mod to add smoking pipe items and effect to the game.",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "dependencies": {
     "game": "1.22.0"
   }
